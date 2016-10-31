@@ -152,19 +152,24 @@ bool isConnect()
 }
 int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID)
 {
-	char dag[1024];
-	char sdag[1024];
-	//sdag[1023]=0;
-	//dag[1023]=0;
-	sockaddr_x addr;
-say("before XreadLocalHostAddr\n");
-	XreadLocalHostAddr(sockfd, dag, sizeof(dag), local4ID, len4ID);
+	char dag[5000];
+	char sdag[5000];
+	bzero(sdag,sizeof(sdag));
+printf("sock=%d\n",sockfd);
+printf("len4ID=%d, lenAD=%d\n",len4ID,lenAD);
 for(int i=0;i<1024;++i)
-	printf("%c",dag[i]);
-	url_to_dag(&addr, dag, strlen(dag));
+  printf("%c",sdag[i]);
+//	sockaddr_x addr;
+say("before XreadLocalHostAddr\n");
+	if(XreadLocalHostAddr(sockfd, sdag, sizeof(sdag), local4ID, len4ID)<0)
+		die(-1, "Unable to get local host address");
+printf("sdag=%s",sdag);
+for(int i=0;i<1024;++i)
+  printf("%c",sdag[i]);
+//url_to_dag(&addr, dag, strlen(dag));
 say("before Graph g(&addr)\n");	
-	Graph g(&addr);
-	strncpy(sdag, g.dag_string().c_str(), sizeof(sdag));
+//	Graph g(&addr);
+//	strncpy(sdag, g.dag_string().c_str(), sizeof(sdag));
 say("sdag = %s\n",sdag);
 	char *ads = strstr(sdag, "AD:");	// first occurrence
 	char *hids = strstr(sdag, "HID:");
@@ -511,7 +516,7 @@ int registerStreamReceiver(const char* name, char *myAD, char *myHID, char *my4I
 		die(-1, "Unable to create the listening socket\n");
 say("before XmyReadLocalHostAddr\n");
 	// read the localhost AD and HID
-	if (XmyReadLocalHostAddr(sock, myAD, sizeof(myAD), myHID, sizeof(myHID), my4ID, sizeof(my4ID)) < 0)
+	if (XmyReadLocalHostAddr(sock, myAD, MAX_XID_SIZE, myHID, MAX_XID_SIZE, my4ID, MAX_XID_SIZE) < 0)
 		die(-1, "Reading localhost address\n");
 say("after XmyReadLocalHostAddr\n");
 	char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
