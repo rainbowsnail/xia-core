@@ -152,7 +152,7 @@ bool isConnect()
 }
 int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID)
 {
-	char dag[256];
+	char dag[1024];
 	char sdag[1024];
 	sockaddr_x addr;
 	XreadLocalHostAddr(sockfd, dag, sizeof(dag), local4ID, len4ID);
