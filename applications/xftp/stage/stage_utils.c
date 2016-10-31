@@ -159,7 +159,7 @@ say("before XreadLocalHostAddr\n");
 	XreadLocalHostAddr(sockfd, dag, sizeof(dag), local4ID, len4ID);
 say("before url_to_dag\n");
 	url_to_dag(&addr, dag, strlen(dag));
-	
+say("before Graph g(&addr)\n");	
 	Graph g(&addr);
 	strncpy(sdag, g.dag_string().c_str(), sizeof(sdag));
 	char *ads = strstr(sdag, "AD:");	// first occurrence
