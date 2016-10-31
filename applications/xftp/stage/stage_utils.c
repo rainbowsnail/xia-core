@@ -154,6 +154,8 @@ int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *lo
 {
 	char dag[1024];
 	char sdag[1024];
+	sdag[1023]=0;
+	dag[1023]=0;
 	sockaddr_x addr;
 say("before XreadLocalHostAddr\n");
 	XreadLocalHostAddr(sockfd, dag, sizeof(dag), local4ID, len4ID);
