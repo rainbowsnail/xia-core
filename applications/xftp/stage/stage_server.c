@@ -223,7 +223,7 @@ int main()
 
     XcacheHandleInit(&xcache);
     // Create socket with server.
-    if ((chunkSock = Xsocket(AF_XIA, XSOCK_CHUNK, 0)) < 0) {
+    if ((chunkSock = Xsocket(AF_XIA, SOCK_STREAM, 0)) < 0) {
         die(-1, "unable to create chunk socket\n");
     }
     stageServerSock = registerStreamReceiver(getStageServiceName(), myAD, myHID, my4ID);
