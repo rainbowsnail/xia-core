@@ -501,11 +501,11 @@ int registerStreamReceiver(const char* name, char *myAD, char *myHID, char *my4I
 	// create a socket, and listen for incoming connections
 	if ((sock = Xsocket(AF_XIA, SOCK_STREAM, 0)) < 0)
 		die(-1, "Unable to create the listening socket\n");
-
+say("before XmyReadLocalHostAddr\n");
 	// read the localhost AD and HID
 	if (XmyReadLocalHostAddr(sock, myAD, sizeof(myAD), myHID, sizeof(myHID), my4ID, sizeof(my4ID)) < 0)
 		die(-1, "Reading localhost address\n");
-
+say("after XmyReadLocalHostAddr\n");
 	char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
 	// Generate an SID to use
 	if (XmakeNewSID(sid_string, sizeof(sid_string))) {
