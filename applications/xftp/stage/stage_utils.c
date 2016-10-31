@@ -150,6 +150,25 @@ bool isConnect()
 	string ssid = execSystem(GETSSID_CMD);
 	return !ssid.empty();
 }
+int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID)
+{
+	char url[256];
+	char sdag[1024];
+	sockaddr_x addr;
+	XreadLocalHostAddr(sockfd, url, sizeof(url), local4ID, len4ID);
+	url_to_dag(&addr, url, strlen(url));
+	
+	Graph g(&dag);
+	strncpy(sdag, g.dag_string().c_str(), sizeof(sdag));
+	char *ads = strstr(sdag, "AD:");	// first occurrence
+	char *hids = strstr(sdag, "HID:");
+	if (sscanf(ads, "%s", localhostAD) < 1 || strncmp(ad, "AD:", 3) != 0) {
+		die(-1, "Unable to extract AD.");
+	}
+	if (sscanf(hids, "%s", localhostHID) < 1 || strncmp(hid, "HID:", 4) != 0) {
+		die(-1, "Unable to extract HID.");
+	}
+}
 string getAD()
 {
 	int sock;
@@ -159,7 +178,7 @@ string getAD()
 
 	char ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
 
-	if (XreadLocalHostAddr(sock, ad, sizeof(ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
+	if (XmyReadLocalHostAddr(sock, ad, sizeof(ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
 		die(-1, "Reading localhost address\n");
 
 	Xclose(sock);
@@ -176,7 +195,7 @@ string getHID()
 
 	char ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
 
-	if (XreadLocalHostAddr(sock, ad, sizeof(ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
+	if (XmyReadLocalHostAddr(sock, ad, sizeof(ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
 		die(-1, "Reading localhost address\n");
 
 	Xclose(sock);
@@ -193,7 +212,7 @@ void getNewAD(char *old_ad)
 	char new_ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
 
 	while (1) {
-		if (XreadLocalHostAddr(sock, new_ad, sizeof(new_ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
+		if (XmyReadLocalHostAddr(sock, new_ad, sizeof(new_ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
 			die(-1, "Reading localhost address\n");
 		if (strcmp(new_ad, old_ad) != 0) {
 cerr<<"AD changed!"<<endl;
@@ -415,7 +434,7 @@ cerr<<"Created socket\n";
 		die(-1, "Unable to bind to the dag: %s\n", dag);
 	}
 cerr<<"Connected to peer\n";
-	rc = XreadLocalHostAddr(sock, src_ad, MAX_XID_SIZE, src_hid, MAX_XID_SIZE, IP, MAX_XID_SIZE);
+	rc = XmyReadLocalHostAddr(sock, src_ad, MAX_XID_SIZE, src_hid, MAX_XID_SIZE, IP, MAX_XID_SIZE);
 
 	if (rc < 0) {
 		Xclose(sock);
@@ -484,7 +503,7 @@ int registerStreamReceiver(const char* name, char *myAD, char *myHID, char *my4I
 		die(-1, "Unable to create the listening socket\n");
 
 	// read the localhost AD and HID
-	if (XreadLocalHostAddr(sock, myAD, sizeof(myAD), myHID, sizeof(myHID), my4ID, sizeof(my4ID)) < 0)
+	if (XmyReadLocalHostAddr(sock, myAD, sizeof(myAD), myHID, sizeof(myHID), my4ID, sizeof(my4ID)) < 0)
 		die(-1, "Reading localhost address\n");
 
 	char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
@@ -617,7 +636,7 @@ say("------------------------------3\n");
 		die(-1, "Unable to bind to the dag: %s\n", dag);
 	}
 say("------------------------------4\n");
-	rc = XreadLocalHostAddr(sock, src_ad, MAX_XID_SIZE, src_hid, MAX_XID_SIZE, IP, MAX_XID_SIZE);
+	rc = XmyReadLocalHostAddr(sock, src_ad, MAX_XID_SIZE, src_hid, MAX_XID_SIZE, IP, MAX_XID_SIZE);
 
 	if (rc < 0) {
 		Xclose(sock);
@@ -714,7 +733,7 @@ int XrequestChunkStage(int sock, const ChunkStatus *cs) {
 /*
 	char AD[MAX_XID_SIZE], HID[MAX_XID_SIZE], IP[MAX_XID_SIZE];
 
-	if (XreadLocalHostAddr(sock, AD, sizeof(AD), HID, sizeof(HID), IP, sizeof(IP)) < 0)
+	if (XmyReadLocalHostAddr(sock, AD, sizeof(AD), HID, sizeof(HID), IP, sizeof(IP)) < 0)
 		die(-1, "Reading localhost address\n");
 
 	char *CID = chunkReqDag2cid(cs[0].cid);
@@ -796,7 +815,7 @@ int registerPrefetchService(const char *name, char *src_ad, char *src_hid, char 
 		Xclose(sock);
 		die(-1, "Unable to bind to the dag: %s\n", dag);
 	}
-	rc = XreadLocalHostAddr(sock, src_ad, MAX_XID_SIZE, src_hid, MAX_XID_SIZE, IP, MAX_XID_SIZE);
+	rc = XmyReadLocalHostAddr(sock, src_ad, MAX_XID_SIZE, src_hid, MAX_XID_SIZE, IP, MAX_XID_SIZE);
 
 	if (rc < 0) {
 		Xclose(sock);
