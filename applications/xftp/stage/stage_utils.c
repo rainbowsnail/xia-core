@@ -155,7 +155,9 @@ int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *lo
 	char dag[1024];
 	char sdag[1024];
 	sockaddr_x addr;
+say("before XreadLocalHostAddr\n");
 	XreadLocalHostAddr(sockfd, dag, sizeof(dag), local4ID, len4ID);
+say("before url_to_dag\n");
 	url_to_dag(&addr, dag, strlen(dag));
 	
 	Graph g(&addr);
