@@ -152,20 +152,20 @@ bool isConnect()
 }
 int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID)
 {
-	char url[256];
+	char dag[256];
 	char sdag[1024];
 	sockaddr_x addr;
-	XreadLocalHostAddr(sockfd, url, sizeof(url), local4ID, len4ID);
-	url_to_dag(&addr, url, strlen(url));
+	XreadLocalHostAddr(sockfd, dag, sizeof(dag), local4ID, len4ID);
+	url_to_dag(&addr, dag, strlen(dag));
 	
 	Graph g(&dag);
 	strncpy(sdag, g.dag_string().c_str(), sizeof(sdag));
 	char *ads = strstr(sdag, "AD:");	// first occurrence
 	char *hids = strstr(sdag, "HID:");
-	if (sscanf(ads, "%s", localhostAD) < 1 || strncmp(ad, "AD:", 3) != 0) {
+	if (sscanf(ads, "%s", localhostAD) < 1 || strncmp(localhostAD, "AD:", 3) != 0) {
 		die(-1, "Unable to extract AD.");
 	}
-	if (sscanf(hids, "%s", localhostHID) < 1 || strncmp(hid, "HID:", 4) != 0) {
+	if (sscanf(hids, "%s", localhostHID) < 1 || strncmp(localhostHID, "HID:", 4) != 0) {
 		die(-1, "Unable to extract HID.");
 	}
 }
