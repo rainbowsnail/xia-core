@@ -162,10 +162,10 @@ say("before url_to_dag\n");
 say("before Graph g(&addr)\n");	
 	Graph g(&addr);
 	strncpy(sdag, g.dag_string().c_str(), sizeof(sdag));
-say("before strstr(sdag, AD:)\n");
+say("sdag = %s\n",sdag);
 	char *ads = strstr(sdag, "AD:");	// first occurrence
 	char *hids = strstr(sdag, "HID:");
-say("before if\n");
+say("ad = %s\n",ads);
 	if (sscanf(ads, "%s", localhostAD) < 1 || strncmp(localhostAD, "AD:", 3) != 0) {
 		die(-1, "Unable to extract AD.");
 	}
