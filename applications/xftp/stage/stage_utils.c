@@ -172,6 +172,7 @@ say("before if\n");
 	if (sscanf(hids, "%s", localhostHID) < 1 || strncmp(localhostHID, "HID:", 4) != 0) {
 		die(-1, "Unable to extract HID.");
 	}
+say("after if\n");
 }
 string getAD()
 {
