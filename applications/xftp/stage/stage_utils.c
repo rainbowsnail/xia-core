@@ -155,32 +155,20 @@ int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *lo
 	char dag[5000];
 	char sdag[5000];
 	bzero(sdag,sizeof(sdag));
-printf("sock=%d\n",sockfd);
-printf("len4ID=%d, lenAD=%d\n",len4ID,lenAD);
-for(int i=0;i<1024;++i)
-  printf("%c",sdag[i]);
-//	sockaddr_x addr;
-say("before XreadLocalHostAddr\n");
+	
 	if(XreadLocalHostAddr(sockfd, sdag, sizeof(sdag), local4ID, len4ID)<0)
 		die(-1, "Unable to get local host address");
-printf("sdag=%s",sdag);
-for(int i=0;i<1024;++i)
-  printf("%c",sdag[i]);
-//url_to_dag(&addr, dag, strlen(dag));
-say("before Graph g(&addr)\n");	
-//	Graph g(&addr);
-//	strncpy(sdag, g.dag_string().c_str(), sizeof(sdag));
-say("sdag = %s\n",sdag);
+
 	char *ads = strstr(sdag, "AD:");	// first occurrence
 	char *hids = strstr(sdag, "HID:");
-say("ad = %s\n",ads);
+	char *ad_end = strstr(ads, " ");
+	*ad_end = 0;
 	if (sscanf(ads, "%s", localhostAD) < 1 || strncmp(localhostAD, "AD:", 3) != 0) {
 		die(-1, "Unable to extract AD.");
 	}
 	if (sscanf(hids, "%s", localhostHID) < 1 || strncmp(localhostHID, "HID:", 4) != 0) {
 		die(-1, "Unable to extract HID.");
 	}
-say("after if\n");
 }
 string getAD()
 {
