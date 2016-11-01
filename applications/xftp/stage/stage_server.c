@@ -223,12 +223,15 @@ int main()
 
     XcacheHandleInit(&xcache);
     // Create socket with server.
+say("after XcacheHandleInit");
     if ((chunkSock = Xsocket(AF_XIA, SOCK_STREAM, 0)) < 0) {
         die(-1, "unable to create chunk socket\n");
     }
+say("before registerStreamReceiver");
     stageServerSock = registerStreamReceiver(getStageServiceName(), myAD, myHID, my4ID);
+	
     say("The current stageServerSock is %d\n", stageServerSock);
     blockListener((void *)&stageServerSock, stageCmd);
-
+say("after blockListener");
     return 0;
 }
