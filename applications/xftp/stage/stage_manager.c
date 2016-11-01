@@ -318,7 +318,9 @@ void *stageData(void *)
 }
 int main()
 {
+say("before getSSID");
     lastSSID = getSSID();
+say("after getSSID");
     currSSID = lastSSID;
     timeStamp = now_msec();
     connetTime << currSSID << "Connect." << endl;
