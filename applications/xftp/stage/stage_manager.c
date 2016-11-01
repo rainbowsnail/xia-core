@@ -325,9 +325,12 @@ say("after getSSID");
     timeStamp = now_msec();
     connetTime << currSSID << "Connect." << endl;
     int stageSock = registerUnixStreamReceiver(UNIXMANAGERSOCK);
+say("after registerUnixStreamReceiver");
     pthread_t thread_stageData;
 
     pthread_create(&thread_stageData, NULL, stageData, NULL);
+say("after stageData");
     UnixBlockListener((void*)&stageSock, clientCmd);
+say("after clientCmd");
     return 0;
 }
