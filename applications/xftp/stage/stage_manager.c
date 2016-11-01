@@ -318,19 +318,19 @@ void *stageData(void *)
 }
 int main()
 {
-say("before getSSID");
+//say("before getSSID");
     lastSSID = getSSID();
-say("after getSSID");
+//say("after getSSID");
     currSSID = lastSSID;
     timeStamp = now_msec();
     connetTime << currSSID << "Connect." << endl;
     int stageSock = registerUnixStreamReceiver(UNIXMANAGERSOCK);
-say("after registerUnixStreamReceiver");
+//say("after registerUnixStreamReceiver");
     pthread_t thread_stageData;
 
     pthread_create(&thread_stageData, NULL, stageData, NULL);
-say("after stageData");
+//say("after stageData");
     UnixBlockListener((void*)&stageSock, clientCmd);
-say("after clientCmd");
+//say("after clientCmd");
     return 0;
 }
