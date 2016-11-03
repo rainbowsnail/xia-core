@@ -53,7 +53,9 @@ int getFile(int sock)
             //char reply_arr[strlen(reply+5)];
             strcpy(reply_arr, reply + 5);
             char *cid;
-            CIDs.push_back(strtok(reply_arr, " "));
+            cid = strtok(reply_arr, " ");
+            CIDs.push_back(cid);
+say("---------CID:%s\n",cid);
             // register CID
             while ((cid = strtok(NULL, " ")) != NULL) {
                 CIDs.push_back(cid);
