@@ -57,6 +57,7 @@ int getFile(int sock)
             // register CID
             while ((cid = strtok(NULL, " ")) != NULL) {
                 CIDs.push_back(cid);
+say("---------CID:%s\n",cid);
             }
         }
 
