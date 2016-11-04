@@ -115,7 +115,7 @@ say("---------CID:%s\n",cid);
         }
         else {
             url_to_dag(&addr, (char*)CIDs[i].c_str(), CIDs[i].size());
-say("CID=%s\n",(char*)CIDs[i].c_str());
+say("CID=%s %d\n",(char*)CIDs[i].c_str(), CIDs[i].size());
         }
         long start_time = now_msec();
         if ((len = XfetchChunk(&h, data, CHUNKSIZE, XCF_BLOCK | XCF_SKIPCACHE, &addr, sizeof(addr))) < 0) {
