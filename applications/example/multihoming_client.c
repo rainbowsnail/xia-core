@@ -16,7 +16,7 @@
 #include "Xkeys.h"
 #include "Xsocket.h"
 
-#define NAME "www_s.multihong_client.aaa.xia"
+#define MUL_SERVER "www_s.multihong_client.aaa.xia"
 #define MAX_BUF_SIZE 62000
 
 
@@ -181,8 +181,8 @@ int connectToServer(struct ifaddrs *ifa)
 		die(-1, "Unable to create a temporary SID");
 	}
 	
-	struct addrinfo hints, *ai;
-	struct sockaddr_x *sa;
+	struct addrinfo hints, *ai, *sai;
+	struct sockaddr_x *sa, *ssa;//clientSA and ServerSA
 	bzero(&hints, sizeof(hints));
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_family = AF_XIA;
@@ -193,10 +193,15 @@ int connectToServer(struct ifaddrs *ifa)
 	//Use the sockaddr_x returned by Xgetaddrinfo in your next call
 	
 	sa = (sockaddr_x*)ai->ai_addr;
+	Xbind(ssock, (struct sockaddr*)sa, sizeof(sa);
 	Graph g(sa);
 	printf("\n%s\n", g.dag_string().c_str());
 	
-	if (Xconnect(ssock, (struct sockaddr *)sa, sizeof(sockaddr_x)) < 0)
+	if (Xgetaddrinfo(MUL_SERVER, NULL, NULL, &sai) != 0)
+		die(-1, "unable to lookup name %s\n", STREAM_NAME);
+	ssa = (sockaddr_x*)sai->ai_addr;
+	
+	if (Xconnect(ssock, (struct sockaddr *)ssa, sizeof(sockaddr_x)) < 0)
 		die(-3, "unable to connect to the destination dag\n");
 
 	say("Xsock %4d connected\n", ssock);
