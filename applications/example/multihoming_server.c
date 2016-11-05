@@ -81,7 +81,7 @@ int server(void * id){
 		die(-2, "unable to create the datagram socket\n");
 
 	struct addrinfo *ai;
-	if (Xgetaddrinfo(NULL, MUL_SERVER, NULL, &ai) != 0)
+	if (Xgetaddrinfo(NULL, sid_string, NULL, &ai) != 0)
 		die(-1, "getaddrinfo failure!\n");
 
 	sockaddr_x *sa = (sockaddr_x*)ai->ai_addr;
@@ -92,13 +92,13 @@ int server(void * id){
     
 	if(ser_id == 1){
 		if (XregisterName(MUL_SERVER1, sa) < 0 )
-			die(-1, "error registering name: %s\n", MUL_SERVER);
-		say("registered name: \n%s\n", MUL_SERVER);
+			die(-1, "error registering name: %s\n", MUL_SERVER1);
+		say("registered name: \n%s\n", MUL_SERVER1);
 	}
 	else{
 		if (XregisterName(MUL_SERVER2, sa) < 0 )
-			die(-1, "error registering name: %s\n", MUL_SERVER);
-		say("registered name: \n%s\n", MUL_SERVER);
+			die(-1, "error registering name: %s\n", MUL_SERVER2);
+		say("registered name: \n%s\n", MUL_SERVER2);
 	}
 	if (Xbind(sock, (sockaddr *)sa, sizeof(sa)) < 0) {
 		die(-3, "unable to bind to the dag\n");
@@ -135,8 +135,8 @@ int main()
 	if (!clients)
 		die(-5, "Unable to allocate threads\n");
 	int id1 = 1, id2 = 2;
-	pthread_create(&clients[0], NULL, server, (void *)&id1);
-	pthread_create(&clients[1], NULL, server, (void *)&id2);
+	pthread_create(&clients[0], NULL, server, (void *)(&id1));
+	pthread_create(&clients[1], NULL, server, (void *)(&id2));
 	
 	for (int i = 0; i < 2; i++) {
 		pthread_join(clients[i], NULL);
