@@ -273,8 +273,8 @@ int main(int argc, char **argv)
 	if (!clients)
 		die(-5, "Unable to allocate threads\n");
 
-	pthread_create(&clients[i], NULL, mainLoop, if1);
-	pthread_create(&clients[i], NULL, mainLoop, if2);
+	pthread_create(&clients[0], NULL, mainLoop, if1);
+	pthread_create(&clients[1], NULL, mainLoop, if2);
 	
 	for (int i = 0; i < 2; i++) {
 		pthread_join(clients[i], NULL);
