@@ -11,8 +11,9 @@
 #include "dagaddr.hpp"
 
 #define MAX_XID_SIZE 100
-#define NAME "www_s.multihong_server.aaa.xia"
-#define MUL_SERVER   "SID:0f00000000000000000000000000000000008888"
+#define MUL_SERVER1 "www_s.multihong_server1.aaa.xia"
+#define MUL_SERVER2 "www_s.multihong_server2.aaa.xia"
+
 /*
 char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
 	// Generate an SID to use
@@ -62,8 +63,7 @@ void die(int ecode, const char *fmt, ...)
 	exit(ecode);
 }
 
-int main()
-{
+int server(void * id){
 	int sock;
 	char buf[XIA_MAXBUF];
 	sockaddr_x cdag;
@@ -88,11 +88,18 @@ int main()
 
 	Graph g((sockaddr_x*)ai->ai_addr);
 	printf("\nDatagram DAG\n%s\n", g.dag_string().c_str());
-
-    if (XregisterName(MUL_SERVER, sa) < 0 )
-    	die(-1, "error registering name: %s\n", MUL_SERVER);
-	say("registered name: \n%s\n", MUL_SERVER);
-
+	int ser_id = *(int *)id;
+    
+	if(ser_id == 1){
+		if (XregisterName(MUL_SERVER1, sa) < 0 )
+			die(-1, "error registering name: %s\n", MUL_SERVER);
+		say("registered name: \n%s\n", MUL_SERVER);
+	}
+	else{
+		if (XregisterName(MUL_SERVER2, sa) < 0 )
+			die(-1, "error registering name: %s\n", MUL_SERVER);
+		say("registered name: \n%s\n", MUL_SERVER);
+	}
 	if (Xbind(sock, (sockaddr *)sa, sizeof(sa)) < 0) {
 		die(-3, "unable to bind to the dag\n");
 	}
@@ -120,6 +127,22 @@ int main()
 	}
 
 	Xclose(sock);
+}
+int main()
+{
+	pthread_t *clients = (pthread_t*)malloc(2 * sizeof(pthread_t));
+
+	if (!clients)
+		die(-5, "Unable to allocate threads\n");
+	int id1 = 1, id2 = 2;
+	pthread_create(&clients[0], NULL, server, (void *)&id1);
+	pthread_create(&clients[1], NULL, server, (void *)&id2);
+	
+	for (int i = 0; i < 2; i++) {
+		pthread_join(clients[i], NULL);
+	}
+
+	free(clients);
 	
 	return 0;
 }
