@@ -201,13 +201,13 @@ int connectToServer(struct ifaddrs *ifa)
 	
 	if(flag == 0){
 		if (Xgetaddrinfo(MUL_SERVER1, NULL, NULL, &sai) != 0)
-			die(-1, "unable to lookup name %s\n", MUL_SERVER);
+			die(-1, "unable to lookup name %s\n", MUL_SERVER1);
 		ssa = (sockaddr_x*)sai->ai_addr;
 		flag = 1;
 	}
 	else{
 		if (Xgetaddrinfo(MUL_SERVER2, NULL, NULL, &sai) != 0)
-			die(-1, "unable to lookup name %s\n", MUL_SERVER);
+			die(-1, "unable to lookup name %s\n", MUL_SERVER2);
 		ssa = (sockaddr_x*)sai->ai_addr;
 	}
 	
