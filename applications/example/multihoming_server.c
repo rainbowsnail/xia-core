@@ -92,7 +92,7 @@ void *server(void *socketid){
 			break;
 		}
 
-		say("server %d sent %d bytes\n", ser_id, n);
+		say("server sent %d bytes\n", n);
 	}
 
 	Xclose(sock);
