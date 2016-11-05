@@ -189,7 +189,7 @@ int connectToServer(struct ifaddrs *ifa)
 	hints.ai_flags |= XAI_DAGHOST;
 	
 	Graph g((sockaddr_x *) ifa->ifa_addr);
-	Xgetaddrinfo(g.dag_string().c_str(), sid_string, hints, ai);  // hints should have the XAI_DAGHOST flag set
+	Xgetaddrinfo(g.dag_string().c_str(), sid_string, &hints, ai);  // hints should have the XAI_DAGHOST flag set
 	//Use the sockaddr_x returned by Xgetaddrinfo in your next call
 	
 	sa = (sockaddr_x*)ai->ai_addr;
@@ -215,8 +215,9 @@ int connectToServer(struct ifaddrs *ifa)
 **
 ** The parameter and return code are there to satisify the thread library
 */
-void *mainLoop(struct ifaddrs *ifa)
+void *mainLoop(void * ifaddr)
 {
+	struct ifaddrs *ifa = (struct ifaddrs *)ifaddr;
 	int ssock;
 	int count = 0;
 	int printcount = 1;
@@ -255,7 +256,7 @@ int main(int argc, char **argv)
 	
 	struct ifaddrs *ifaddr = NULL;
 	if( Xgetifaddrs(&ifaddr) < 0){
-		die("Xgetifaddrs failed");
+		die(-1, "Xgetifaddrs failed");
 	}
 	
 	for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {  
@@ -273,8 +274,8 @@ int main(int argc, char **argv)
 	if (!clients)
 		die(-5, "Unable to allocate threads\n");
 
-	pthread_create(&clients[0], NULL, mainLoop, if1);
-	pthread_create(&clients[1], NULL, mainLoop, if2);
+	pthread_create(&clients[0], NULL, mainLoop, (void *)if1);
+	pthread_create(&clients[1], NULL, mainLoop, (void *)if2);
 	
 	for (int i = 0; i < 2; i++) {
 		pthread_join(clients[i], NULL);
