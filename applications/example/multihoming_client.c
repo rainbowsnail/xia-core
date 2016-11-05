@@ -200,21 +200,11 @@ int connectToServer(struct ifaddrs *ifa)
 	
 	sockaddr_x dag;
 	socklen_t daglen = sizeof(dag);
-	if(flag == 0){
-		//if (Xgetaddrinfo(MUL_SERVER1, NULL, NULL, &sai) != 0)
-		//	die(-1, "unable to lookup name %s\n", MUL_SERVER1);
-		if (XgetDAGbyName(MUL_SERVER1, &dag, &daglen) < 0)
-			die(-1, "unable to locate: %s\n", MUL_SERVER1);
-		flag = 1;
-	}
-	else{
-		//if (Xgetaddrinfo(MUL_SERVER2, NULL, NULL, &sai) != 0)
-		//	die(-1, "unable to lookup name %s\n", MUL_SERVER2);
-		if (XgetDAGbyName(MUL_SERVER2, &dag, &daglen) < 0)
-			die(-1, "unable to locate: %s\n", MUL_SERVER1);
-		//ssa = (sockaddr_x*)sai->ai_addr;
-	}
 	
+	//if (Xgetaddrinfo(MUL_SERVER1, NULL, NULL, &sai) != 0)
+	//	die(-1, "unable to lookup name %s\n", MUL_SERVER1);
+	if (XgetDAGbyName(NAME, &dag, &daglen) < 0)
+		die(-1, "unable to locate: %s\n", NAME);
 	
 	if (Xconnect(ssock, (struct sockaddr *)&dag, sizeof(sockaddr_x)) < 0)
 		die(-3, "unable to connect to the destination dag\n");
