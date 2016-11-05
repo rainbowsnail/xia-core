@@ -12,7 +12,7 @@
 
 #define MAX_XID_SIZE 100
 #define NAME "www_s.multihong_server.aaa.xia"
-#define SID_SERVER   "SID:0f00000000000000000000000000000000008888"
+#define MUL_SERVER   "SID:0f00000000000000000000000000000000008888"
 /*
 char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
 	// Generate an SID to use
@@ -20,6 +20,7 @@ char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
 		die(-1, "Unable to create a temporary SID");
 	}
 */
+int verbose = 1;	// display all messages
 /*
 ** write the message to stdout unless in quiet mode
 */
@@ -57,7 +58,7 @@ void die(int ecode, const char *fmt, ...)
 	va_start(args, fmt);
 	vfprintf(stdout, fmt, args);
 	va_end(args);
-	fprintf(stdout, "%s: exiting\n", TITLE);
+	fprintf(stdout, "exiting\n";
 	exit(ecode);
 }
 
@@ -88,9 +89,9 @@ int main()
 	Graph g((sockaddr_x*)ai->ai_addr);
 	printf("\nDatagram DAG\n%s\n", g.dag_string().c_str());
 
-    if (XregisterName(DGRAM_NAME, sa) < 0 )
-    	die(-1, "error registering name: %s\n", DGRAM_NAME);
-	say("registered name: \n%s\n", DGRAM_NAME);
+    if (XregisterName(MUL_SERVER, sa) < 0 )
+    	die(-1, "error registering name: %s\n", MUL_SERVER);
+	say("registered name: \n%s\n", MUL_SERVER);
 
 	if (Xbind(sock, (sockaddr *)sa, sizeof(sa)) < 0) {
 		die(-3, "unable to bind to the dag\n");
