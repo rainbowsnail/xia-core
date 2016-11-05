@@ -76,7 +76,7 @@ void *server(void *socketid){
 	pid_t pid = 0;
 
 	while (1) {
-		say("Dgram Server %d waiting\n", ser_id);
+		say("Dgram Server waiting\n");
 
 		dlen = sizeof(cdag);
 		memset(buf, 0, sizeof(buf));
@@ -85,7 +85,7 @@ void *server(void *socketid){
 			break;
 		}
 
-		say("server %d received %d bytes\n", ser_id, n);
+		say("server received %d bytes\n", n);
 		
 		if ((n = Xsendto(sock, buf, n, 0, (struct sockaddr *)&cdag, dlen)) < 0) {
 			warn("%5d send error\n", pid);
