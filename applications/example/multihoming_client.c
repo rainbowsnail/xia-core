@@ -67,7 +67,7 @@ void die(int ecode, const char *fmt, ...)
 	va_start(args, fmt);
 	vfprintf(stdout, fmt, args);
 	va_end(args);
-	fprintf(stdout, "%s: exiting\n", TITLE);
+	fprintf(stdout, "exiting\n");
 	exit(ecode);
 }
 
@@ -182,23 +182,23 @@ int connectToServer(struct ifaddrs *ifa)
 	}
 	
 	struct addrinfo hints, *ai, *sai;
-	struct sockaddr_x *sa, *ssa;//clientSA and ServerSA
+	sockaddr_x *sa, *ssa;//clientSA and ServerSA
 	bzero(&hints, sizeof(hints));
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_family = AF_XIA;
-	hints->ai_flags |= XAI_DAGHOST;
+	hints.ai_flags |= XAI_DAGHOST;
 	
-	Graph g((sockaddr_x) ifa->ifa_addr)
-	Xgetaddrinfo(g.dag_string(), sid_string, hints, ai)  // hints should have the XAI_DAGHOST flag set
+	Graph g((sockaddr_x *) ifa->ifa_addr);
+	Xgetaddrinfo(g.dag_string(), sid_string, hints, ai);  // hints should have the XAI_DAGHOST flag set
 	//Use the sockaddr_x returned by Xgetaddrinfo in your next call
 	
 	sa = (sockaddr_x*)ai->ai_addr;
 	Xbind(ssock, (struct sockaddr*)sa, sizeof(sa);
-	Graph g(sa);
-	printf("\n%s\n", g.dag_string().c_str());
+	Graph gg(sa);
+	printf("\n%s\n", gg.dag_string().c_str());
 	
 	if (Xgetaddrinfo(MUL_SERVER, NULL, NULL, &sai) != 0)
-		die(-1, "unable to lookup name %s\n", STREAM_NAME);
+		die(-1, "unable to lookup name %s\n", MUL_SERVER);
 	ssa = (sockaddr_x*)sai->ai_addr;
 	
 	if (Xconnect(ssock, (struct sockaddr *)ssa, sizeof(sockaddr_x)) < 0)
