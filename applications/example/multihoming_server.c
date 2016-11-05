@@ -63,7 +63,7 @@ void die(int ecode, const char *fmt, ...)
 	exit(ecode);
 }
 
-int server(void * id){
+int *server(void * id){
 	int sock;
 	char buf[XIA_MAXBUF];
 	sockaddr_x cdag;
@@ -134,12 +134,12 @@ int main()
 
 	if (!clients)
 		die(-5, "Unable to allocate threads\n");
-	int *id1 = (int*)malloc(sizeof(int));
-	int *id2 = (int*)malloc(sizeof(int));
-	*id1 = 1;
-	*id2 = 2;
-	pthread_create(&clients[0], NULL, server, (void *)id1);
-	pthread_create(&clients[1], NULL, server, (void *)id2);
+	int id1 = 1;//(int*)malloc(sizeof(int));
+	int id2 = 2;//(int*)malloc(sizeof(int));
+	//*id1 = 1;
+	//*id2 = 2;
+	pthread_create(&clients[0], NULL, server, (void *)&id1);
+	pthread_create(&clients[1], NULL, server, (void *)&id2);
 	
 	for (int i = 0; i < 2; i++) {
 		pthread_join(clients[i], NULL);
