@@ -63,7 +63,7 @@ void die(int ecode, const char *fmt, ...)
 	exit(ecode);
 }
 
-int *server(void * id){
+void *server(void * id){
 	int sock;
 	char buf[XIA_MAXBUF];
 	sockaddr_x cdag;
