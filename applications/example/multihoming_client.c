@@ -16,7 +16,8 @@
 #include "Xkeys.h"
 #include "Xsocket.h"
 
-#define MUL_SERVER "www_s.multihong_client.aaa.xia"
+#define MUL_SERVER1 "www_s.multihong_server1.aaa.xia"
+#define MUL_SERVER2 "www_s.multihong_server2.aaa.xia"
 #define MAX_BUF_SIZE 62000
 
 
@@ -167,6 +168,7 @@ void pausex()
 /*
 ** create a socket and connect to the remote server
 */
+int flag = 0;
 int connectToServer(struct ifaddrs *ifa)
 {
 	int ssock;
@@ -197,9 +199,18 @@ int connectToServer(struct ifaddrs *ifa)
 	Graph gg(sa);
 	printf("\n%s\n", gg.dag_string().c_str());
 	
-	if (Xgetaddrinfo(MUL_SERVER, NULL, NULL, &sai) != 0)
-		die(-1, "unable to lookup name %s\n", MUL_SERVER);
-	ssa = (sockaddr_x*)sai->ai_addr;
+	if(flag == 0){
+		if (Xgetaddrinfo(MUL_SERVER1, NULL, NULL, &sai) != 0)
+			die(-1, "unable to lookup name %s\n", MUL_SERVER);
+		ssa = (sockaddr_x*)sai->ai_addr;
+		flag = 1;
+	}
+	else{
+		if (Xgetaddrinfo(MUL_SERVER2, NULL, NULL, &sai) != 0)
+			die(-1, "unable to lookup name %s\n", MUL_SERVER);
+		ssa = (sockaddr_x*)sai->ai_addr;
+	}
+	
 	
 	if (Xconnect(ssock, (struct sockaddr *)ssa, sizeof(sockaddr_x)) < 0)
 		die(-3, "unable to connect to the destination dag\n");
