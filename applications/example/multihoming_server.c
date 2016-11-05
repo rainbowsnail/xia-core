@@ -69,13 +69,14 @@ void *server(void * id){
 	sockaddr_x cdag;
 	socklen_t dlen;
 	int n;
+	int ser_id = *((int*)id);
 	char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
 	// Generate an SID to use
 	if (XmakeNewSID(sid_string, sizeof(sid_string))) {
 		die(-1, "Unable to create a temporary SID");
 	}
 	
-	say("Datagram service started\n");
+	say("%d Datagram service started\n", ser_id);
 
 	if ((sock = Xsocket(AF_XIA, SOCK_DGRAM, 0)) < 0)
 		die(-2, "unable to create the datagram socket\n");
@@ -87,8 +88,8 @@ void *server(void * id){
 	sockaddr_x *sa = (sockaddr_x*)ai->ai_addr;
 
 	Graph g((sockaddr_x*)ai->ai_addr);
-	printf("\nDatagram DAG\n%s\n", g.dag_string().c_str());
-	int ser_id = *((int*)id);
+	printf("\n%d Datagram DAG\n%s\n", ser_id, g.dag_string().c_str());
+	
     
 	if(ser_id == 1){
 		if (XregisterName(MUL_SERVER1, sa) < 0 )
@@ -107,7 +108,7 @@ void *server(void * id){
 	pid_t pid = 0;
 
 	while (1) {
-		say("Dgram Server waiting\n");
+		say("Dgram Server %d waiting\n", ser_id);
 
 		dlen = sizeof(cdag);
 		memset(buf, 0, sizeof(buf));
@@ -116,14 +117,14 @@ void *server(void * id){
 			break;
 		}
 
-		say("server received %d bytes\n", n);
+		say("server %d received %d bytes\n", ser_id, n);
 		
 		if ((n = Xsendto(sock, buf, n, 0, (struct sockaddr *)&cdag, dlen)) < 0) {
 			warn("%5d send error\n", pid);
 			break;
 		}
 
-		say("server sent %d bytes\n", n);
+		say("server %d sent %d bytes\n", ser_id, n);
 	}
 
 	Xclose(sock);
