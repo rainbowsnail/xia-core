@@ -58,7 +58,7 @@ void die(int ecode, const char *fmt, ...)
 	va_start(args, fmt);
 	vfprintf(stdout, fmt, args);
 	va_end(args);
-	fprintf(stdout, "exiting\n";
+	fprintf(stdout, "exiting\n");
 	exit(ecode);
 }
 
@@ -81,7 +81,7 @@ int main()
 		die(-2, "unable to create the datagram socket\n");
 
 	struct addrinfo *ai;
-	if (Xgetaddrinfo(NULL, SID_SERVER, NULL, &ai) != 0)
+	if (Xgetaddrinfo(NULL, MUL_SERVER, NULL, &ai) != 0)
 		die(-1, "getaddrinfo failure!\n");
 
 	sockaddr_x *sa = (sockaddr_x*)ai->ai_addr;
