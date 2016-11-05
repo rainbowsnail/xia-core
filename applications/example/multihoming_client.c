@@ -189,11 +189,11 @@ int connectToServer(struct ifaddrs *ifa)
 	hints.ai_flags |= XAI_DAGHOST;
 	
 	Graph g((sockaddr_x *) ifa->ifa_addr);
-	Xgetaddrinfo(g.dag_string(), sid_string, hints, ai);  // hints should have the XAI_DAGHOST flag set
+	Xgetaddrinfo(g.dag_string().c_str(), sid_string, hints, ai);  // hints should have the XAI_DAGHOST flag set
 	//Use the sockaddr_x returned by Xgetaddrinfo in your next call
 	
 	sa = (sockaddr_x*)ai->ai_addr;
-	Xbind(ssock, (struct sockaddr*)sa, sizeof(sa);
+	Xbind(ssock, (struct sockaddr*)sa, sizeof(sa));
 	Graph gg(sa);
 	printf("\n%s\n", gg.dag_string().c_str());
 	
@@ -247,7 +247,7 @@ void *mainLoop(struct ifaddrs *ifa)
 int main(int argc, char **argv)
 {
 	srand(time(NULL));
-	getConfig(argc, argv);
+	//getConfig(argc, argv);
 
 	int family, s;  
     char host[NI_MAXHOST];
