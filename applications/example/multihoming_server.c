@@ -88,7 +88,7 @@ int server(void * id){
 
 	Graph g((sockaddr_x*)ai->ai_addr);
 	printf("\nDatagram DAG\n%s\n", g.dag_string().c_str());
-	int ser_id = *((int *)id);
+	int ser_id = *((int*)id);
     
 	if(ser_id == 1){
 		if (XregisterName(MUL_SERVER1, sa) < 0 )
@@ -134,11 +134,10 @@ int main()
 
 	if (!clients)
 		die(-5, "Unable to allocate threads\n");
-	int *id1 = new(int);
-	int *id2 = new(int);
-	*id1=1; *id2=2;
-	pthread_create(&clients[0], NULL, server, (void *)(id1));
-	pthread_create(&clients[1], NULL, server, (void *)(id2));
+	int id1,id2;
+	
+	pthread_create(&clients[0], NULL, server, (void *)(&id1));
+	pthread_create(&clients[1], NULL, server, (void *)(&id2));
 	
 	for (int i = 0; i < 2; i++) {
 		pthread_join(clients[i], NULL);
