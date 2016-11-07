@@ -16,7 +16,7 @@
 #include "Xkeys.h"
 #include "Xsocket.h"
 
-#define NAME "www_s.multihong_server1.aaa.xia"
+#define NAME "www_s.multihong_server.aaa.xia"
 #define MAX_BUF_SIZE 62000
 
 
@@ -182,7 +182,7 @@ int connectToServer(struct ifaddrs *ifa)
 		die(-1, "Unable to create a temporary SID");
 	}
 	
-	struct addrinfo hints, *ai, *sai;
+	struct addrinfo hints, *ai;
 	sockaddr_x *sa;
 	bzero(&hints, sizeof(hints));
 	hints.ai_socktype = SOCK_STREAM;
@@ -269,10 +269,6 @@ int main(int argc, char **argv)
             continue;  
     
         printf("interface: %s \n", ifa->ifa_name);  
-		for(int i=0;i<20;++i){
-		printf("%c",(ifa->ifa_name)[i]);
-		}		
-		printf("\n");
 		if(strcmp(ifa->ifa_name, "iface2")==0) if1 = ifa;//"wlp6s0"
 		if(strcmp(ifa->ifa_name, "iface3")==0 ) if2 = ifa;//"wlx60a44ceca928"
     } 
