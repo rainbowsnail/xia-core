@@ -269,7 +269,10 @@ int main(int argc, char **argv)
             continue;  
     
         printf("interface: %s \n", ifa->ifa_name);  
-				
+		for(int i=0;i<20;++i){
+		printf("%c",(ifa->ifa_name)[i]);
+		}		
+		printf("\n");
 		if(strcmp(ifa->ifa_name, "iface2")==0) if1 = ifa;//"wlp6s0"
 		if(strcmp(ifa->ifa_name, "iface3")==0 ) if2 = ifa;//"wlx60a44ceca928"
     } 
