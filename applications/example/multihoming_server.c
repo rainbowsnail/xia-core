@@ -65,7 +65,7 @@ void die(int ecode, const char *fmt, ...)
 
 void *server(void *socketid){
 	int sock;
-	char buf[XIA_MAXBUF];
+	char buf[512];
 	sockaddr_x cdag;
 	socklen_t dlen;
 	int n;
