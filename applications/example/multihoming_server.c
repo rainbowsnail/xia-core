@@ -80,7 +80,7 @@ void *server(void *socketid){
 
 		dlen = sizeof(cdag);
 		memset(buf, 0, sizeof(buf));
-		if ((n = Xrecv(sock, buf, sizeof(buf), 0) < 0) {
+		if (n = Xrecv(sock, buf, sizeof(buf), 0) < 0) {
 			warn("Recv error on socket %d, closing connection\n", pid);
 			break;
 		}
