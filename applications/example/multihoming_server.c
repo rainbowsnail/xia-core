@@ -64,7 +64,7 @@ void die(int ecode, const char *fmt, ...)
 }
 
 void *server(void *socketid){
-	int sock;
+	int sock = *((int *)socketid);
 	char buf[XIA_MAXBUF];
 	sockaddr_x cdag;
 	socklen_t dlen;
@@ -114,7 +114,10 @@ int registerReceiver()
 {
 	int sock;
 	char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
-
+	
+	if (signal(SIGCHLD, reaper) == SIG_ERR) {
+		die(-1, "unable to catch SIGCHLD");
+	}
 	//say ("\n%s (%s)\n", TITLE, VERSION);
 	//say("Service Name: %s\n", name);
 	//say("Root Directory: %s\n", rootdir);
