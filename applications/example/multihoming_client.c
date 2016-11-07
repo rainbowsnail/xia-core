@@ -270,8 +270,8 @@ int main(int argc, char **argv)
         if (ifa->ifa_addr == NULL)  
             continue;  
         printf("interface: %s \n", ifa->ifa_name); 
-		if(strcmp(ifa->ifa_name, "iface2")==0) if1 = ifa;//"wlp6s0"
-		if(strcmp(ifa->ifa_name, "iface3")==0 ) if2 = ifa;//"wlx60a44ceca928"
+		if(strcmp(ifa->ifa_name, "iface0")==0) if1 = ifa;//"wlp6s0"
+		if(strcmp(ifa->ifa_name, "iface1")==0 ) if2 = ifa;//"wlx60a44ceca928"
     } 
 	
 		
