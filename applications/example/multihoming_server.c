@@ -80,14 +80,14 @@ void *server(void *socketid){
 
 		dlen = sizeof(cdag);
 		memset(buf, 0, sizeof(buf));
-		if ((n = Xrecvfrom(sock, buf, sizeof(buf), 0, (struct sockaddr *)&cdag, &dlen)) < 0) {
+		if ((n = Xrecv(sock, buf, sizeof(buf)) < 0) {
 			warn("Recv error on socket %d, closing connection\n", pid);
 			break;
 		}
 
 		say("server received %d bytes\n", n);
 		
-		if ((n = Xsendto(sock, buf, n, 0, (struct sockaddr *)&cdag, dlen)) < 0) {
+		if ((n = Xsend(sock, buf, n) < 0) {
 			warn("%5d send error\n", pid);
 			break;
 		}
