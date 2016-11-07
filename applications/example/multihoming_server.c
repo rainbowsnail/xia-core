@@ -65,7 +65,7 @@ void die(int ecode, const char *fmt, ...)
 
 void *server(void *socketid){
 	int sock;
-	char buf[512];
+	char buf[XIA_MAXBUF];
 	sockaddr_x cdag;
 	socklen_t dlen;
 	int n;
@@ -80,17 +80,29 @@ void *server(void *socketid){
 
 		dlen = sizeof(cdag);
 		memset(buf, 0, sizeof(buf));
-		if (n = Xrecv(sock, buf, sizeof(buf), 0) < 0) {
+		/*if (n = Xrecv(sock, buf, sizeof(buf), 0) < 0) {
 			warn("Recv error on socket %d, closing connection\n", pid);
 			break;
-		}
+		}*/
+		int count = 0;
+		n=0;
+		while ((count = Xrecv(sock, buf, sizeof(buf), 0)) != 0) {
+			say("%5d received %d bytes\n", pid, count);
+			n += count;
+			int c = 0;
+			if ((c = Xsend(sock, buf, count, 0)) < 0) {
+				warn("%5d send error\n", pid);
+				break;
+			}
 
+			say("%5d sent %d bytes\n", pid, c);
+		}
 		say("server received %d bytes\n", n);
 		
-		if ((n = Xsend(sock, buf, n, 0)) < 0) {
+		/*if ((n = Xsend(sock, buf, n, 0)) < 0) {
 			warn("%5d send error\n", pid);
 			break;
-		}
+		}*/
 
 		say("server sent %d bytes\n", n);
 	}
@@ -112,15 +124,17 @@ int registerReceiver()
 	if ((sock = Xsocket(AF_XIA, SOCK_STREAM, 0)) < 0)
 		die(-1, "Unable to create the listening socket\n");
 
-	struct addrinfo *ai;
-
 	if(XmakeNewSID(sid_string, sizeof(sid_string))) {
 		die(-1, "Unable to create a temporary SID");
 	}
-
-	if (Xgetaddrinfo(NULL, sid_string, NULL, &ai) != 0)
+	struct addrinfo hints, *ai;
+	bzero(&hints, sizeof(hints));
+	hints.ai_socktype = SOCK_STREAM;
+	hints.ai_family = AF_XIA;
+	if (Xgetaddrinfo(NULL, sid_string, &hints, &ai) != 0)
 		die(-1, "getaddrinfo failure!\n");
 
+	
 	sockaddr_x *dag = (sockaddr_x*)ai->ai_addr;
 	if (XregisterName(NAME, dag) < 0 )
 		die(-1, "error registering name: %s\n", NAME);
