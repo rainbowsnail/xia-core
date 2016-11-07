@@ -257,22 +257,24 @@ int main(int argc, char **argv)
 
 	int family, s;  
     char host[NI_MAXHOST];
-	struct ifaddrs *ifa=NULL, *if1=NULL, *if2=NULL;
+	struct ifaddrs*if1=NULL, *if2=NULL;
 	
+	struct ifaddrs *ifa=NULL;
 	struct ifaddrs *ifaddr = NULL;
+	
 	if( Xgetifaddrs(&ifaddr) < 0){
 		die(-1, "Xgetifaddrs failed");
 	}
 	
 	for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {  
-        if (ifa->ifa_addr == NULL)  
-            continue;  
-    
+        //if (ifa->ifa_addr == NULL)  
+         //   continue;  
         printf("interface: %s \n", ifa->ifa_name);  
-		if(strcmp(ifa->ifa_name, "iface2")==0) if1 = ifa;//"wlp6s0"
-		if(strcmp(ifa->ifa_name, "iface3")==0 ) if2 = ifa;//"wlx60a44ceca928"
     } 
 	
+		if(strcmp(ifa->ifa_name, "iface2")==0) if1 = ifa;//"wlp6s0"
+		if(strcmp(ifa->ifa_name, "iface3")==0 ) if2 = ifa;//"wlx60a44ceca928"
+		
 	pthread_t *clients = (pthread_t*)malloc(2 * sizeof(pthread_t));
 
 	if (!clients)
