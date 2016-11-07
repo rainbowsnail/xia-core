@@ -22,7 +22,7 @@
 
 int verbose = 1;	// display all messages
 int delay = 100000;		// don't delay between loops
-int loops = 100;		// only do 1 pass
+int loops = 3;		// only do 1 pass
 int pktSize = 512;	// default pkt size
 int reconnect = 0;	// don't reconnect between loops
 int threads = 1;	// just a single thread
