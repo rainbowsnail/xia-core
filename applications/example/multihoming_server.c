@@ -75,37 +75,35 @@ void *server(void *socketid){
 
 	pid_t pid = 0;
 
-	while (1) {
-		say("Dgram Server waiting\n");
+	say("Dgram Server waiting\n");
 
-		dlen = sizeof(cdag);
-		memset(buf, 0, sizeof(buf));
-		/*if (n = Xrecv(sock, buf, sizeof(buf), 0) < 0) {
-			warn("Recv error on socket %d, closing connection\n", pid);
-			break;
-		}*/
-		int count = 0;
-		n=0;
-		while ((count = Xrecv(sock, buf, sizeof(buf), 0)) != 0) {
-			say("%5d received %d bytes\n", pid, count);
-			n += count;
-			int c = 0;
-			if ((c = Xsend(sock, buf, count, 0)) < 0) {
-				warn("%5d send error\n", pid);
-				break;
-			}
-
-			say("%5d sent %d bytes\n", pid, c);
-		}
-		say("server received %d bytes\n", n);
-		
-		/*if ((n = Xsend(sock, buf, n, 0)) < 0) {
+	dlen = sizeof(cdag);
+	memset(buf, 0, sizeof(buf));
+	/*if (n = Xrecv(sock, buf, sizeof(buf), 0) < 0) {
+		warn("Recv error on socket %d, closing connection\n", pid);
+		break;
+	}*/
+	int count = 0;
+	n=0;
+	while ((count = Xrecv(sock, buf, sizeof(buf), 0)) != 0) {
+		say("%5d received %d bytes\n", pid, count);
+		n += count;
+		int c = 0;
+		if ((c = Xsend(sock, buf, count, 0)) < 0) {
 			warn("%5d send error\n", pid);
 			break;
-		}*/
+		}
 
-		say("server sent %d bytes\n", n);
+		say("%5d sent %d bytes\n", pid, c);
 	}
+	say("server received %d bytes\n", n);
+	
+	/*if ((n = Xsend(sock, buf, n, 0)) < 0) {
+		warn("%5d send error\n", pid);
+		break;
+	}*/
+
+	say("server sent %d bytes\n", n);
 
 	Xclose(sock);
 }
