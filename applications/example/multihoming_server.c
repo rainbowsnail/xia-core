@@ -114,10 +114,6 @@ int registerReceiver()
 {
 	int sock;
 	char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
-	
-	if (signal(SIGCHLD, reaper) == SIG_ERR) {
-		die(-1, "unable to catch SIGCHLD");
-	}
 	//say ("\n%s (%s)\n", TITLE, VERSION);
 	//say("Service Name: %s\n", name);
 	//say("Root Directory: %s\n", rootdir);
