@@ -55,7 +55,8 @@ void stageControl(int sock, char *cmd)
 
     // send the chunk ready msg one by one
     char url[256];
-    char buf[CHUNKSIZE];
+    //char buf[CHUNKSIZE];
+	char *buf = (char*)malloc(CHUNKSIZE);
     int ret;
     for (auto CID : CIDs) {
         if (SIDToProfile[remoteSID][CID].fetchStartTimestamp == 0) {
@@ -97,7 +98,7 @@ void stageControl(int sock, char *cmd)
         // Determine the intervals to check the state of current chunk.
         //usleep(SCAN_DELAY_MSEC * 1000); // chenren: check timing issue
     }
-
+	free(buf);
 //pthread_mutex_lock(&profileLock);
     SIDToProfile.erase(remoteSID);
 //pthread_mutex_unlock(&profileLock);
