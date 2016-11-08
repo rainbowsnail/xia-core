@@ -90,7 +90,8 @@ say("---------CID:%s\n",cid);
     unsigned int bytes = 0;
 
     // chunk fetching begins
-    char data[CHUNKSIZE];
+    //char data[CHUNKSIZE];
+	char *data = (char*)malloc(CHUNKSIZE);
     for (unsigned int i = 0; i < CIDs.size(); i++) {
 
         say("The number of chunks is %d.\n", CIDs.size());
@@ -134,6 +135,7 @@ say("CID=%s %d\n",(char*)CIDs[i].c_str(), CIDs[i].size());
         chunkStartTime.push_back(start_time);
         chunkFinishTime.push_back(now_msec());
     }
+	free(data);
     fclose(fd);
     long finishTime = now_msec();
     logFile << "Received file " << fout << " at "<< (1000 * (float)bytes / 1024) / (float)(finishTime - startTime) << " KB/s (Time: " << finishTime - startTime << " msec, Size: " << bytes << "bytes)\n";
