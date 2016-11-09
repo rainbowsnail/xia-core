@@ -1,7 +1,7 @@
 include ../../../xia.mk
 CFLAGS+=-g -I../../../click/include/click -std=c++11
 LDFLAGS+=$(LIBS) -lpthread -lprotobuf
-all: stage_utils.o ftpServer ftpClient stageManager stageServer xping testXping
+all: stage_utils.o ftpServer ftpClient stageManager stageServer xping testXping switchAP
 	rm stage_utils.o
 stage_utils.o:
 	$(CC) $(CFLAGS) -c stage_utils.c
@@ -17,5 +17,7 @@ xping:
 	$(CC) $(CFLAGS) xping.c -o xping $(LDFLAGS)
 testXping:
 	$(CC) $(CFLAGS) testXping.c stage_utils.o -o testXping $(LDFLAGS) 
+switchAP:
+	$(CC) $(CFLAGS) testXpingswitchAP.c stage_utils.o -o switchAP $(LDFLAGS)
 clean:
-	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping
+	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping switchAP
