@@ -18,6 +18,6 @@ xping:
 testXping:
 	$(CC) $(CFLAGS) testXping.c stage_utils.o -o testXping $(LDFLAGS) 
 switchAP:
-	$(CC) $(CFLAGS) testXpingswitchAP.c stage_utils.o -o switchAP $(LDFLAGS)
+	$(CC) $(CFLAGS) switchAP.c stage_utils.o -o switchAP $(LDFLAGS)
 clean:
 	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping switchAP
