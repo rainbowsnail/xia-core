@@ -8,12 +8,12 @@
 
 int main(){
 	string ssid_list;// = execSystem(GET_SSID_LIST);
-	if (ssid.empty()) {
+	if (ssid_list.empty()) {
 // cerr<<"No network\n";
 		while (1) {			
 			ssid_list = execSystem(GETSSID_CMD);
 			printf("ssid list:\n %s ssid_list", ssid_list);
-			if (!ssid.empty()) {
+			if (!ssid_list.empty()) {
 // cerr<<"Network back\n";
 				break;
 			}
