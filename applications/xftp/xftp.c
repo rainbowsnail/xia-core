@@ -178,16 +178,9 @@ int retrieveChunk(FILE *fd, char *url)
 		url_to_dag(&addr, token, strlen(token));
 
         gettimeofday(&t1, NULL);
-		int retry=50;
-		while(retry--){
-			if ((ret = XfetchChunk(&h, buf, MAX_CHUNKSIZE, XCF_BLOCK, &addr, sizeof(addr))) < 0) {
-				//die(-1, "XfetchChunk Failed\n");
-				say("XfetchChunk Failed, retrying");
-			}
-			else break;
+		if ((ret = XfetchChunk(&h, buf, MAX_CHUNKSIZE, XCF_BLOCK, &addr, sizeof(addr))) < 0) {
+		 	die(-1, "XfetchChunk Failed\n");
 		}
-		if(ret < 0)
-			die(-1, "XfetchChunk Failed\n");
 		gettimeofday(&t2, NULL);
 
 		Graph g(&addr);
