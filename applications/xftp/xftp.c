@@ -36,7 +36,7 @@
 #define VERSION "v2.0"
 #define TITLE "XIA Basic FTP client"
 #define NAME "basicftp.xia"
-#define MAX_CHUNKSIZE (1000 * 1024 * 1024)	// set upper limit since we don't know how big chunks will be
+#define MAX_CHUNKSIZE (100 * 1024 * 1024)	// set upper limit since we don't know how big chunks will be
 
 // global configuration options
 int verbose = 0;
@@ -178,9 +178,16 @@ int retrieveChunk(FILE *fd, char *url)
 		url_to_dag(&addr, token, strlen(token));
 
         gettimeofday(&t1, NULL);
-		if ((ret = XfetchChunk(&h, buf, MAX_CHUNKSIZE, XCF_BLOCK, &addr, sizeof(addr))) < 0) {
-		 	die(-1, "XfetchChunk Failed\n");
+		int retry=5;
+		while(retry--){
+			if ((ret = XfetchChunk(&h, buf, MAX_CHUNKSIZE, XCF_BLOCK, &addr, sizeof(addr))) < 0) {
+				//die(-1, "XfetchChunk Failed\n");
+				say("XfetchChunk Failed, retrying");
+			}
+			else break;
 		}
+		if(ret < 0)
+			die(-1, "XfetchChunk Failed\n");
 		gettimeofday(&t2, NULL);
 
 		Graph g(&addr);
