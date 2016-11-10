@@ -119,9 +119,19 @@ say("---------CID:%s\n",cid);
 say("CID=%s %d\n",(char*)CIDs[i].c_str(), CIDs[i].size());
         }
         long start_time = now_msec();
-        if ((len = XfetchChunk(&h, data, CHUNKSIZE, XCF_BLOCK | XCF_SKIPCACHE, &addr, sizeof(addr))) < 0) {
-            die(-1, "XcacheGetChunk Failed\n");
-        }
+        //if ((len = XfetchChunk(&h, data, CHUNKSIZE, XCF_BLOCK | XCF_SKIPCACHE, &addr, sizeof(addr))) < 0) {
+        //    die(-1, "XcacheGetChunk Failed\n");
+        //}
+		int retry=5;
+		while(retry--){
+			if ((len = XfetchChunk(&h, data, CHUNKSIZE, XCF_BLOCK | XCF_SKIPCACHE, &addr, sizeof(addr))) < 0) {
+				//die(-1, "XfetchChunk Failed\n");
+				say("XfetchChunk Failed, retrying");
+			}
+			else break;
+		}
+		if(len < 0)
+			die(-1, "XfetchChunk Failed\n");
         long end_time = now_msec();
         char req[256];
         dag_to_url(req,256,&addr);
