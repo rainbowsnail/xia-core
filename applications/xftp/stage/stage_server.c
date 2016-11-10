@@ -62,13 +62,24 @@ void stageControl(int sock, char *cmd)
         if (SIDToProfile[remoteSID][CID].fetchStartTimestamp == 0) {
             SIDToProfile[remoteSID][CID].fetchStartTimestamp = now_msec();
         }
-        if ((ret = XfetchChunk(&xcache, buf, CHUNKSIZE, XCF_BLOCK, &SIDToProfile[remoteSID][CID].oldDag, sizeof(SIDToProfile[remoteSID][CID].oldDag))) < 0) {
+		
+        /*if ((ret = XfetchChunk(&xcache, buf, CHUNKSIZE, XCF_BLOCK, &SIDToProfile[remoteSID][CID].oldDag, sizeof(SIDToProfile[remoteSID][CID].oldDag))) < 0) {
             die(-1,"unable to request chunks\n");
             //add unlock function   --Lwy   1.16
             //pthread_mutex_unlock(&bufLock);
             //pthread_exit(NULL);
-        }
-
+        }*/
+		int retry=5;
+		while(retry--){
+			if ((ret = XfetchChunk(&xcache, buf, CHUNKSIZE, XCF_BLOCK, &SIDToProfile[remoteSID][CID].oldDag, sizeof(SIDToProfile[remoteSID][CID].oldDag))) < 0) {
+				//die(-1, "XfetchChunk Failed\n");
+				say("unable to request chunks, retrying");
+			}
+			else break;
+		}
+		if(ret < 0)
+			die(-1, "unable to request chunks\n");
+		
         if (XputChunk(&xcache, (const char* )buf, ret, &SIDToProfile[remoteSID][CID].newDag) < 0) {
             die(-1,"unable to put chunks\n");
             //pthread_exit(NULL);
