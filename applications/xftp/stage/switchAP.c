@@ -13,7 +13,8 @@ int main(){
 // cerr<<"No network\n";
 		while (1) {			
 			ssid_list = execSystem(GETSSID_CMD);
-			printf("ssid list:\n %s ssid_list", ssid_list.c_str());
+			printf("ssid size %d\n",ssid_list.size());
+			printf("ssid list:\n %s \n", ssid_list.c_str());
 			if (!ssid_list.empty()) {
 // cerr<<"Network back\n";
 				break;
