@@ -4,7 +4,7 @@
 
 #define SCAN_INTERVAL 10
 //#define GET_SSID_LIST "iwlist wlx60a44ceca928 scanning"//| grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
-#define GET_SSID_LIST "iwlist wlan0 scanning"//| grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
+#define GET_SSID_LIST "iwlist wlx60a44ceca928 scanning"| grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
 //#define 
 
 int main(){
@@ -12,7 +12,7 @@ int main(){
 	if (ssid_list.empty()) {
 // cerr<<"No network\n";
 		while (1) {			
-			ssid_list = execSystem(GETSSID_CMD);
+			ssid_list = execSystem(GET_SSID_LIST);
 			printf("ssid size %d\n",ssid_list.size());
 			printf("ssid list:\n %s \n", ssid_list.c_str());
 			if (!ssid_list.empty()) {
