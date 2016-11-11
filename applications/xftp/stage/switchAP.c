@@ -3,7 +3,8 @@
 //
 
 #define SCAN_INTERVAL 10
-#define GET_SSID_LIST "iwlist wlx60a44ceca928 scanning"//| grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
+//#define GET_SSID_LIST "iwlist wlx60a44ceca928 scanning"//| grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
+#define GET_SSID_LIST "iwlist wlan0 scanning"//| grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
 //#define 
 
 int main(){
