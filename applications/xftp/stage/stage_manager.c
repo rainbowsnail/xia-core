@@ -41,8 +41,8 @@ ofstream managerTime("managerTime.log");
 //Update the stage window
 void updateStageArg() {
     if (rttWifi != -1 && rttInt != -1 && timeWifi && timeInt) {
-        int left = timeWifi + rttWifi;
-        int right = timeInt + rttWifi + rttInt;
+        int left = timeWifi + rttWifi;//rttWifi是stage_manager和stage_server; timeWifi是client下载一个chunk的时间
+        int right = timeInt + rttWifi + rttInt;//rttInt是stage_server到content_server; timeInt是stage一个chunk要花的时间
         chunkToStage = static_cast<double>(left) / right + 1;
     }
     else {
