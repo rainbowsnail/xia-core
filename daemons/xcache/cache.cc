@@ -154,7 +154,7 @@ void xcache_cache::process_pkt(xcache_controller *ctrl, char *pkt, size_t len)
 	struct cache_download *download;
 	std::map<std::string, struct cache_download *>::iterator iter;
 
-	syslog(LOG_DEBUG, "CACHE RECVD PKT\n");
+//	syslog(LOG_INFO, "CACHE RECVD PKT\n");
 
 	rc = validate_pkt(pkt, len, cid, sid, &tcp);
 	switch (rc) {
@@ -177,7 +177,7 @@ void xcache_cache::process_pkt(xcache_controller *ctrl, char *pkt, size_t len)
 
 	char *payload = (char *)tcp + ((ushort)(tcp->th_off) << 2);
 	payload_len = len + (size_t)(pkt - payload);
-	syslog(LOG_DEBUG, "%s Payload length = %lu\n", cid.c_str(), payload_len);
+	syslog(LOG_INFO, "%s Payload length = %lu\n", cid.c_str(), payload_len);
 
 	if (!(meta = ctrl->acquire_meta(cid))) {
 		syslog(LOG_INFO, "ACCEPTING: New Meta CID=%s", cid.c_str());
@@ -194,7 +194,7 @@ void xcache_cache::process_pkt(xcache_controller *ctrl, char *pkt, size_t len)
 
 		case AVAILABLE:
 			ctrl->release_meta(meta);
-			syslog(LOG_INFO, "This CID is already in the cache: %s", cid.c_str());
+//			syslog(LOG_INFO, "This CID is already in the cache: %s", cid.c_str());
 			return;
 
 		case FETCHING:
@@ -298,10 +298,11 @@ skip_data:
 			/* Perform cleanup */
 			ongoing_downloads.erase(iter);
 			free(download);
+			syslog(LOG_INFO, "cache: successful capture of %s\n", cid.c_str());
 		} else {
 			// FIXME: leave this open in case more data is on the wire
 			// and let garbage collection handle it eventually? or nuke it now?
-			syslog(LOG_ERR, "Invalid chunk, discarding: %s", cid.c_str());
+			syslog(LOG_ERR, "cache: Invalid chunk, discarding: %s", cid.c_str());
 		}
 	}
 }
@@ -320,7 +321,7 @@ void *xcache_cache::run(void *arg)
 	}
 
 	do {
-		syslog(LOG_DEBUG, "Cache listening for data from click\n");
+		syslog(LOG_INFO, "Cache listening for data from click\n");
 		ret = recvfrom(s, buffer, XIA_MAXBUF, 0, NULL, NULL);
 		if(ret < 0) {
 			syslog(LOG_ERR, "Error while reading from socket: %s\n", strerror(errno));
@@ -331,7 +332,7 @@ void *xcache_cache::run(void *arg)
 			continue;
 		}
 
-		syslog(LOG_DEBUG, "Cache received a message of size = %d\n", ret);
+		syslog(LOG_INFO, "Cache received a message of size = %d\n", ret);
 		args->cache->process_pkt(args->ctrl, buffer, ret);
 
 	} while(1);
