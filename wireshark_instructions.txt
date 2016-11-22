@@ -1,0 +1,51 @@
+This code only works with the xia-v2 branch. There are some to the values in the packet headers that have changed.
+
+If you use this, let me know of any suggestions or issues you run into.
+
+
+git clone https://github.com/XIA-Project/wireshark.git
+apt-get install autogen autoconf libtool libtool-bin bison byacc flex libpcap-dev libgtk-3-dev
+
+cd wireshark
+git checkout xia
+./autogen.sh
+./configure
+make
+….. wait awhile
+
+Use the following command to run wireshark for now since it’s not installed in the default location
+sudo WIRESHARK_RUN_FROM_BUILD_DIRECTORY=1 ./wireshark-gtk
+
+
+
+useful wireshark capture filters  (in teh capture options dialog)
+
+- only capture XIA packets (excludes Xnetj packets since we can easily dissect them)
+(ether proto 0xc0de) || (ether proto 0x9990)
+
+- capture xnetj too
+(ether proto 0xc0de) || (ether proto 0x9990) || (ether proto 0x9991)
+
+- capture XIA but filter out xarp, xnetj, and xroute packets
+(ether proto 0xc0de) && !(ether dst ff:ff:ff:ff:ff:ff)
+
+
+
+useful wireshark display filters (in the toolbar)
+These can be used with or without the capture filters, but won’t display things that were ignored by the capture filter
+
+xip
+xdgram
+xstream
+xarp
+add && !(ether.dst ff:ff:ff:ff:ff:ff) to any of the above to filter our noisy daemon traffic if you didn’t use a capture filter
+
+Note: it’s ether.dst for the display filter and ether dst for the capture filter.
+
+
+
+if you edit the /etc/ethers file, wireshark will show friendly names instead of mac addresses in it’s display. Mine looks like
+
+00:0c:29:dc:e4:36 h0
+00:0c:29:3f:52:3c r0
+ff:ff:ff:ff:ff:ff Broadcast
