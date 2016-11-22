@@ -121,7 +121,7 @@ int xcache_controller::fetch_content_remote(sockaddr_x *addr, socklen_t addrlen,
 	offset = 0;
 
 	while (remaining > 0) {
-		syslog(LOG_DEBUG, "Remaining(1) = %lu\n", remaining);
+		syslog(LOG_INFO, "Remaining(1) = %lu\n", remaining);
 		recvd = Xrecv(sock, (char *)&header + offset, remaining, 0);
 		if (recvd < 0) {
 			syslog(LOG_ALERT, "Sender Closed the connection: %s", strerror(errno));
@@ -141,10 +141,11 @@ int xcache_controller::fetch_content_remote(sockaddr_x *addr, socklen_t addrlen,
 	meta->set_created();
 	meta->set_ttl(ntohl(header.ttl));
 
+syslog(LOG_INFO, "size: %lu\n", remaining);
 	while (remaining > 0) {
 		to_recv = remaining > IO_BUF_SIZE ? IO_BUF_SIZE : remaining;
 
-		syslog(LOG_DEBUG, "Remaining(2) = %lu\n", remaining);
+		syslog(LOG_INFO, "Remaining(2) = %lu\n", remaining);
 
 		recvd = Xrecv(sock, buf, to_recv, 0);
 		if (recvd < 0) {
@@ -156,13 +157,15 @@ int xcache_controller::fetch_content_remote(sockaddr_x *addr, socklen_t addrlen,
 			syslog(LOG_WARNING, "Xrecv returned 0");
 			break;
 		}
-		syslog(LOG_DEBUG, "recvd = %d, to_recv = %d\n", recvd, to_recv);
+		syslog(LOG_INFO, "recvd = %d, to_recv = %d\n", recvd, to_recv);
 
 		remaining -= recvd;
 		std::string temp(buf, recvd);
 
 		data += temp;
 	}
+
+	syslog(LOG_INFO, "%s: received %u of %u bytes\n", meta->get_cid().c_str(), recvd, ntohl(header.length));
 
 	std::string computed_cid = compute_cid(data.c_str(), data.length());
 	struct xcache_context *context = lookup_context(cmd->context_id());
@@ -473,14 +476,16 @@ int xcache_controller::alloc_context(xcache_cmd *resp, xcache_cmd *cmd)
 }
 
 int xcache_controller::__store_policy(xcache_meta *meta) {
-	//return policy_manager.cacheable(meta);
-	return true;
+	return policy_manager.cacheable(meta);
 }
 
 bool xcache_controller::verify_content(xcache_meta *meta, const std::string *data)
 {
-	if (meta->get_cid() != compute_cid(data->c_str(), data->length()))
+	if (meta->get_cid() != compute_cid(data->c_str(), data->length())) {
+		syslog(LOG_INFO, "%s: verification failed!\n", meta->get_cid().c_str());
 		return false;
+	}
+	syslog(LOG_INFO, "%s: verification success!\n", meta->get_cid().c_str());
 
 	return true;
 }
@@ -490,7 +495,7 @@ int xcache_controller::__store(struct xcache_context * /*context */,
 {
 	meta->lock();
 
-	syslog(LOG_DEBUG, "[thread %lu] after locking meta map and meta\n", pthread_self());
+	syslog(LOG_INFO, "[thread %lu] after locking meta map and meta\n", pthread_self());
 
 	if (verify_content(meta, data) == false) {
 		// Content Verification Failed
@@ -498,6 +503,7 @@ int xcache_controller::__store(struct xcache_context * /*context */,
 		meta->unlock();
 		return RET_FAILED;
 	}
+	syslog(LOG_INFO, "verification success for %s\n",  meta->get_cid().c_str());
 
 	meta->set_length(data->size());	// size of the data in bytes
 	if (__store_policy(meta) < 0) {
@@ -505,7 +511,7 @@ int xcache_controller::__store(struct xcache_context * /*context */,
 		meta->unlock();
 		return RET_FAILED;
 	}
-	syslog(LOG_DEBUG, "[thread %lu] after store policy\n", pthread_self());
+	syslog(LOG_INFO, "[thread %lu] after store policy\n", pthread_self());
 
 	std::string cid = "CID:" + meta->get_cid();
 
@@ -568,7 +574,7 @@ int xcache_controller::cid2addr(std::string cid, sockaddr_x *sax)
 
 int xcache_controller::evict(xcache_cmd *resp, xcache_cmd *cmd)
 {
-	int rc;
+//	int rc;
 	std::string cid = cmd->cid();
 
 	resp->set_cmd(xcache_cmd::XCACHE_RESPONSE);
@@ -583,7 +589,7 @@ int xcache_controller::evict(xcache_cmd *resp, xcache_cmd *cmd)
 
 		switch (meta->state()) {
 			case AVAILABLE:
-				rc = xr.delRoute(c);
+				xr.delRoute(c);
 				// let the garbage collector do the actual data removal
 				meta->set_state(EVICTING);
 
@@ -593,7 +599,7 @@ int xcache_controller::evict(xcache_cmd *resp, xcache_cmd *cmd)
 				break;
 
 			case FETCHING:
-				rc = xr.delRoute(c);
+				xr.delRoute(c);
 				// mark the chunk to be evicted once it's out of fetching state
 				resp->set_status(xcache_cmd::XCACHE_CID_MARKED_FOR_DELETE);
 				break;
@@ -694,7 +700,7 @@ void xcache_controller::send_content_remote(xcache_req* req, sockaddr_x *mypath)
 	remaining = sizeof(header);
 	offset = 0;
 
-	syslog(LOG_DEBUG, "Header Send Start\n");
+	syslog(LOG_INFO, "Header Send Start\n");
 
 	while (remaining > 0) {
 		sent = Xsend(req->to_sock, (char *)&header + offset, remaining, 0);
@@ -705,18 +711,18 @@ void xcache_controller::send_content_remote(xcache_req* req, sockaddr_x *mypath)
 		}
 		remaining -= sent;
 		offset += sent;
-		syslog(LOG_DEBUG, "Header Send Remaining %lu\n", remaining);
+		syslog(LOG_INFO, "Header Send Remaining %lu\n", remaining);
 	}
 
 	remaining = resp.data().length();
 	offset = 0;
 
-	syslog(LOG_DEBUG, "Content Send Start\n");
+	syslog(LOG_INFO, "Content Send Start\n");
 
 	while (remaining > 0) {
 		sent = Xsend(req->to_sock, (char *)resp.data().c_str() + offset,
 			     remaining, 0);
-		syslog(LOG_DEBUG, "Sent = %d\n", sent);
+		syslog(LOG_INFO, "Sent = %d\n", sent);
 		if (sent < 0) {
 			syslog(LOG_ALERT, "Receiver Closed the connection: %s", strerror(errno));
 			assert(0);
@@ -724,9 +730,9 @@ void xcache_controller::send_content_remote(xcache_req* req, sockaddr_x *mypath)
 		}
 		remaining -= sent;
 		offset += sent;
-		syslog(LOG_DEBUG, "Content Send Remaining %lu\n", remaining);
+		syslog(LOG_INFO, "Content Send Remaining %lu\n", remaining);
 	}
-	syslog(LOG_DEBUG, "Send Done\n");
+	syslog(LOG_INFO, "Send Done\n");
 
 }
 
@@ -779,9 +785,9 @@ int xcache_controller::register_meta(std::string &cid)
 	int rv;
 	std::string empty_str("");
 
-	syslog(LOG_DEBUG, "[thread %lu] Setting Route for %s.\n",  pthread_self(), cid.c_str());
+	syslog(LOG_INFO, "[thread %lu] Setting Route for %s.\n",  pthread_self(), cid.c_str());
 	rv = xr.setRoute(cid, DESTINED_FOR_LOCALHOST, empty_str, 0);
-	syslog(LOG_DEBUG, "[thread %lu] status code %d error message %s\n", pthread_self(), rv, xr.cserror());
+	syslog(LOG_INFO, "[thread %lu] status code %d error message %s\n", pthread_self(), rv, xr.cserror());
 
 	return rv;
 }
@@ -1048,7 +1054,7 @@ repeat:
 
 		while(remaining > 0) {
 			ret = recv(*iter, buf, MIN(sizeof(buf), remaining), 0);
-			syslog(LOG_DEBUG, "Recv returned %d, remaining = %d\n", ret, remaining);
+			syslog(LOG_INFO, "Recv returned %d, remaining = %d\n", ret, remaining);
 			if(ret <= 0)
 				goto disconnected;
 
