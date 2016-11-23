@@ -476,7 +476,6 @@ int xcache_controller::alloc_context(xcache_cmd *resp, xcache_cmd *cmd)
 }
 
 int xcache_controller::__store_policy(xcache_meta *meta) {
-	//return true;
 	return policy_manager.cacheable(meta);
 }
 
