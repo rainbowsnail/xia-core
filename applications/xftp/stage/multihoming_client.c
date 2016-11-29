@@ -34,6 +34,7 @@ struct addrinfo *ai;
 /*
 ** write the message to stdout unless in quiet mode
 */
+/*
 void say(const char *fmt, ...)
 {
 	if (verbose) {
@@ -44,10 +45,11 @@ void say(const char *fmt, ...)
 		va_end(args);
 	}
 }
-
+*/
 /*
 ** always write the message to stdout
 */
+/*
 void warn(const char *fmt, ...)
 {
 	va_list args;
@@ -57,10 +59,11 @@ void warn(const char *fmt, ...)
 	va_end(args);
 
 }
-
+*/
 /*
 ** write the message to stdout, and exit the app
 */
+/*
 void die(int ecode, const char *fmt, ...)
 {
 	va_list args;
@@ -71,7 +74,7 @@ void die(int ecode, const char *fmt, ...)
 	fprintf(stdout, "exiting\n");
 	exit(ecode);
 }
-
+*/
 /*
 ** create a semi-random alphanumeric string of the specified size
 */
