@@ -15,6 +15,7 @@
 #include "dagaddr.h"
 #include "Xkeys.h"
 #include "Xsocket.h"
+#include "stage_utils.h"
 
 #define NAME "www_s.multihong_server.aaa.xia"
 #define MAX_BUF_SIZE 62000
