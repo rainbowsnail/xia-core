@@ -19,7 +19,7 @@
 
 #define NAME "www_s.multihong_server.aaa.xia"
 #define MAX_BUF_SIZE 62000
-
+#define MAX_XID_SIZE 100
 
 int verbose = 1;	// display all messages
 int delay = 100000;		// don't delay between loops
