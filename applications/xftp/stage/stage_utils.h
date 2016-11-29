@@ -82,6 +82,8 @@ void die(int ecode, const char *fmt, ...);
 // format: cid1 cid2, ... cidn
 vector<string> strVector(char *strs);
 
+int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID);
+
 // format: STAGE_SERVER_NAME.getAD()
 const char *getStageServiceName();
 
