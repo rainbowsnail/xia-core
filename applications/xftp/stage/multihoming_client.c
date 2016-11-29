@@ -21,7 +21,7 @@
 #define MAX_BUF_SIZE 62000
 #define MAX_XID_SIZE 100
 
-int verbose = 1;	// display all messages
+//int verbose = 1;	// display all messages
 int delay = 100000;		// don't delay between loops
 int loops = 3;		// only do 1 pass
 int pktSize = 512;	// default pkt size
