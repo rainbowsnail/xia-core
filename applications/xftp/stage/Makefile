@@ -22,6 +22,6 @@ switchAP:
 multihoming_client:
 	$(CC) $(CFLAGS) multihoming_client.c stage_utils.o -o multihoming_client $(LDFLAGS)
 multihoming_server:
-	$(CC) $(CFLAGS) multihoming_server.c stage_utils.o -o multihoming_server $(LDFLAGS)
+	$(CC) $(CFLAGS) multihoming_server.c -o multihoming_server $(LDFLAGS)
 clean:
 	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping switchAP multihoming_client multihoming_server
