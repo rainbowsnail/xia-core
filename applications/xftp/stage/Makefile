@@ -1,8 +1,8 @@
 include ../../../xia.mk
 CFLAGS+=-g -I../../../click/include/click -std=c++11
 LDFLAGS+=$(LIBS) -lpthread -lprotobuf
-all: stage_utils.o ftpServer ftpClient stageManager stageServer xping testXping switchAP multihoming_client multihoming_server disconnection	
-rm stage_utils.o
+all: stage_utils.o ftpServer ftpClient stageManager stageServer xping testXping switchAP multihoming_client multihoming_server disconnection
+	rm stage_utils.o
 stage_utils.o:
 	$(CC) $(CFLAGS) -c stage_utils.c
 ftpServer:
