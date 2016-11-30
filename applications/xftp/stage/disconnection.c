@@ -120,10 +120,9 @@ int main(){
 		//ssid_list = execSystem(GET_SSID_LIST);
 		//printf("scanning\n");
 		int rtn;
-		
-		rtn = connect_SSID(1, "XIA_Tenda_1");
 		begin_time = now_msec();
 		say("-------------connect begin at %ld \n", begin_time);
+		rtn = connect_SSID(1, "XIA_Tenda_1");
 		usleep(CONNECT_TIME * 1000);
 		end_time = now_msec();
 		say("-------------connect end at %ld \n", end_time);
@@ -131,10 +130,9 @@ int main(){
 		say("-------------connect total time = %ld \n", total_time);
 		
 		
-		
-		rtn = disconnect_SSID(1);
 		begin_time = now_msec();
 		say("-------------disconnect begin at %ld \n", begin_time);
+		rtn = disconnect_SSID(1);
 		usleep(DISCONNECT_TIME * 1000);
 		end_time = now_msec();
 		say("-------------disconnect end at %ld \n", end_time);
