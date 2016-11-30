@@ -213,16 +213,6 @@ int connectToServer(struct ifaddrs *ifa)
 	char ip[100];
 	bzero(sdag,sizeof(sdag));
 	
-	if(XreadLocalHostAddr(ssock, sdag, sizeof(sdag), ip, sizeof(ip))<0)
-		die(-1, "Unable to get local host address");
-	say("\n\n;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n sdag = \n%s \n\n",sdag);
-	//char ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
-
-	//if (XmyReadLocalHostAddr(ssock, ad, sizeof(ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
-	//	die(-1, "Reading localhost address\n");
-	//say("AD = %s\n", ad);
-	//int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID)
-	
 	say("Xsock %4d connected\n", ssock);
 
 	return ssock;
