@@ -210,6 +210,7 @@ int connectToServer(struct ifaddrs *ifa)
 		die(-3, "unable to connect to the destination dag\n");
 	
 	char sdag[5000];
+	char ip[100];
 	bzero(sdag,sizeof(sdag));
 	
 	if(XreadLocalHostAddr(ssock, sdag, sizeof(sdag), ip, sizeof(ip))<0)
