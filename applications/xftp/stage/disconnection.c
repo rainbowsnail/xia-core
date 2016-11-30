@@ -110,7 +110,7 @@ say("in connect_SSID\n");
 
 int main(){
 	string result;	
-	long begin_time, end_time;
+	long begin_time, end_time, total_time;
 	result = execSystem(CLOSE_NETWORK_MANAGER);
 	printf("close_network_manager %s\n", result.c_str());
 	//result = execSystem("iwconfig wlan0 essid off");
@@ -126,6 +126,9 @@ int main(){
 		usleep(CONNECT_TIME * 1000);
 		end_time = now_msec();
 		say("-------------connect end at %ld \n", end_time);
+		total_time = end_time - begin_time;
+		say("-------------connect total time = %ld \n", total_time);
+		
 		
 		begin_time = now_msec();
 		say("-------------disconnect begin at %ld \n", begin_time);
@@ -133,6 +136,8 @@ int main(){
 		usleep(DISCONNECT_TIME * 1000);
 		end_time = now_msec();
 		say("-------------disconnect end at %ld \n", end_time);
+		total_time = end_time - begin_time;
+		say("-------------disconnect total time = %ld \n", total_time);
 		
 		say("\n-----------------------------------------------------------------\n");
 	}
