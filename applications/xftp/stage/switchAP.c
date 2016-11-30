@@ -32,7 +32,7 @@ int cast_sig(char * p_sig){
 }
 
 string get_SSID(int interface){
-//say("int get_SSID\n");
+say("int get_SSID\n");
 	string result = "";
 	string cmd = "iwconfig ";
 	if(interface == 1){
@@ -44,9 +44,9 @@ string get_SSID(int interface){
 	else
 		return result;
 	cmd += "| grep '\\\"[a-zA-Z0-9 _-.]*\\\"' -o";
-//say("cmd = %s\n", cmd.c_str());
+say("cmd = %s\n", cmd.c_str());
 	string ssid = execSystem(cmd);
-//say("ssid = %s\n", ssid.c_str());
+say("ssid = %s\n", ssid.c_str());
 	return ssid;
 }
 
