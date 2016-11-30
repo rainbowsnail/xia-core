@@ -6,8 +6,8 @@
 #define INTERFACE1 "wlp6s0 "
 #define INTERFACE2 "wlan0 "
 
-#define CONNECT_TIME 4 * 1000
-#define DISCONNECT_TIME 16 * 1000
+#define CONNECT_TIME 16 * 1000
+#define DISCONNECT_TIME 4 * 1000
 
 #define GET_SSID_LIST "iwlist wlp6s0 scanning | grep -E '(\\\"[a-zA-Z0-9 _-.]*\\\")|(Signal level=-?[0-9]* dBm)' -o"
 #define CLOSE_NETWORK_MANAGER "service network-manager stop"
