@@ -39,7 +39,6 @@ void say(const char *fmt, ...)
 {
 	if (verbose) {
 		va_list args;
-
 		va_start(args, fmt);
 		vprintf(fmt, args);
 		va_end(args);
@@ -53,11 +52,9 @@ void say(const char *fmt, ...)
 void warn(const char *fmt, ...)
 {
 	va_list args;
-
 	va_start(args, fmt);
 	vfprintf(stdout, fmt, args);
 	va_end(args);
-
 }
 */
 /*
@@ -67,7 +64,6 @@ void warn(const char *fmt, ...)
 void die(int ecode, const char *fmt, ...)
 {
 	va_list args;
-
 	va_start(args, fmt);
 	vfprintf(stdout, fmt, args);
 	va_end(args);
@@ -213,11 +209,17 @@ int connectToServer(struct ifaddrs *ifa)
 	if (Xconnect(ssock, (struct sockaddr *)&dag, sizeof(sockaddr_x)) < 0)
 		die(-3, "unable to connect to the destination dag\n");
 	
-	char ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
+	char sdag[5000];
+	bzero(sdag,sizeof(sdag));
+	
+	if(XreadLocalHostAddr(sockfd, sdag, sizeof(sdag), local4ID, len4ID)<0)
+		die(-1, "Unable to get local host address");
+	say("\n\n;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n sdag = \n%s \n\n",sdag);
+	//char ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
 
-	if (XmyReadLocalHostAddr(ssock, ad, sizeof(ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
-		die(-1, "Reading localhost address\n");
-	say("AD = %s\n", ad);
+	//if (XmyReadLocalHostAddr(ssock, ad, sizeof(ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
+	//	die(-1, "Reading localhost address\n");
+	//say("AD = %s\n", ad);
 	//int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID)
 	
 	say("Xsock %4d connected\n", ssock);
@@ -265,9 +267,7 @@ int main(int argc, char **argv)
 {
 	srand(time(NULL));
 	//getConfig(argc, argv);
-
-	int family, s;  
-    char host[NI_MAXHOST];
+  
 	struct ifaddrs*if1=NULL, *if2=NULL;
 	
 	struct ifaddrs *ifa=NULL;
