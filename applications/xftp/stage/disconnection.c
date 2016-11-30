@@ -122,7 +122,7 @@ int main(){
 		int rtn;
 		begin_time = now_msec();
 		say("-------------connect begin at %ld \n", begin_time);
-		rtn = connect_SSID(1, "XIA_Tenda_1")
+		rtn = connect_SSID(1, "XIA_Tenda_1");
 		usleep(CONNECT_TIME * 1000);
 		end_time = now_msec();
 		say("-------------connect end at %ld \n", end_time);
