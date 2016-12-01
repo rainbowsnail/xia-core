@@ -36,7 +36,8 @@
 #define XIA_MAX_BUF 15600
 #define MAX_CID_NUM 3
 
-#define CHUNKSIZE 1024 * 32 
+#define CHUNKSIZE 1024 * 1024 * 10
+
 #define REREQUEST 6
 #define NUM_CHUNKS 1 // 12 is the max NUM_CHUNKS to fetch at one time for 1024 K
 #define CHUNK_REQUEST_DELAY_MSEC 10
@@ -50,6 +51,7 @@
 #define UNIXMANAGERSOCK "/tmp/stage_manager.sock"
 //#define GETSSID_CMD "iwgetid -r"
 #define GETSSID_CMD "iwconfig wlp6s0 | grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
+#define GETSSID_CMD2 "iwconfig wlan0 | grep '\\\"[a-zA-Z _0-9.]*\\\"' -o"
 //#define GETSSID_CMD "iwconfig wlp6s0 | grep '\\\"[a-zA-Z\\_0-9.]*\\\"' -o"
 #define PURGE_DELAY_SEC 10
 #define MGT_DELAY_SEC 10
@@ -109,10 +111,13 @@ long now_msec();
 long long now_usec();
 
 bool isConnect();
+bool isConnect2();
 
 string getSSID();
+string getSSID2();
 
 string getAD();
+string getAD2();
 
 string getHID();
 
@@ -160,6 +165,7 @@ int updateManifest(int sock, vector<string> CIDs);
 
 // stage manager setup a socket connection with in-network stage service
 int registerStageService(const char *name, char *src_ad, char *src_hid, char *dst_ad, char *dst_hid);
+int registerMulStageService(int iface, const char *name);
 
 // xftp_client setup a socket connection with stage manager
 int registerStageManager(const char *name);
