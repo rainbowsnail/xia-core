@@ -200,6 +200,8 @@ void *stageData(void * ifaddr)
     cerr << "Current " << getAD() << endl;
 
 	//struct sockaddr * sa = ifa->ifa_addr;
+	char myAD[MAX_XID_SIZE];
+    char myHID[MAX_XID_SIZE];
 	
 //netStageSock is used to communicate with stage server.
     getNewAD2(0, myAD);
