@@ -473,7 +473,7 @@ int XfetchChunk(XcacheHandle *h, void *buf, size_t buflen, int flags, sockaddr_x
 {
 	xcache_cmd cmd;
 
-	fprintf(stderr, "Inside %s\n", __func__);
+	//fprintf(stderr, "Inside %s\n", __func__);
 
 	cmd.set_cmd(xcache_cmd::XCACHE_FETCHCHUNK);
 	cmd.set_context_id(h->contextID);
@@ -485,7 +485,7 @@ int XfetchChunk(XcacheHandle *h, void *buf, size_t buflen, int flags, sockaddr_x
 		/* Error in Sending chunk */
 		return -1;
 	}
-	fprintf(stderr, "Command sent to xcache successfully\n");
+	//fprintf(stderr, "Command sent to xcache successfully\n");
 
 	if(flags & XCF_BLOCK) {
 		size_t to_copy;
@@ -502,7 +502,7 @@ int XfetchChunk(XcacheHandle *h, void *buf, size_t buflen, int flags, sockaddr_x
 
 		to_copy = MIN(cmd.data().length(), buflen);
 		memcpy(buf, cmd.data().c_str(), to_copy);
-		fprintf(stderr, "Fetch: Copying %lu bytes of %lu to buffer\n", to_copy, buflen);
+		//fprintf(stderr, "Fetch: Copying %lu bytes of %lu to buffer\n", to_copy, buflen);
 		hopCount = cmd.hop_count();
 
 		return to_copy;
