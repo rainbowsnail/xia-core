@@ -332,7 +332,7 @@ void *preStageData(void *)
     //getNewAD(myAD);
     getNewAD2(1, myAD);
 	//Connect to the Stage Server
-    int netStageSock = registerMulStageService(1, getStageServiceName2(), myAD, myHID);
+    int netStageSock = registerMulStageService(1, getStageServiceName2());
 	
     //Rtt of wireless
     //rttWifi = getRTT(getStageServiceName());
