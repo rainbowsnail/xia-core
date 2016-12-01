@@ -326,7 +326,7 @@ void getNewAD2(int iface, char *old_ad)
 		if (strcmp(new_ad, old_ad) != 0) {
 cerr<<"AD changed!"<<endl;
 			strcpy(old_ad, new_ad);
-			Xclose(sock);
+			
 			return;
 		}
 		usleep(SCAN_DELAY_MSEC * 1000);
