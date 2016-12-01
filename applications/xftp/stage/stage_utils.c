@@ -239,7 +239,7 @@ string getAD2(int iface)
 		if(iface == 3 && strcmp(ifa->ifa_name, "iface3")==0 ) if1 = ifa;
 	}
 	
-	Graph g((sockaddr_x *) ifa->ifa_addr);
+	Graph g((sockaddr_x *) if1->ifa_addr);
 	char sdag[5000];
 	strcpy(sdag, g.dag_string().c_str());
 	char *ads = strstr(sdag, "AD:");	// first occurrence
@@ -314,7 +314,7 @@ void getNewAD2(int iface, char *old_ad)
 			if(iface == 3 && strcmp(ifa->ifa_name, "iface3")==0 ) if1 = ifa;
 		}
 		
-		Graph g((sockaddr_x *) ifa->ifa_addr);
+		Graph g((sockaddr_x *) if1->ifa_addr);
 		char sdag[5000];
 		strcpy(sdag, g.dag_string().c_str());
 		char *ads = strstr(sdag, "AD:");	// first occurrence
