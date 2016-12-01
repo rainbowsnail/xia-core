@@ -117,7 +117,7 @@ string getSSID();
 string getSSID2();
 
 string getAD();
-void getAD2(int iface);
+string getAD2(int iface);
 
 string getHID();
 
