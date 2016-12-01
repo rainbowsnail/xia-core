@@ -136,7 +136,7 @@ say("CID=%s %d\n",(char*)CIDs[i].c_str(), CIDs[i].size());
         char req[256];
         dag_to_url(req,256,&addr);
         fetchTime = end_time - start_time;
-        logFile << i <<" Chunk. Running time is: " << end_time - start_time << " ms. req: " << req << endl;
+        //------------//logFile << i <<" Chunk. Running time is: " << end_time - start_time << " ms. req: " << req << endl;
         say("writing %d bytes of chunk %s to disk\n", len, string2char(CIDs[i]));
         fwrite(data, 1, len, fd);
         bytes += len;
