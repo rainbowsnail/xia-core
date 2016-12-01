@@ -201,7 +201,8 @@ void preStage(int sock, char *cmd)
 
         // Determine the intervals to check the state of current chunk.
         //usleep(SCAN_DELAY_MSEC * 1000); // chenren: check timing issue
-    }*/
+		*/
+    }
 	free(buf);
 //pthread_mutex_lock(&profileLock);
     //SIDToProfile.erase(remoteSID);
@@ -212,7 +213,7 @@ void preStage(int sock, char *cmd)
 //pthread_mutex_lock(&timeLock);
 //SIDToTime.erase(remoteSID);
 //pthread_mutex_unlock(&timeLock);
-
+	
     return;
 }
 // TODO: paralize getting chunks for each SID, i.e. fair scheduling
