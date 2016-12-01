@@ -51,6 +51,11 @@ const char *getStageServiceName()
 	return string2char(string(STAGE_SERVER_NAME) + "." + getAD());
 }
 
+const char *getStageServiceName2(int iface)
+{
+	return string2char(string(STAGE_SERVER_NAME) + "." + getAD2(iface));
+}
+
 const char *getStageManagerName()
 {
 	return string2char(string(STAGE_MANAGER_NAME) + "." + getHID());
@@ -145,11 +150,36 @@ string getSSID()
 	}
 	return ssid;
 }
+string getSSID2()
+{
+	string ssid = execSystem(GETSSID_CMD2);
+
+	if (ssid.empty()) {
+// cerr<<"No network\n";
+		while (1) {
+			usleep(SCAN_DELAY_MSEC * 1000);
+			ssid = execSystem(GETSSID_CMD2);
+			if (!ssid.empty()) {
+// cerr<<"Network back\n";
+				break;
+			}
+		}
+	}
+	return ssid;
+}
+
 bool isConnect()
 {
 	string ssid = execSystem(GETSSID_CMD);
 	return !ssid.empty();
 }
+
+bool isConnect2()
+{
+	string ssid = execSystem(GETSSID_CMD2);
+	return !ssid.empty();
+}
+
 int XmyReadLocalHostAddr(int sockfd, char *localhostAD, unsigned lenAD, char *localhostHID, unsigned lenHID, char *local4ID, unsigned len4ID)
 {
 	char dag[5000];
@@ -186,7 +216,42 @@ string getAD()
 
 	return string(ad);
 }
+void getAD2(int iface)
+{
+	char new_ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
+	
+	struct ifaddrs*if1=NULL, *if2=NULL;
+	struct ifaddrs *ifa=NULL;
+	struct ifaddrs *ifaddr = NULL;
+	
+	
+	if( Xgetifaddrs(&ifaddr) < 0){
+		die(-1, "Xgetifaddrs failed");
+	}
+	
+	for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {  
+		if (ifa->ifa_addr == NULL)  
+			continue;  
+		printf("interface: %s \n", ifa->ifa_name); 
+		if(iface == 0 && strcmp(ifa->ifa_name, "iface0")==0) if1 = ifa;//"wlp6s0"
+		if(iface == 1 && strcmp(ifa->ifa_name, "iface1")==0 ) if1 = ifa;//"wlan0"
+		if(iface == 2 && strcmp(ifa->ifa_name, "iface2")==0 ) if1 = ifa;
+		if(iface == 3 && strcmp(ifa->ifa_name, "iface3")==0 ) if1 = ifa;
+	}
+	
+	Graph g((sockaddr_x *) ifa->ifa_addr);
+	char sdag[5000];
+	strcpy(sdag, g.dag_string().c_str());
+	char *ads = strstr(sdag, "AD:");	// first occurrence
+	char *hids = strstr(sdag, "HID:");
+	char *ad_end = strstr(ads, " ");
+	*ad_end = 0;
+		
+	return string(ads);	
+		
 
+	return;
+}
 string getHID()
 {
 	int sock;
@@ -215,6 +280,49 @@ void getNewAD(char *old_ad)
 	while (1) {
 		if (XmyReadLocalHostAddr(sock, new_ad, sizeof(new_ad), hid, sizeof(hid), ip, sizeof(ip)) < 0)
 			die(-1, "Reading localhost address\n");
+		if (strcmp(new_ad, old_ad) != 0) {
+cerr<<"AD changed!"<<endl;
+			strcpy(old_ad, new_ad);
+			Xclose(sock);
+			return;
+		}
+		usleep(SCAN_DELAY_MSEC * 1000);
+	}
+	return;
+}
+void getNewAD2(int iface, char *old_ad)
+{
+	char new_ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
+	
+	struct ifaddrs*if1=NULL, *if2=NULL;
+	struct ifaddrs *ifa=NULL;
+	struct ifaddrs *ifaddr = NULL;
+	
+	
+	while (1) {
+		if( Xgetifaddrs(&ifaddr) < 0){
+			die(-1, "Xgetifaddrs failed");
+		}
+		
+		for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {  
+			if (ifa->ifa_addr == NULL)  
+				continue;  
+			printf("interface: %s \n", ifa->ifa_name); 
+			if(iface == 0 && strcmp(ifa->ifa_name, "iface0")==0) if1 = ifa;//"wlp6s0"
+			if(iface == 1 && strcmp(ifa->ifa_name, "iface1")==0 ) if1 = ifa;//"wlan0"
+			if(iface == 2 && strcmp(ifa->ifa_name, "iface2")==0 ) if1 = ifa;
+			if(iface == 3 && strcmp(ifa->ifa_name, "iface3")==0 ) if1 = ifa;
+		}
+		
+		Graph g((sockaddr_x *) ifa->ifa_addr);
+		char sdag[5000];
+		strcpy(sdag, g.dag_string().c_str());
+		char *ads = strstr(sdag, "AD:");	// first occurrence
+		char *hids = strstr(sdag, "HID:");
+		char *ad_end = strstr(ads, " ");
+		*ad_end = 0;
+		strcpy(new_ad, ads);		
+		
 		if (strcmp(new_ad, old_ad) != 0) {
 cerr<<"AD changed!"<<endl;
 			strcpy(old_ad, new_ad);
@@ -664,6 +772,89 @@ say("----------------------------------5\n");
 	warn("Service AD: %s, Service HID: %s\n", dst_ad, dst_hid);
 say("-------------------------------------6\n");
 	return sock;
+}
+
+int registerMulStageService(int iface, const char *name)
+{
+say("in registerMulStageService");
+	struct ifaddrs*if1=NULL;//, *if2=NULL;
+	
+	struct ifaddrs *ifa=NULL;
+	struct ifaddrs *ifaddr = NULL;
+	
+	while(1){
+		if( Xgetifaddrs(&ifaddr) < 0){
+			die(-1, "Xgetifaddrs failed");
+		}
+		
+		for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {  
+			if (ifa->ifa_addr == NULL)  
+				continue;  
+			printf("interface: %s \n", ifa->ifa_name); 
+			if(iface == 0 && strcmp(ifa->ifa_name, "iface0")==0) if1 = ifa;//"wlp6s0"
+			if(iface == 1 && strcmp(ifa->ifa_name, "iface1")==0 ) if1 = ifa;//"wlan0"
+			if(iface == 2 && strcmp(ifa->ifa_name, "iface2")==0 ) if1 = ifa;
+			if(iface == 3 && strcmp(ifa->ifa_name, "iface3")==0 ) if1 = ifa;
+		} 
+		
+		if(if1 != NULL)
+			break;
+		
+		say("interface 2 not connected! retrying . . . \n");
+		usleep(SCAN_DELAY_MSEC * 1000);
+	}
+	
+	int ssock;
+	if ((ssock = Xsocket(AF_XIA, XSOCK_STREAM, 0)) < 0) {
+		die(-2, "unable to create the server socket\n");
+	}
+	//say("Xsock %4d created\n", ssock);
+	
+	char sid_string[strlen("SID:") + XIA_SHA_DIGEST_STR_LEN];
+	// Generate an SID to use
+	if (XmakeNewSID(sid_string, sizeof(sid_string))) {
+		die(-1, "Unable to create a temporary SID");
+	}
+	
+	struct addrinfo hints, *ai;
+	sockaddr_x *sa;
+	bzero(&hints, sizeof(hints));
+	hints.ai_socktype = SOCK_STREAM;
+	hints.ai_family = AF_XIA;
+	hints.ai_flags |= XAI_DAGHOST;
+	
+	Graph g((sockaddr_x *) if1->ifa_addr);
+	while(1){
+		Xgetaddrinfo(g.dag_string().c_str(), sid_string, &hints, &ai);  // hints should have the XAI_DAGHOST flag set
+		//Use the sockaddr_x returned by Xgetaddrinfo in your next call
+		sa = (sockaddr_x*)ai->ai_addr;
+		Graph gg(sa);
+		printf("\n%s\n", gg.dag_string().c_str());
+		usleep(1 * 1000);
+	}
+	
+	Xbind(ssock, (struct sockaddr*)sa, sizeof(sa));
+	Graph gg(sa);
+	printf("\n%s\n", gg.dag_string().c_str());
+	
+	sockaddr_x dag;
+	socklen_t daglen = sizeof(dag);
+	
+	//if (Xgetaddrinfo(MUL_SERVER1, NULL, NULL, &sai) != 0)
+	//	die(-1, "unable to lookup name %s\n", MUL_SERVER1);
+	if (XgetDAGbyName(name, &dag, &daglen) < 0)
+		die(-1, "unable to locate: %s\n", NAME);
+	
+	if (Xconnect(ssock, (struct sockaddr *)&dag, sizeof(sockaddr_x)) < 0)
+		die(-3, "unable to connect to the destination dag\n");
+	
+	char sdag[5000];
+	char ip[100];
+	bzero(sdag,sizeof(sdag));
+	
+	say("Xsock %4d connected\n", ssock);
+
+	return ssock;
 }
 
 int registerStageManager(const char *name)
