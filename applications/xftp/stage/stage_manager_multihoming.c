@@ -314,7 +314,7 @@ void *stageData(void * ifaddr)
     }
     pthread_exit(NULL);
 }
-void *preStageData(void * ifaddr)
+void *preStageData(void *)
 {
     thread_c++;
     int thread_id = thread_c;
@@ -323,8 +323,8 @@ void *preStageData(void * ifaddr)
 
     char myAD[MAX_XID_SIZE];
     char myHID[MAX_XID_SIZE];
-    char stageAD[MAX_XID_SIZE];
-    char stageHID[MAX_XID_SIZE];
+    //char stageAD[MAX_XID_SIZE];
+    //char stageHID[MAX_XID_SIZE];
 
 //netStageSock is used to communicate with stage server.
     //getNewAD(myAD);
@@ -451,10 +451,10 @@ int main()
     int stageSock = registerUnixStreamReceiver(UNIXMANAGERSOCK);
 //say("after registerUnixStreamReceiver");
     pthread_t thread_stageData;
-    pthread_create(&thread_stageData, NULL, stageData, (void *)if1);
+    pthread_create(&thread_stageData, NULL, stageData, NULL);
 	
 	pthread_t thread_preStageData;
-    pthread_create(&thread_preStageData, NULL, preStageData, (void *)if2);
+    pthread_create(&thread_preStageData, NULL, preStageData, NULL);
 //say("after stageData");
     UnixBlockListener((void*)&stageSock, clientCmd);
 //say("after clientCmd");
