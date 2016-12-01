@@ -843,7 +843,7 @@ say("in registerMulStageService");
 	//if (Xgetaddrinfo(MUL_SERVER1, NULL, NULL, &sai) != 0)
 	//	die(-1, "unable to lookup name %s\n", MUL_SERVER1);
 	if (XgetDAGbyName(name, &dag, &daglen) < 0)
-		die(-1, "unable to locate: %s\n", NAME);
+		die(-1, "unable to locate: %s\n", name);
 	
 	if (Xconnect(ssock, (struct sockaddr *)&dag, sizeof(sockaddr_x)) < 0)
 		die(-3, "unable to connect to the destination dag\n");
