@@ -1,7 +1,7 @@
 #include "stage_utils.h"
 
 using namespace std;
-string lastSSID, currSSID;
+string lastSSID, currSSID, lastSSID2, currSSID2;
 //TODO: better to rename in case of mixing up with the chunkProfile struct in server   --Lwy   1.16
 struct chunkProfile {
     int state;
@@ -29,7 +29,7 @@ pthread_mutex_t profileLock = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t dagVecLock = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t stageMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t StageControl = PTHREAD_MUTEX_INITIALIZER;
-
+pthread_mutex_t xcacheLock = PTHREAD_MUTEX_INITIALIZER;
 
 long timeStamp;
 ofstream connetTime("connetTime.log");
@@ -192,22 +192,20 @@ void *clientCmd(void *socketid)
 // WORKING version
 // TODO: scheduling
 // control plane: figure out the right DAGs to stage, change the stage state from BLANK to PENDING to READY
-void *stageData(void *)
+void *stageData(void * ifaddr)
 {
     thread_c++;
     int thread_id = thread_c;
     cerr << "Thread id " << thread_id << ": " << "Is launched\n";
     cerr << "Current " << getAD() << endl;
 
-    char myAD[MAX_XID_SIZE];
-    char myHID[MAX_XID_SIZE];
-    char stageAD[MAX_XID_SIZE];
-    char stageHID[MAX_XID_SIZE];
-
+	//struct sockaddr * sa = ifa->ifa_addr;
+	
 //netStageSock is used to communicate with stage server.
-    getNewAD(myAD);
+    getNewAD2(0, myAD);
     //Connect to the Stage Server
-    int netStageSock = registerStageService(getStageServiceName(), myAD, myHID, stageAD, stageHID);
+	int netStageSock = registerMulStageService(0, getStageServiceName2());
+    //int netStageSock = registerStageService(getStageServiceName2(), myAD, myHID, stageAD, stageHID);
     //Rtt of wireless
     rttWifi = getRTT(getStageServiceName());
     char rttCMD[100] = "";
@@ -316,8 +314,134 @@ void *stageData(void *)
     }
     pthread_exit(NULL);
 }
-int main()
+void *preStageData(void * ifaddr)
 {
+    thread_c++;
+    int thread_id = thread_c;
+    cerr << "Thread id " << thread_id << ": " << "Is launched\n";
+    cerr << "Current " << getAD() << endl;
+
+    char myAD[MAX_XID_SIZE];
+    char myHID[MAX_XID_SIZE];
+    char stageAD[MAX_XID_SIZE];
+    char stageHID[MAX_XID_SIZE];
+
+//netStageSock is used to communicate with stage server.
+    //getNewAD(myAD);
+    getNewAD2(1, myAD);
+	//Connect to the Stage Server
+    int netStageSock = registerMulStageService(1, getStageServiceName2(), myAD, myHID);
+	
+    //Rtt of wireless
+    //rttWifi = getRTT(getStageServiceName());
+    //char rttCMD[100] = "";
+    //Ask the Stage server to get the Rtt of Internet
+    //sprintf(rttCMD, "xping %s", getXftpName());
+    // (Xsend(netStageSock, rttCMD, strlen(rttCMD), 0) < 0
+    //        || Xrecv(netStageSock, rttCMD, sizeof(rttCMD), 0) < 0) {
+    //    die(-1,"Unable to get the RTT.\n");
+    //}
+    //sscanf(rttCMD, "rtt %d", &rttInt);
+    //Update stage window
+    //updateStageArg();
+    say("++++++++++++++++++++++++++++++++++++The current netStageSock is %d\n", netStageSock);
+    //say("RTTWireless = %d RTTInternet = %d\n", rttWifi, rttInt);
+    if (netStageSock == -1) {
+        say("netStageOn is false!\n");
+        netStageOn = false;
+        pthread_exit(NULL);
+    }
+
+    // TODO: need to handle the case that new SID joins dynamically
+    // TODO: handle no in-net staging service
+    while (1) {
+        say("*********************************Before while loop of stageData\n");
+        pthread_mutex_lock(&StageControl);
+        say("*********************************In while loop of stageData\n");
+        if(!isConnect2()){
+            long newStamp = now_msec();
+            connetTime << lastSSID << " disconnect. Last: " << newStamp - timeStamp << "ms." << endl;
+        }
+        string currSSID2 = getSSID2();
+        if (lastSSID2 != currSSID2) {
+            connetTime << currSSID2 << "Connect." << endl;
+            timeStamp = now_msec();
+            say("Thread id: %d Network changed, create another thread to continue!\n");
+            lastSSID2 = currSSID2;
+            pthread_t thread_preStageDataNew;
+            pthread_mutex_unlock(&StageControl);
+            pthread_create(&thread_preStageDataNew, NULL, preStageData, NULL);
+            pthread_exit(NULL);
+        }
+        set<string> needStage;
+        pthread_mutex_lock(&dagVecLock);
+        for (auto pair : SIDToDAGs) {
+            int sock = pair.first;
+            vector<string>& dags = pair.second;
+            say("Handling the sock: %d\n", sock);
+            pthread_mutex_lock(&profileLock);
+            pthread_mutex_lock(&stageMutex);
+            int beg = fetchIndex[sock];
+            fetchIndex[sock] = -1;
+            say("AlreadyStage: %d chunkToStage: %d\n",alreadyStage, chunkToStage);
+            if (alreadyStage >= chunkToStage || beg == -1){
+               pthread_mutex_unlock(&stageMutex);
+               pthread_mutex_unlock(&profileLock); 
+               break;
+            }
+            for (int i = beg, j = 0; j < chunkToStage - alreadyStage && i < int(dags.size()); ++i) {
+                say("Before needStage: i = %d, beg = %d, dag = %s State: %d\n",i, beg, dags[i].c_str(),SIDToProfile[sock][dags[i]].state);
+                if (SIDToProfile[sock][dags[i]].state != READY) {
+                    say("pre_needStage: i = %d, beg = %d, dag = %s\n",i, beg, dags[i].c_str());
+                    //SIDToProfile[sock][dags[i]].state = PENDING;
+                    needStage.insert(dags[i]);
+                    j++;
+                }
+            }
+            //alreadyStage += needStage.size();
+            pthread_mutex_unlock(&stageMutex);
+            pthread_mutex_unlock(&profileLock);
+            say("Size of NeedStage: %d", needStage.size());
+            if (needStage.size() == 0) {
+                break;
+            }
+            char cmd[XIA_MAX_BUF] = {0};
+            //char reply[XIA_MAX_BUF] = {0};
+
+            sprintf(cmd, "prestage");
+            for (auto dag : needStage) {
+                //say("needStage: %s\n", dag.c_str());
+                //SIDToProfile[sock][dag].stageStartTimestemp = now_msec();
+                sprintf(cmd, "%s %s", cmd, dag.c_str());
+            }
+
+            sendStreamCmd(netStageSock, cmd);
+            /*for (int i = 0; i < static_cast<int>(needStage.size()); ++i) {
+                sayHello(netStageSock, "READY TO RECEIVE!\n");
+                memset(reply,0,sizeof(reply));
+                if (Xrecv(netStageSock, reply, sizeof(reply), 0) < 0) {
+                    Xclose(netStageSock);
+                    die(-1, "Unable to communicate with the server\n");
+                }
+                //char oldDag[256];
+                //char newDag[256];
+                //sscanf(reply, "%*s %s %s %ld", oldDag, newDag, &timeInt);
+                //updateStageArg();
+                //say("cmd: %s\n", reply);
+                pthread_mutex_lock(&profileLock);
+                SIDToProfile[sock][oldDag].dag = newDag;
+                SIDToProfile[sock][oldDag].state = READY;
+                SIDToProfile[sock][oldDag].stageFinishTimestemp = now_msec();
+                managerTime << "OldDag: " << oldDag << " NewDag: " << newDag << " StageTime: " << SIDToProfile[sock][oldDag].stageFinishTimestemp - SIDToProfile[sock][oldDag].stageStartTimestemp << " ms." << endl;
+                pthread_mutex_unlock(&profileLock);
+            }*/
+        }
+        pthread_mutex_unlock(&dagVecLock);
+    }
+    pthread_exit(NULL);
+}
+int main()
+{	
 //say("before getSSID");
     lastSSID = getSSID();
 //say("after getSSID");
@@ -327,8 +451,10 @@ int main()
     int stageSock = registerUnixStreamReceiver(UNIXMANAGERSOCK);
 //say("after registerUnixStreamReceiver");
     pthread_t thread_stageData;
-
-    pthread_create(&thread_stageData, NULL, stageData, NULL);
+    pthread_create(&thread_stageData, NULL, stageData, (void *)if1);
+	
+	pthread_t thread_preStageData;
+    pthread_create(&thread_preStageData, NULL, preStageData, (void *)if2);
 //say("after stageData");
     UnixBlockListener((void*)&stageSock, clientCmd);
 //say("after clientCmd");
