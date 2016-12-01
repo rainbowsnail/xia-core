@@ -117,12 +117,13 @@ string getSSID();
 string getSSID2();
 
 string getAD();
-string getAD2();
+void getAD2(int iface);
 
 string getHID();
 
 // block and poll until new AD is returned; used when SSID changed is detected
 void getNewAD(char *old_ad);
+void getNewAD2(int iface, char *old_ad);
 
 // get the SSID name from "iwgetid -r" command; app level approach
 string netConnStatus(string lastSSID);
