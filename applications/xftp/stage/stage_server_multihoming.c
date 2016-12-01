@@ -134,7 +134,7 @@ void preStage(int sock, char *cmd)
     char remoteHID[MAX_XID_SIZE];
     char remoteSID[MAX_XID_SIZE];
 
-    XgetRemoteAddr(sock, remoteAD, remoteHID, remoteSID); // get stage manager's remoteSID
+    //XgetRemoteAddr(sock, remoteAD, remoteHID, remoteSID); // get stage manager's remoteSID
 
     vector<string> CIDs = strVector(cmd);
 
