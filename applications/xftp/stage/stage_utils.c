@@ -216,7 +216,7 @@ string getAD()
 
 	return string(ad);
 }
-void getAD2(int iface)
+string getAD2(int iface)
 {
 	char new_ad[MAX_XID_SIZE], hid[MAX_XID_SIZE], ip[MAX_XID_SIZE];
 	
@@ -250,7 +250,7 @@ void getAD2(int iface)
 	return string(ads);	
 		
 
-	return;
+	//return;
 }
 string getHID()
 {
