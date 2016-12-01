@@ -206,7 +206,7 @@ void *stageData(void * ifaddr)
 //netStageSock is used to communicate with stage server.
     getNewAD2(0, myAD);
     //Connect to the Stage Server
-	int netStageSock = registerMulStageService(0, getStageServiceName2());
+	int netStageSock = registerMulStageService(0, getStageServiceName2(0));
     //int netStageSock = registerStageService(getStageServiceName2(), myAD, myHID, stageAD, stageHID);
     //Rtt of wireless
     rttWifi = getRTT(getStageServiceName());
@@ -332,7 +332,7 @@ void *preStageData(void *)
     //getNewAD(myAD);
     getNewAD2(1, myAD);
 	//Connect to the Stage Server
-    int netStageSock = registerMulStageService(1, getStageServiceName2());
+    int netStageSock = registerMulStageService(1, getStageServiceName2(1));
 	
     //Rtt of wireless
     //rttWifi = getRTT(getStageServiceName());
