@@ -197,7 +197,7 @@ void *stageData(void * ifaddr)
     thread_c++;
     int thread_id = thread_c;
     cerr << "Thread id " << thread_id << ": " << "Is launched\n";
-    cerr << "Current " << getAD() << endl;
+    cerr << "Current " << getAD2(0) << endl;
 
 	//struct sockaddr * sa = ifa->ifa_addr;
 	char myAD[MAX_XID_SIZE];
@@ -321,7 +321,7 @@ void *preStageData(void *)
     thread_c++;
     int thread_id = thread_c;
     cerr << "Thread id " << thread_id << ": " << "Is launched\n";
-    cerr << "Current " << getAD() << endl;
+    cerr << "Current " << getAD2(1) << endl;
 
     char myAD[MAX_XID_SIZE];
     char myHID[MAX_XID_SIZE];
