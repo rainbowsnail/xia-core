@@ -357,9 +357,9 @@ void *preStageData(void *)
     // TODO: need to handle the case that new SID joins dynamically
     // TODO: handle no in-net staging service
     while (1) {
-        say("*********************************Before while loop of stageData\n");
+        say("*********************************Before while loop of prestageData\n");
         pthread_mutex_lock(&StageControl);
-        say("*********************************In while loop of stageData\n");
+        say("*********************************In while loop of prestageData\n");
         if(!isConnect2()){
             long newStamp = now_msec();
             connetTime << lastSSID << " disconnect. Last: " << newStamp - timeStamp << "ms." << endl;
