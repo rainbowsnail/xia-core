@@ -828,8 +828,8 @@ say("in registerMulStageService");
 		Xgetaddrinfo(g.dag_string().c_str(), sid_string, &hints, &ai);  // hints should have the XAI_DAGHOST flag set
 		//Use the sockaddr_x returned by Xgetaddrinfo in your next call
 		sa = (sockaddr_x*)ai->ai_addr;
-		Graph gg(sa);
-		printf("registerMulStageService\n%s\n", gg.dag_string().c_str());
+		Graph ggg(sa);
+		printf("registerMulStageService\n%s\n", ggg.dag_string().c_str());
 		//usleep(1 * 1000);
 	//}
 	
