@@ -17,7 +17,7 @@ static int client_sockets[MAX_CLIENTS]; // all client sockets
 static XcacheHandle xcache;             // xcache instance
 
 // add by Jiang Shuang for iStage
-bool stage = false;	// true for using iStage, false not
+bool stage = true;	// true for using iStage, false not
 int stageManagerSock;
 map<string, string> dagMapCache;
 vector<string> dagCache;	// DAGs parsed from manifest response, StageManager will use it.
@@ -439,6 +439,7 @@ int forward_chunks_to_client(ProxyRequestCtx *ctx, sockaddr_x* chunkAddresses, i
 					memset(cmd, 0, sizeof(cmd));
 					sprintf(cmd, "fetch");
 					sprintf(cmd, "%s %s Time: %d", cmd, dagCache[i].c_str(), fetchTime);
+					//printf("lalalalala: %s\n", cmd);
 					if (send(stageManagerSock, cmd, strlen(cmd), 0) < 0) {
 						die(-1, "send cmd fail! cmd is %s\n", cmd);
 					}
@@ -674,35 +675,6 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-string capitalize_XID(string dagUrl){
-    // need to capitalize dag, ad, hid, cid
-    size_t found = dagUrl.find(XIA_DAG_URL);
-    for (int i = 0; i < 3; ++i) {
-        dagUrl[i + found] = toupper(dagUrl[i + found]);
-    }
-
-    found = dagUrl.find(XIA_AD);
-    for (int i = 0; i < 2; ++i) {
-        dagUrl[i + found] = toupper(dagUrl[i + found]);
-    }
-
-    found = dagUrl.find(XIA_HID);
-    for (int i = 0; i < 3; ++i) {
-        dagUrl[i + found] = toupper(dagUrl[i + found]);
-    }
-
-    found = dagUrl.find(XIA_CID);
-    for (int i = 0; i < 3; ++i) {
-        dagUrl[i + found] = toupper(dagUrl[i + found]);
-    }
-
-    found = dagUrl.find(XIA_SID);
-    for (int i = 0; i < 3; ++i) {
-        dagUrl[i + found] = toupper(dagUrl[i + found]);
-    }
-
-    return dagUrl;
-}
 
 Graph cid2addr(std::string CID, std::string AD, std::string HID) {
     Node n_src;

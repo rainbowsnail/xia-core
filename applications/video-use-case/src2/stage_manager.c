@@ -105,11 +105,14 @@ int delegationHandler(int sock, char *cmd)
         pthread_mutex_unlock(&dagVecLock);
         //SIDToDAGs[sock].erase();
         while (true) {
+		//printf("hahaha\n");
             pthread_mutex_lock(&profileLock);
-	    if(SIDToProfile[sock][cmd].state == BLANK){
+//		printf("state: %d\n", SIDToProfile[sock][cmd].state);
+/*	    if(SIDToProfile[sock][cmd].state == BLANK){
+		printf("BLANK\n");
 	        SIDToProfile[sock][cmd].state = READY;
                 SIDToProfile[sock][cmd].dag = cmd;
-            }
+            }*/
             if (SIDToProfile[sock][cmd].state == READY) {
                 //SIDToProfile[sock][cmd].state = IGNORE;
                 break;
@@ -164,7 +167,8 @@ void *clientCmd(void *socketid)
         else if (strncmp(cmd, "fetch", 5) == 0) {
             say("Receive a chunk request\n");
 	    pthread_mutex_unlock(&StageControl);
-            char dag[256] = ""; 
+            char dag[256];
+	    memset(dag, 0, sizeof(dag)); 
             sscanf(cmd, "fetch %s Time:%ld" ,dag, &timeWifi);
             if (delegationHandler(sock, dag) < 0) {
                 break;
@@ -277,7 +281,7 @@ void *stageData(void *)
             alreadyStage += needStage.size();
             pthread_mutex_unlock(&stageMutex);
             pthread_mutex_unlock(&profileLock);
-            say("Size of NeedStage: %d", needStage.size());
+            say("Size of NeedStage: %d\n", needStage.size());
             if (needStage.size() == 0) {
                 break;
             }
@@ -303,9 +307,10 @@ void *stageData(void *)
                 char newDag[256];
                 sscanf(reply, "%*s %s %s %ld", oldDag, newDag, &timeInt);
                 updateStageArg();
-                say("cmd: %s\n", reply);
+                say("In stageDaga cmd: %s\n", reply);
                 pthread_mutex_lock(&profileLock);
                 SIDToProfile[sock][oldDag].dag = newDag;
+//		printf("2333\n");
                 SIDToProfile[sock][oldDag].state = READY;
                 SIDToProfile[sock][oldDag].stageFinishTimestemp = now_msec();
                 managerTime << "OldDag: " << oldDag << " NewDag: " << newDag << " StageTime: " << SIDToProfile[sock][oldDag].stageFinishTimestemp - SIDToProfile[sock][oldDag].stageStartTimestemp << " ms." << endl;

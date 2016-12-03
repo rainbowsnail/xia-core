@@ -964,6 +964,36 @@ int registerUnixStageManager(const char* servername){
 }
 
 /* moved from proxy.c to here by Jiang Shuang*/
+string capitalize_XID(string dagUrl){
+    // need to capitalize dag, ad, hid, cid
+    size_t found = dagUrl.find(XIA_DAG_URL);
+    for (int i = 0; i < 3; ++i) {
+        dagUrl[i + found] = toupper(dagUrl[i + found]);
+    }
+
+    found = dagUrl.find(XIA_AD);
+    for (int i = 0; i < 2; ++i) {
+        dagUrl[i + found] = toupper(dagUrl[i + found]);
+    }
+
+    found = dagUrl.find(XIA_HID);
+    for (int i = 0; i < 3; ++i) {
+        dagUrl[i + found] = toupper(dagUrl[i + found]);
+    }
+
+    found = dagUrl.find(XIA_CID);
+    for (int i = 0; i < 3; ++i) {
+        dagUrl[i + found] = toupper(dagUrl[i + found]);
+    }
+
+    found = dagUrl.find(XIA_SID);
+    for (int i = 0; i < 3; ++i) {
+        dagUrl[i + found] = toupper(dagUrl[i + found]);
+    }
+
+    return dagUrl;
+}
+
 void process_urls_to_DAG(vector<string> & dagUrls, sockaddr_x* chunkAddresses){
     for (unsigned i = 0; i < dagUrls.size(); ++i) {
         string dagUrl = dagUrls[i];
@@ -976,4 +1006,18 @@ void process_urls_to_DAG(vector<string> & dagUrls, sockaddr_x* chunkAddresses){
         Graph parsed(dagUrl);
         parsed.fill_sockaddr(&chunkAddresses[i]);        
     }
+}
+
+/*added by Jiang Shuang*/
+int my_dag_to_url(char *url, size_t urlsize, sockaddr_x *addr){
+	
+}
+int my_url_to_dag(sockaddr_x *addr, string dagUrl, size_t urlsize){
+	size_t found = dagUrl.find("http://");
+	if(found == string::npos){
+		dagUrl = "http://" + capitalize_XID(dagUrl);
+	}
+	Graph parsed(dagUrl);
+	parsed.fill_sockaddr(addr);
+	return 0;
 }

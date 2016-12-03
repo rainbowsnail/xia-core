@@ -19,13 +19,6 @@
 #define TITLE "XIA Video Proxy"
 #define TEST_TITLE "XIA Video Proxy with iStage"
 
-#define XIA_VID_SERVICE "xia"
-#define XIA_CDN_SERVICE "cdn"
-#define XIA_DAG_URL "dag"
-#define XIA_AD "ad"
-#define XIA_HID "hid"
-#define XIA_CID "cid"
-#define XIA_SID "sid"
 
 #define MAX_CLIENTS 30
 // add by Jiangshuang
@@ -180,12 +173,6 @@ int forward_http_response_body_to_client(ProxyRequestCtx *ctx, char* data, int l
  * @param  version   HTTP version number
  */
 int parse_request_line(char *buf, char *method, char *protocol, char *host_port, char *resource, char *version);
-
-/**
- * XID in dag url from browser is not capitalized. So capitalize here.
- * @param  dagUrl dag url from browser
- */
-string capitalize_XID(string dagUrl);
 
 /**
  * given CID, AD, HID, construct a DAG with CID as intent and 

@@ -68,6 +68,15 @@
 #define NS_LOOKUP_RETRY_NUM 30
 #define NS_LOOKUP_WAIT_MSEC 1000
 
+// moved from proxy.h to here by Jiang Shuang
+#define XIA_VID_SERVICE "xia"
+#define XIA_CDN_SERVICE "cdn"
+#define XIA_DAG_URL "dag"
+#define XIA_AD "ad"
+#define XIA_HID "hid"
+#define XIA_CID "cid"
+#define XIA_SID "sid"
+
 using namespace std;
 
 // write the message to stdout unless in quiet mode
@@ -191,6 +200,20 @@ int registerUnixStageManager(const char* servername);
  * @param chunkAddresses DAG addresses
  */
 void process_urls_to_DAG(vector<string> & dagUrls, sockaddr_x* chunkAddresses);
+
+/**
+ * XID in dag url from browser is not capitalized. So capitalize here.
+ * @param  dagUrl dag url from browser
+ */
+string capitalize_XID(string dagUrl);
+
+/**
+ * Added by Jiang Shuang,
+ * implement another version of url_to_dag and dag_to_url to parse the DAG format used by our video case
+ */
+ 
+int my_dag_to_url(char *url, size_t urlsize, sockaddr_x *addr);
+int my_url_to_dag(sockaddr_x *addr, string dagUrl, size_t urlsize);
 #endif
 
 /* reference
