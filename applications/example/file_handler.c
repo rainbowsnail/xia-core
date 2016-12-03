@@ -108,8 +108,13 @@ int main(int argc, char **argv)
 {
 	srand(time(NULL));
 	
-	file_create("testfile/test50k.txt",50*1000);	
-
+	for(int i=1;i<argc;i+=2){ 
+		int num=atoi(argv[i+1]);
+		char name[1000];
+		sprintf(name,"testfile/%s",argv[i]);
+		printf("create file %s with %d bytes\n",name,num);	
+		file_create(name,num);	
+	}
 	//file_cut("testfile/test100k.txt",61400);
 
 	return 0;

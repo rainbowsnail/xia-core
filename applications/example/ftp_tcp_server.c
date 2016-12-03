@@ -103,8 +103,8 @@ void recvCmd(int sock){
 			say("Client requested file %s\n",fname);
 			//Xsend(sock,reply,strlen(reply),0)
 			FILE *fd;
-			if ((fd=fopen(fname, "r"))<0){
-				warn("fail to open file %s\n",fname);
+			if ((fd=fopen(fname, "r"))==NULL){
+				say("File %s NOT EXIST\n",fname);
 				break;
 			}			
 			while((n=fread(reply,1,MAXBUF,fd))>0){

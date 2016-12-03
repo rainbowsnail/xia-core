@@ -129,6 +129,8 @@ int connectToServer()
 
 void getFile()
 {
+	int total_time=0;
+	int total_size=0;
 	struct timeval tv1,tv2;
 	struct timezone tz1,tz2;
 
@@ -153,12 +155,16 @@ void getFile()
 		say("Xrecv block time: %d\n",(tv2.tv_sec-tv1.tv_sec)*1000000+(tv2.tv_usec-tv1.tv_usec));		
 		if (n<=0) break;
 		
+		total_size+=n;
+		total_time+=(tv2.tv_sec-tv1.tv_sec)*1000+(tv2.tv_usec-tv1.tv_usec)/1000;	
+
 		gettimeofday(&tv1,&tz1);		
 		fwrite(cmd,1,n,fd);
 		gettimeofday(&tv2,&tz2);
 		say("Fwrite block time: %d\n",(tv2.tv_sec-tv1.tv_sec)*1000000+(tv2.tv_usec-tv1.tv_usec));
 		say("write %d bytes into %s\n",n,fout);
 	}
+	say("CONCLUSION: transmit file(%d bytes) with %d ms\n",total_size,total_time);
 	fclose(fd);
 
 	//end
