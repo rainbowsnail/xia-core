@@ -1,6 +1,6 @@
 #include "stage_utils.h"
 
-int verbose = 0;
+int verbose = 1;
 
 void say(const char *fmt, ...)
 {
@@ -323,7 +323,7 @@ void getNewAD2(int iface, char *old_ad)
 		*ad_end = 0;
 		strcpy(new_ad, ads);		
 		
-		if (strcmp(new_ad, old_ad) != 0) {
+		if (strcmp(new_ad, old_ad) != 0) { 
 cerr<<"AD changed!"<<endl;
 			strcpy(old_ad, new_ad);
 			
@@ -398,7 +398,7 @@ int getReply(int sock, const char *cmd, char *reply, sockaddr_x *sa, int timeout
 
 int sendStreamCmd(int sock, const char *cmd)
 {
-	warn("Sending Command: %s \n", cmd);
+	say("Sending Command: %s \n", cmd);
 	int n;
 	if ((n = Xsend(sock, cmd,  strlen(cmd), 0)) < 0) {
 		Xclose(sock);
@@ -824,14 +824,14 @@ say("in registerMulStageService");
 	hints.ai_flags |= XAI_DAGHOST;
 	
 	Graph g((sockaddr_x *) if1->ifa_addr);
-	while(1){
+	//while(1){
 		Xgetaddrinfo(g.dag_string().c_str(), sid_string, &hints, &ai);  // hints should have the XAI_DAGHOST flag set
 		//Use the sockaddr_x returned by Xgetaddrinfo in your next call
 		sa = (sockaddr_x*)ai->ai_addr;
 		Graph gg(sa);
-		printf("\n%s\n", gg.dag_string().c_str());
-		usleep(1 * 1000);
-	}
+		printf("registerMulStageService\n%s\n", gg.dag_string().c_str());
+		//usleep(1 * 1000);
+	//}
 	
 	Xbind(ssock, (struct sockaddr*)sa, sizeof(sa));
 	Graph gg(sa);
