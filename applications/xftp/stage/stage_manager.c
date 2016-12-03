@@ -51,7 +51,8 @@ void updateStageArg() {
     windowToStage << "rttWifi: " << rttWifi
                   << " rttInt: " << rttInt
                   << " timeWifi: " << timeWifi
-                  << " timeInt: " << timeInt << endl;
+                  << " timeInt: " << timeInt 
+	          << " chunkToStage: " << chunkToStage << endl;
 }
 // TODO: mem leak; window pred alg; int netMonSock;
 void regHandler(int sock, char *cmd)
@@ -106,10 +107,10 @@ int delegationHandler(int sock, char *cmd)
         //SIDToDAGs[sock].erase();
         while (true) {
             pthread_mutex_lock(&profileLock);
-	    if(SIDToProfile[sock][cmd].state == BLANK){
-	        SIDToProfile[sock][cmd].state = READY;
-                SIDToProfile[sock][cmd].dag = cmd;
-            }
+	    //if(SIDToProfile[sock][cmd].state == BLANK){
+	    //    SIDToProfile[sock][cmd].state = READY;
+            //    SIDToProfile[sock][cmd].dag = cmd;
+            //}
             if (SIDToProfile[sock][cmd].state == READY) {
                 //SIDToProfile[sock][cmd].state = IGNORE;
                 break;
