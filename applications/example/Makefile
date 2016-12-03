@@ -5,7 +5,7 @@ include ../../xia.mk
 LDFLAGS += $(LIBS)
 CFLAGS += -Wno-unused-result
 
-TARGETS= echoclient echoclient-datagram echoclient-simple echoserver time_of_day_client time_of_day_server multihoming_client multihoming_server
+TARGETS= echoclient echoclient-datagram echoclient-simple echoserver time_of_day_client  time_of_day_server ftp_tcp_client ftp_tcp_server file_handler
 
 all: $(TARGETS)
 	make -C dag_manipulation
