@@ -19,8 +19,14 @@ static XcacheHandle xcache;             // xcache instance
 // add by Jiang Shuang for iStage
 bool stage = true;	// true for using iStage, false not
 int stageManagerSock;
+const int bitrates = 3;
 map<string, string> dagMapCache;
+// for different bitrates
+map<string, string> dagMapCaches[bitrates];
+
 vector<string> dagCache;	// DAGs parsed from manifest response, StageManager will use it.
+// for different bitrates
+vector<string> dagCaches[bitrates];
 
 // the lookup cache for CDN nameserver query
 //  CDN name -> server location (AD:HID)
@@ -112,6 +118,41 @@ int send_and_receive_reply(ProxyRequestCtx *ctx, char* cmd, char* reply){
     }
     return status;
 }
+
+void *tellStageManager(void *){
+	int n = 0;
+	if((n = updateManifest(stageManagerSock, dagCache)) < 0){
+		close(stageManagerSock);
+		die(-1, "Unable to communicate with the local prefetching service\n");
+	}
+	say("After updateManifest\n");
+	// get new DAGs
+	int fetchTime = 0;
+	for(unsigned int i = 0; i < dagCache.size(); ++i){
+		char cmd[XIA_MAX_BUF];
+		memset(cmd, 0, sizeof(cmd));
+		sprintf(cmd, "fetch");
+		sprintf(cmd, "%s %s Time: %d", cmd, dagCache[i].c_str(), fetchTime);
+		//printf("lalalalala: %s\n", cmd);
+		if (send(stageManagerSock, cmd, strlen(cmd), 0) < 0) {
+			die(-1, "send cmd fail! cmd is %s\n", cmd);
+		}
+		say("Old DAG: %s\n", cmd);
+		say("After send Fetch!\n");
+		memset(cmd, 0, sizeof(cmd));
+		//say("cmd = %s\n", cmd);
+		int len = 0;	
+		if ((len = recv(stageManagerSock, cmd, XIA_MAX_BUF, 0)) < 0) {
+						die(-1, "fail to recv from stageManager!");
+		}
+//		printf("New DAG: %s\n", cmd);
+		say("New DAG: %s\n", cmd);
+//		string tmp(cmd);
+//		dagMapCache[dagCache[i]] = tmp;
+	}
+	pthread_exit(NULL);
+}
+
 
 int get_xia_socket_for_request(const char* sname){
     int xia_sock;
@@ -235,7 +276,44 @@ int handle_stream_requests(ProxyRequestCtx *ctx){
 
     int numChunks = dagUrls.size();
     sockaddr_x chunkAddresses[numChunks];
-    process_urls_to_DAG(dagUrls, chunkAddresses);
+	// if no stage, we should use the initial DAGs to request chunks
+	if(stage){
+//		process_urls_to_DAG(dagUrls, chunkAddresses);
+		for(int i = 0; i < numChunks; ++i){
+/*			int index = -1;
+			int j = 0;
+			for(j = 0; j < bitrates; ++j){
+				vector<string>::iterator ii = find(dagCaches[j].begin(), dagCaches[j].end(), dagUrls[i]);
+				if(ii != dagCaches[j].end()){
+					index = distance(dagCaches[j].begin(), ii);
+					break;
+				}
+			}
+			if(index != -1){
+				
+			}*/
+			string dagUrl = dagUrls[i];
+			size_t found = dagUrl.find("http://");
+        		if(found == string::npos){
+	                    dagUrl = "http://" + capitalize_XID(dagUrl);
+        		}
+//			say("request DAG: %s\n", dagUrl.c_str());
+			map<string, string>::iterator ii = dagMapCache.find(dagUrl);
+			if(ii != dagMapCache.end()){
+				if(ii -> second == ""){
+					say("Haven't staged yet. Use the initial DAG\n");
+					my_url_to_dag(&chunkAddresses[i], dagUrl, dagUrl.size());
+				} else{
+					say("Use the staged new DAG\n");
+					url_to_dag(&chunkAddresses[i], (char*)dagUrl.c_str(), dagUrl.size());
+				}
+			} else{
+				die(-1, "error DAG request\n");
+			}
+		}
+	} else{
+		process_urls_to_DAG(dagUrls, chunkAddresses);
+	}
 
     if (forward_http_header_to_client(ctx, CONTENT_STREAM) < 0){
         warn("unable to forward manifest to client\n");
@@ -309,7 +387,7 @@ int xia_proxy_handle_request(int browser_sock) {
         strcpy(ctx.remote_path, resource);
 
         if (strstr(ctx.remote_host, XIA_DAG_URL) != NULL || strstr(ctx.remote_path, "/CID") != NULL){
-			printf("\n\nStream request\n\n");
+			say("\n\nStream request\n\n");
             if(handle_stream_requests(&ctx) < 0){
                 warn("failed to return back chunks to browser. Exit\n");
                 return -1;
@@ -317,14 +395,14 @@ int xia_proxy_handle_request(int browser_sock) {
         } else if (strstr(ctx.remote_host, XIA_VID_SERVICE) != NULL) {
             // if this is option probe, 
             if (strstr(method, "OPTIONS") != NULL){
-				printf("\n\nCross origin probe\n\n");
+				say("\n\nCross origin probe\n\n");
                 if(handle_cross_origin_probe(&ctx) < 0){
                     warn("failed to handle cross origin probe back to browser. Exit\n");
                     return -1;
                 }
             } else {
                 // manifest request must request .mpd files as extension
-				printf("Manifest Request\n");
+				say("Manifest Request\n");
                 if (strstr(ctx.remote_path, ".mpd") == NULL){
                     warn("request remote path not mpd manifest type\n");
                     return -1;
@@ -366,7 +444,7 @@ int forward_chunks_to_client(ProxyRequestCtx *ctx, sockaddr_x* chunkAddresses, i
             die(-1, "XcacheGetChunk Failed\n");
         }
         gettimeofday(&t2, NULL);
-        printf("%s\n", data);
+        say("%s\n", data);
         elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
         elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
         
@@ -404,8 +482,12 @@ int forward_chunks_to_client(ProxyRequestCtx *ctx, sockaddr_x* chunkAddresses, i
 				// every time the program arrives here, it means the browser is requesting a new video, for one video has only one manifest file(at least in our experiment?)
 				dagCache.clear();
 				dagMapCache.clear();
+				for(int i = 0; i < bitrates; ++i){
+					dagCaches[i].clear();
+					dagMapCaches[i].clear();
+				}
 				generate_DAGs_from_Manifest(data);
-				printf("\n\n%d, %d\n\n\n", dagCache.size(), dagMapCache.size());
+				say("\n\nDAGCache size: %d, DAGMapCache size: %d\n\n\n", dagCache.size(), dagMapCache.size());
 			}
 		}
 
@@ -426,33 +508,10 @@ int forward_chunks_to_client(ProxyRequestCtx *ctx, sockaddr_x* chunkAddresses, i
 		
 		if(!cdn){
 			if(stage){
-				int n = 0;
-				if((n = updateManifest(stageManagerSock, dagCache)) < 0){
-					close(stageManagerSock);
-					die(-1, "Unable to communicate with the local prefetching service\n");
-				}
-				say("After updateManifest\n");
-				// get new DAGs
-				int fetchTime = 0;
-				for(unsigned int i = 0; i < dagCache.size(); ++i){
-					char cmd[XIA_MAX_BUF];
-					memset(cmd, 0, sizeof(cmd));
-					sprintf(cmd, "fetch");
-					sprintf(cmd, "%s %s Time: %d", cmd, dagCache[i].c_str(), fetchTime);
-					//printf("lalalalala: %s\n", cmd);
-					if (send(stageManagerSock, cmd, strlen(cmd), 0) < 0) {
-						die(-1, "send cmd fail! cmd is %s\n", cmd);
-					}
-					printf("Old DAG: %s\n", cmd);
-					say("After send Fetch!\n");
-					memset(cmd, 0, sizeof(cmd));
-					printf("cmd = %s\n", cmd);
-					if ((len = recv(stageManagerSock, cmd, XIA_MAX_BUF, 0)) < 0) {
-						die(-1, "fail to recv from stageManager!");
-					}
-					printf("New DAG: %s\n", cmd);
-//					say("Get NewDag: %s\n", cmd);
-				}
+				// create a new thread to register DAGs with Stage Manager
+				say("Get all DAGs, create a new thread to register DAGs with Stage Manager...\n");
+				pthread_t thread_Stage;
+				pthread_create(&thread_Stage, NULL, tellStageManager, NULL);
 			}
 		}
     }
@@ -799,15 +858,15 @@ vector<string> split_string_on_delimiter(char* str, char* delimiter){
     return result;
 }
 /**
-	Add by Jiangshuang
-	parse the manifest XML file, get DAGs, store in a vector for StageManager,
-	in a map<string, string> as key for further video chunk requests*/
+ *Add by Jiangshuang
+ *parse the manifest XML file, get DAGs, store in a vector for StageManager,
+ *in a map<string, string> as key for further video chunk requests
+ */
 void generate_DAGs_from_Manifest(char* data){
-	printf("Generate DAGs using XML Manifest");
+	say("Generate DAGs using XML Manifest\n");
 	string to_process(data);
 	int l = to_process.size();
-	for(; l >= 0;)
-	{
+	for(; l >= 0;){
 		int head = to_process.find("http://DAG");
 		if(head == string::npos)
 			break;
@@ -815,13 +874,61 @@ void generate_DAGs_from_Manifest(char* data){
 		l = to_process.size();
 		int tail = to_process.find("\"/>");
 		if(tail == string::npos){
-			printf("Error ending while parsing the Manifest XML\n");
+			say("Error ending while parsing the Manifest XML\n");
 			break;
 		}
 		string dag = to_process.substr(0, tail); 
 		dagCache.push_back(dag);
+//		say("DAG inserted into cache: %s\n", dag.c_str());
 		dagMapCache.insert(pair<string, string>(dag, ""));
 		to_process = to_process.substr(tail, l - tail);
 		l = to_process.size();		
 	}
 }
+
+int get_DAG_num(char* data){
+	int num = 0;
+	string tmp(data);
+	int l = tmp.size();
+	for(; l >= 0; ){
+		int i = tmp.find("http://DAG");
+		if(i == string::npos){
+			return num;
+		}
+		num++;
+		tmp = tmp.substr(i + 9, l - i - 9 );
+		l = tmp.size();
+	}
+	return num;
+}
+/*
+void generate_DAGs_from_Manifest(char* data){
+	say("Generate DAGs using XML Manifest\n");
+	int total = get_DAG_num(data) / bitrates;
+	say("Total chunks in each bitrate group: %d\n", total);
+	string to_process(data);
+	int l = to_process.size();
+	for(unsigned int i = 0; i < bitrates; ++i){
+		for(unsigned int j = 0; j < total; ++j){
+			int head = to_process.find("http://DAG");
+			if(head == string::npos)
+				break;
+			to_process = to_process.substr(head, l - head);
+			l = to_process.size();
+			int tail = to_process.find("\"/>");
+			if(tail == string::npos){
+				say("Error ending while parsing the Manifest XML\n");
+				break;
+			}
+			string dag = to_process.substr(0, tail); 
+			dagCaches[i].push_back(dag);
+			dagMapCaches[i].insert(pair<string, string>(dag, ""));
+			to_process = to_process.substr(tail, l - tail);
+			l = to_process.size();		
+		}
+	}
+	// for debugging
+	for(unsigned int i = 0; i < bitrates; ++i){
+		say("size of DAG Cache %d: %d\n", i, dagCaches[i].size());
+	}
+}*/

@@ -1,0 +1,513 @@
+xia@xia6500:~/xia-core/applications/video-use-case/src2$ ./stage_server 
+Msg type = 10
+Library received context id = 11
+after XcacheHandleInitbefore registerStreamReceiverbefore XmyReadLocalHostAddr
+after XmyReadLocalHostAddr
+Xbind.c:82: Xbind: Intent type:SID:
+Xbind.c:90: Xbind: Intent:SID:26ff8832b9765800c71c8337a5d9e98824da5c02:
+Xbind: Intent:SID:26ff8832b9765800c71c8337a5d9e98824da5c02:
+Xkeys.c:327: Key directory:/home/xia/xia-core/key:
+listening on dag: DAG 0 - 
+AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137 1 - 
+HID:d6e8655e572727956d3c23f5d8958cddf94c0047 2 - 
+SID:26ff8832b9765800c71c8337a5d9e98824da5c02
+
+Registering DAG with nameserver:
+DAG 0 - 
+AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137 1 - 
+HID:d6e8655e572727956d3c23f5d8958cddf94c0047 2 - 
+SID:26ff8832b9765800c71c8337a5d9e98824da5c02
+The current stageServerSock is 9
+Waiting for a client connection
+connected
+Waiting for a client connection
+In stageCmd.
+Xping to xping www_s.ftp.aaa.xia
+Xping Response: rtt 0
+In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$2b975af6f12be497701a01ef5da7f4a13fb93402 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$789a634b0c47b5b8f794167b6fcbf076c7ed5eb5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b135bc5d27e10fc7d997c0373f192f5f6c74e3b7
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$2b975af6f12be497701a01ef5da7f4a13fb93402 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$789a634b0c47b5b8f794167b6fcbf076c7ed5eb5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b135bc5d27e10fc7d997c0373f192f5f6c74e3b7
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 846 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$2b975af6f12be497701a01ef5da7f4a13fb93402 dag://CID:2b975af6f12be497701a01ef5da7f4a13fb93402.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:2b975af6f12be497701a01ef5da7f4a13fb93402 3 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$2b975af6f12be497701a01ef5da7f4a13fb93402READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$789a634b0c47b5b8f794167b6fcbf076c7ed5eb5 dag://CID:197858c0b144cf23fd2413ec565578852989fd7d.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:197858c0b144cf23fd2413ec565578852989fd7d 2 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$789a634b0c47b5b8f794167b6fcbf076c7ed5eb5READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b135bc5d27e10fc7d997c0373f192f5f6c74e3b7 dag://CID:acaaff6ff1ae10a88ad8746de7d4dea3be5e5efd.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:acaaff6ff1ae10a88ad8746de7d4dea3be5e5efd 2 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b135bc5d27e10fc7d997c0373f192f5f6c74e3b7In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$81d2f6aece8864c523fddc43a2a15d3221195239 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$999ccfe678367f1af754ffd25da23d5d4959ebac http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b57a077073634886d0cad0c0f6ef9efd4471a76c
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$81d2f6aece8864c523fddc43a2a15d3221195239 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$999ccfe678367f1af754ffd25da23d5d4959ebac http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b57a077073634886d0cad0c0f6ef9efd4471a76c
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$81d2f6aece8864c523fddc43a2a15d3221195239 dag://CID:975c2f6decf6bde27dac9b6d06e2a1efc1c29335.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:975c2f6decf6bde27dac9b6d06e2a1efc1c29335 44 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$81d2f6aece8864c523fddc43a2a15d3221195239READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$999ccfe678367f1af754ffd25da23d5d4959ebac dag://CID:9042cdf5459937e470a0aefe9644567b718fe95a.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:9042cdf5459937e470a0aefe9644567b718fe95a 60 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$999ccfe678367f1af754ffd25da23d5d4959ebacREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b57a077073634886d0cad0c0f6ef9efd4471a76c dag://CID:ead989dcf5045c9dff6575b732610b0cd8f426af.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:ead989dcf5045c9dff6575b732610b0cd8f426af 48 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b57a077073634886d0cad0c0f6ef9efd4471a76cIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$6f26f527c9431a3d5c50d2dac45af89c6c72b501 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7dfd3bd662e0a51d71594264025e6e08bd8c34e2 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e24ebcfde8b58a798b722a8692d35e5d01eb18ca
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$6f26f527c9431a3d5c50d2dac45af89c6c72b501 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7dfd3bd662e0a51d71594264025e6e08bd8c34e2 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e24ebcfde8b58a798b722a8692d35e5d01eb18ca
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$6f26f527c9431a3d5c50d2dac45af89c6c72b501 dag://CID:612c1ad063e7cfcab37265d883ebf8602f9d06dd.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:612c1ad063e7cfcab37265d883ebf8602f9d06dd 41 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$6f26f527c9431a3d5c50d2dac45af89c6c72b501READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7dfd3bd662e0a51d71594264025e6e08bd8c34e2 dag://CID:97cfaa14cf55bcc697973b1c907fa7adf840ea5b.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:97cfaa14cf55bcc697973b1c907fa7adf840ea5b 47 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7dfd3bd662e0a51d71594264025e6e08bd8c34e2READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e24ebcfde8b58a798b722a8692d35e5d01eb18ca dag://CID:09484831b2592a3542c1bb03000facfb5363c3cd.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:09484831b2592a3542c1bb03000facfb5363c3cd 50 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e24ebcfde8b58a798b722a8692d35e5d01eb18caIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$488a6375d97ac2b4fe18f86ff2b116adbe976a40 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$5cfbb80bce502fc68026ea2bf175804efc0433e1 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f983acd350fda35bb58d34f1698cd8df079adb90
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$488a6375d97ac2b4fe18f86ff2b116adbe976a40 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$5cfbb80bce502fc68026ea2bf175804efc0433e1 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f983acd350fda35bb58d34f1698cd8df079adb90
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$488a6375d97ac2b4fe18f86ff2b116adbe976a40 dag://CID:fd5cb36589c42ca3d98a5899b5930650cb097003.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:fd5cb36589c42ca3d98a5899b5930650cb097003 53 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$488a6375d97ac2b4fe18f86ff2b116adbe976a40READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$5cfbb80bce502fc68026ea2bf175804efc0433e1 dag://CID:c9d0dc14982182856029fcc7abbf915b520376d6.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:c9d0dc14982182856029fcc7abbf915b520376d6 48 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$5cfbb80bce502fc68026ea2bf175804efc0433e1READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f983acd350fda35bb58d34f1698cd8df079adb90 dag://CID:0176d155d2bd9aa91f308c6915324078dd90c8ac.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:0176d155d2bd9aa91f308c6915324078dd90c8ac 50 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f983acd350fda35bb58d34f1698cd8df079adb90In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$443f5c1031071e7f8e4ecd23111f5878455afde1 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$99182352dcd92ba19f28c3c053891756dbdd43ac http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$443f5c1031071e7f8e4ecd23111f5878455afde1 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$99182352dcd92ba19f28c3c053891756dbdd43ac http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$443f5c1031071e7f8e4ecd23111f5878455afde1 dag://CID:30ee03cec657889d2e4f316b9519c686565d3e0b.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:30ee03cec657889d2e4f316b9519c686565d3e0b 48 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$443f5c1031071e7f8e4ecd23111f5878455afde1READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$99182352dcd92ba19f28c3c053891756dbdd43ac dag://CID:0643f903768adbee2d4a1969aef0c238ab660833.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:0643f903768adbee2d4a1969aef0c238ab660833 47 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$99182352dcd92ba19f28c3c053891756dbdd43acREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7 dag://CID:a3344eca321bfd297eef22659438e9a9d76cb240.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:a3344eca321bfd297eef22659438e9a9d76cb240 48 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7ac344757a6122eb4f26327c1342fe1320d02d3b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5ac1e95564587ba0aaa364a42026f599e8c5005 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$eca42f3d01ebbef0639b746080834007a6bbc18a
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7ac344757a6122eb4f26327c1342fe1320d02d3b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5ac1e95564587ba0aaa364a42026f599e8c5005 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$eca42f3d01ebbef0639b746080834007a6bbc18a
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7ac344757a6122eb4f26327c1342fe1320d02d3b dag://CID:9bcb61bfc0caf72b8b9c4c4ca5e10a209b73f4e6.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:9bcb61bfc0caf72b8b9c4c4ca5e10a209b73f4e6 55 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7ac344757a6122eb4f26327c1342fe1320d02d3bREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5ac1e95564587ba0aaa364a42026f599e8c5005 dag://CID:0b7d7ec0ce191e040430456d224691440f2b8bb0.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:0b7d7ec0ce191e040430456d224691440f2b8bb0 47 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5ac1e95564587ba0aaa364a42026f599e8c5005READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$eca42f3d01ebbef0639b746080834007a6bbc18a dag://CID:78116c2ca2737d6e78d1b93d304f9819f04de2b1.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:78116c2ca2737d6e78d1b93d304f9819f04de2b1 50 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$eca42f3d01ebbef0639b746080834007a6bbc18aIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$14a120fda95d4620694261d541ef0fd7d79cb58d http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$79e8758574908464c24872661907879c3359839b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8c8777220cc3a7130775733a7a479abb11c5824c
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$14a120fda95d4620694261d541ef0fd7d79cb58d http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$79e8758574908464c24872661907879c3359839b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8c8777220cc3a7130775733a7a479abb11c5824c
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$14a120fda95d4620694261d541ef0fd7d79cb58d dag://CID:50531ba5ce1079e59fda880a4edd88fd0e58c4c8.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:50531ba5ce1079e59fda880a4edd88fd0e58c4c8 51 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$14a120fda95d4620694261d541ef0fd7d79cb58dREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$79e8758574908464c24872661907879c3359839b dag://CID:c669889d177f41a51a3cd5ab17e6239944940ce3.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:c669889d177f41a51a3cd5ab17e6239944940ce3 47 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$79e8758574908464c24872661907879c3359839bREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8c8777220cc3a7130775733a7a479abb11c5824c dag://CID:45fa6b1860f0e5868438fa34cad631336b60cfac.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:45fa6b1860f0e5868438fa34cad631336b60cfac 47 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8c8777220cc3a7130775733a7a479abb11c5824cIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$4588d54f5949d5c159d8e7b2846742e7174fd96a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a041c7a39944efba75bdbe2ee9d96ba3315e26bd
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$4588d54f5949d5c159d8e7b2846742e7174fd96a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a041c7a39944efba75bdbe2ee9d96ba3315e26bd
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3 dag://CID:013c6882da90db15ea3417b9b2af5c1688d639e1.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:013c6882da90db15ea3417b9b2af5c1688d639e1 46 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 1076 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$4588d54f5949d5c159d8e7b2846742e7174fd96a dag://CID:4588d54f5949d5c159d8e7b2846742e7174fd96a.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:4588d54f5949d5c159d8e7b2846742e7174fd96a 9 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 805 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$4588d54f5949d5c159d8e7b2846742e7174fd96aREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a041c7a39944efba75bdbe2ee9d96ba3315e26bd dag://CID:a041c7a39944efba75bdbe2ee9d96ba3315e26bd.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:a041c7a39944efba75bdbe2ee9d96ba3315e26bd 9 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a041c7a39944efba75bdbe2ee9d96ba3315e26bdIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$63c255816b592c8d31bfd72ee14821a6cbec6503 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e80e9a405bce018eaa5f59107d741880eb51b90b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fe41e88bf3a8e3ea01cc2bf70831a423808218a6
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$63c255816b592c8d31bfd72ee14821a6cbec6503 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e80e9a405bce018eaa5f59107d741880eb51b90b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fe41e88bf3a8e3ea01cc2bf70831a423808218a6
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$63c255816b592c8d31bfd72ee14821a6cbec6503 dag://CID:65c77ae654c744e523aedf1d7907a9f00ce2a7d0.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:65c77ae654c744e523aedf1d7907a9f00ce2a7d0 44 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$63c255816b592c8d31bfd72ee14821a6cbec6503READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e80e9a405bce018eaa5f59107d741880eb51b90b dag://CID:a9f910ca0022d19484c33d6105e28977dde5e968.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:a9f910ca0022d19484c33d6105e28977dde5e968 1460 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e80e9a405bce018eaa5f59107d741880eb51b90bREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fe41e88bf3a8e3ea01cc2bf70831a423808218a6 dag://CID:efb2227550f90a86acde6a9fee9add0a983cafbf.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:efb2227550f90a86acde6a9fee9add0a983cafbf 48 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fe41e88bf3a8e3ea01cc2bf70831a423808218a6In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$16b5be35278d4541155de0c145d087448b6d9e28 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$58bf326b6b3f9345de72959bddd29a7691513c8a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ef32c0d17ef7f703118fd63c56424d91b09bad72
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$16b5be35278d4541155de0c145d087448b6d9e28 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$58bf326b6b3f9345de72959bddd29a7691513c8a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ef32c0d17ef7f703118fd63c56424d91b09bad72
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$16b5be35278d4541155de0c145d087448b6d9e28 dag://CID:3075d37a8eb93430081c7d714f8c285e96454bed.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:3075d37a8eb93430081c7d714f8c285e96454bed 1518 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$16b5be35278d4541155de0c145d087448b6d9e28READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$58bf326b6b3f9345de72959bddd29a7691513c8a dag://CID:bfd3283c226992ace90937111f66a3f0806faba4.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:bfd3283c226992ace90937111f66a3f0806faba4 2111 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$58bf326b6b3f9345de72959bddd29a7691513c8aREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ef32c0d17ef7f703118fd63c56424d91b09bad72 dag://CID:96876adf95c6c644561e4820ee1db3a1804a1da1.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:96876adf95c6c644561e4820ee1db3a1804a1da1 1652 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ef32c0d17ef7f703118fd63c56424d91b09bad72In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7582c29778b06196a2b296dc6b05f268994bc412 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b669b9fcf2e2c7dd83d62301f690b74d6336981a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f520ecfccaf723d0901791bfa67ec4836e27afac
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7582c29778b06196a2b296dc6b05f268994bc412 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b669b9fcf2e2c7dd83d62301f690b74d6336981a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f520ecfccaf723d0901791bfa67ec4836e27afac
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7582c29778b06196a2b296dc6b05f268994bc412 dag://CID:ebc08b48adf8a79315a3eae84accce4288c61c64.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:ebc08b48adf8a79315a3eae84accce4288c61c64 1471 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7582c29778b06196a2b296dc6b05f268994bc412READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b669b9fcf2e2c7dd83d62301f690b74d6336981a dag://CID:e7f90660192a18346c23d8a5d6cd595a259b0994.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:e7f90660192a18346c23d8a5d6cd595a259b0994 1418 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b669b9fcf2e2c7dd83d62301f690b74d6336981aREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f520ecfccaf723d0901791bfa67ec4836e27afac dag://CID:354ad5b412e88b28710f733ea0cc833ff451c25d.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:354ad5b412e88b28710f733ea0cc833ff451c25d 1726 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f520ecfccaf723d0901791bfa67ec4836e27afacIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0b05752e68fdcb390d8d9f7e05b434d45ce5a477 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$634eb12cd3cbfe676ca7a1830de9372d7be6e4b4 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fb0af308f9cccf203476382849f472a6209efaf4
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0b05752e68fdcb390d8d9f7e05b434d45ce5a477 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$634eb12cd3cbfe676ca7a1830de9372d7be6e4b4 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fb0af308f9cccf203476382849f472a6209efaf4
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0b05752e68fdcb390d8d9f7e05b434d45ce5a477 dag://CID:b5511513091f88fc2a3e3f9bc048a985e460bd9a.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:b5511513091f88fc2a3e3f9bc048a985e460bd9a 1167 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0b05752e68fdcb390d8d9f7e05b434d45ce5a477READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$634eb12cd3cbfe676ca7a1830de9372d7be6e4b4 dag://CID:bedae5f1af8a7d0d21dc4ccdd1d02dd1db8564ae.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:bedae5f1af8a7d0d21dc4ccdd1d02dd1db8564ae 1200 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$634eb12cd3cbfe676ca7a1830de9372d7be6e4b4READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fb0af308f9cccf203476382849f472a6209efaf4 dag://CID:a0774efc33ea6f20d3740adaaabf0c71bc2eb103.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:a0774efc33ea6f20d3740adaaabf0c71bc2eb103 1301 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fb0af308f9cccf203476382849f472a6209efaf4In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$133c2647bd80ac5dc072db104fa13ecd84a99962 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5acab42d8e581290b9ad34e39aad5bc9074e57e http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$aae4dcdbb336e4922f5d60748ebf21981c0a04d9
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$133c2647bd80ac5dc072db104fa13ecd84a99962 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5acab42d8e581290b9ad34e39aad5bc9074e57e http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$aae4dcdbb336e4922f5d60748ebf21981c0a04d9
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$133c2647bd80ac5dc072db104fa13ecd84a99962 dag://CID:d0a0b1693af2cc7ddda650e265e37d000246bc04.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:d0a0b1693af2cc7ddda650e265e37d000246bc04 1390 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$133c2647bd80ac5dc072db104fa13ecd84a99962READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5acab42d8e581290b9ad34e39aad5bc9074e57e dag://CID:7ff327bfc38d5861a1b4abed5fff7633f9239e3b.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:7ff327bfc38d5861a1b4abed5fff7633f9239e3b 1654 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5acab42d8e581290b9ad34e39aad5bc9074e57eREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$aae4dcdbb336e4922f5d60748ebf21981c0a04d9 dag://CID:9a1f04e95e239ec33ec534541f28adbe733a202b.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:9a1f04e95e239ec33ec534541f28adbe733a202b 1743 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$aae4dcdbb336e4922f5d60748ebf21981c0a04d9In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$787eeed62a8435102d94616adad3a6d81b5e6050 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$93a6fc76993c11d12dd82e70fa78af3e21d794c5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ec0b748c91e45fd34ac856634acaa7500887f5e4
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$787eeed62a8435102d94616adad3a6d81b5e6050 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$93a6fc76993c11d12dd82e70fa78af3e21d794c5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ec0b748c91e45fd34ac856634acaa7500887f5e4
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$787eeed62a8435102d94616adad3a6d81b5e6050 dag://CID:b4838f379f8e0f9e5f70e9a6904282b3717ec693.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:b4838f379f8e0f9e5f70e9a6904282b3717ec693 1491 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$787eeed62a8435102d94616adad3a6d81b5e6050READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$93a6fc76993c11d12dd82e70fa78af3e21d794c5 dag://CID:5fd583c2b247e699653a4cae3c202f3b835c54a8.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:5fd583c2b247e699653a4cae3c202f3b835c54a8 1100 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$93a6fc76993c11d12dd82e70fa78af3e21d794c5READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ec0b748c91e45fd34ac856634acaa7500887f5e4 dag://CID:f632ae2fd9c3534783eb3210971c53e45e382e21.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:f632ae2fd9c3534783eb3210971c53e45e382e21 1733 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ec0b748c91e45fd34ac856634acaa7500887f5e4In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$82396a5e3d17d374d3954443d36dea12562968a5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$bed627a1aae3cb725a954d79ad1822208aa02cb1 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$feff0af9b2a7b2061f57c2caa0e86540c90217c6
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$82396a5e3d17d374d3954443d36dea12562968a5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$bed627a1aae3cb725a954d79ad1822208aa02cb1 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$feff0af9b2a7b2061f57c2caa0e86540c90217c6
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$82396a5e3d17d374d3954443d36dea12562968a5 dag://CID:4536af401de9d517765fe4f8436a18556556b57b.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:4536af401de9d517765fe4f8436a18556556b57b 1037 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$82396a5e3d17d374d3954443d36dea12562968a5READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$bed627a1aae3cb725a954d79ad1822208aa02cb1 dag://CID:7b7831d937d2ab6ccd770ab1696d46ab41e63c61.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:7b7831d937d2ab6ccd770ab1696d46ab41e63c61 1605 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$bed627a1aae3cb725a954d79ad1822208aa02cb1READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$feff0af9b2a7b2061f57c2caa0e86540c90217c6 dag://CID:35288fb3f6525b9b36aa9127b2a451bae0e1716a.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:35288fb3f6525b9b36aa9127b2a451bae0e1716a 798 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$feff0af9b2a7b2061f57c2caa0e86540c90217c6In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0733ac159f7ede2b182d2c7a9ac14442113c6aa6 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$78d760a03ac35469b4035f9530d0b83e369380f8 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$823a18c3922d7667749a4c2c3b337c348c1ab4dc
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0733ac159f7ede2b182d2c7a9ac14442113c6aa6 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$78d760a03ac35469b4035f9530d0b83e369380f8 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$823a18c3922d7667749a4c2c3b337c348c1ab4dc
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 805 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0733ac159f7ede2b182d2c7a9ac14442113c6aa6 dag://CID:0733ac159f7ede2b182d2c7a9ac14442113c6aa6.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:0733ac159f7ede2b182d2c7a9ac14442113c6aa6 233 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0733ac159f7ede2b182d2c7a9ac14442113c6aa6READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$78d760a03ac35469b4035f9530d0b83e369380f8 dag://CID:2fbcfe3b890f0f40ecf5f240612a33822d17cd26.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:2fbcfe3b890f0f40ecf5f240612a33822d17cd26 869 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 1624 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$78d760a03ac35469b4035f9530d0b83e369380f8READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$823a18c3922d7667749a4c2c3b337c348c1ab4dc dag://CID:823a18c3922d7667749a4c2c3b337c348c1ab4dc.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:823a18c3922d7667749a4c2c3b337c348c1ab4dc 210 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$823a18c3922d7667749a4c2c3b337c348c1ab4dcIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$10d9160cb5837422ad040333ea9fef6ffd2a7188 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ba2ee2816734d6b9ce802ef3d24fbee0d4813dc9 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d18d70204b659d28d8447a2d9c370f397a51721d
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$10d9160cb5837422ad040333ea9fef6ffd2a7188 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ba2ee2816734d6b9ce802ef3d24fbee0d4813dc9 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d18d70204b659d28d8447a2d9c370f397a51721d
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$10d9160cb5837422ad040333ea9fef6ffd2a7188 dag://CID:1a199328afb96abea6e6715bc72597f77bd4686c.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:1a199328afb96abea6e6715bc72597f77bd4686c 853 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$10d9160cb5837422ad040333ea9fef6ffd2a7188READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ba2ee2816734d6b9ce802ef3d24fbee0d4813dc9 dag://CID:9422f7de4f8f84702fef5de5a3741895da273f8e.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:9422f7de4f8f84702fef5de5a3741895da273f8e 1247 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ba2ee2816734d6b9ce802ef3d24fbee0d4813dc9READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d18d70204b659d28d8447a2d9c370f397a51721d dag://CID:da9398a7b7349025c3d389908f8a335f93c9f0e3.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:da9398a7b7349025c3d389908f8a335f93c9f0e3 947 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d18d70204b659d28d8447a2d9c370f397a51721dIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7aff4a1b2e86b598f66342f7f82c0f2f1bc10e85 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$84966a4beab4d0c458250bca1ec8a4770b212873 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$9c974f2d458294e1ca2d055c36de5bf4b0da5805
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7aff4a1b2e86b598f66342f7f82c0f2f1bc10e85 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$84966a4beab4d0c458250bca1ec8a4770b212873 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$9c974f2d458294e1ca2d055c36de5bf4b0da5805
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7aff4a1b2e86b598f66342f7f82c0f2f1bc10e85 dag://CID:0e54605827e0758240d86915a4b4aa82187c7997.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:0e54605827e0758240d86915a4b4aa82187c7997 1007 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7aff4a1b2e86b598f66342f7f82c0f2f1bc10e85READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$84966a4beab4d0c458250bca1ec8a4770b212873 dag://CID:e7742f6c6a20bc4018837e6a65b93920c972282a.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:e7742f6c6a20bc4018837e6a65b93920c972282a 983 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$84966a4beab4d0c458250bca1ec8a4770b212873READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$9c974f2d458294e1ca2d055c36de5bf4b0da5805 dag://CID:ad27d708cc8c42a88180b985238bdeb974d0f8e9.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:ad27d708cc8c42a88180b985238bdeb974d0f8e9 1129 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$9c974f2d458294e1ca2d055c36de5bf4b0da5805In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d076f6bd32813fe31b0e1c9629b06368617e33a4 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d17b784672bb34eac30c241263e10c5a98772c58 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fd396d49a278c88a80ae406fee568aabd53c8d97
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d076f6bd32813fe31b0e1c9629b06368617e33a4 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d17b784672bb34eac30c241263e10c5a98772c58 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fd396d49a278c88a80ae406fee568aabd53c8d97
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d076f6bd32813fe31b0e1c9629b06368617e33a4 dag://CID:b9c9e7f395195c54bbc11d62e7f78d9e2edef4aa.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:b9c9e7f395195c54bbc11d62e7f78d9e2edef4aa 942 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d076f6bd32813fe31b0e1c9629b06368617e33a4READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d17b784672bb34eac30c241263e10c5a98772c58 dag://CID:37bf25c9ff5df32e9806267b5b393852873f46ab.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:37bf25c9ff5df32e9806267b5b393852873f46ab 917 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$d17b784672bb34eac30c241263e10c5a98772c58READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fd396d49a278c88a80ae406fee568aabd53c8d97 dag://CID:22e7cb90465d8749daccfed2f91529f2036a6035.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:22e7cb90465d8749daccfed2f91529f2036a6035 1088 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fd396d49a278c88a80ae406fee568aabd53c8d97In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a0e49c9e968f21443cad661efc35a0fd5e85643b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad0d0ee6f963acf07eb63ac4093aa4e54ec94e61 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b8b8f283d0de900694541f4725507e0633c2c932
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a0e49c9e968f21443cad661efc35a0fd5e85643b http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad0d0ee6f963acf07eb63ac4093aa4e54ec94e61 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b8b8f283d0de900694541f4725507e0633c2c932
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a0e49c9e968f21443cad661efc35a0fd5e85643b dag://CID:2b1428f62e91fc1d6e2934dd5fa6fd203acb3b74.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:2b1428f62e91fc1d6e2934dd5fa6fd203acb3b74 785 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a0e49c9e968f21443cad661efc35a0fd5e85643bREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad0d0ee6f963acf07eb63ac4093aa4e54ec94e61 dag://CID:5150943f546047b921cf7df5dd99b915f1797cdb.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:5150943f546047b921cf7df5dd99b915f1797cdb 793 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad0d0ee6f963acf07eb63ac4093aa4e54ec94e61READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b8b8f283d0de900694541f4725507e0633c2c932 dag://CID:9aaa7917f56118567fdcc3bc7dc91862de542fdc.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:9aaa7917f56118567fdcc3bc7dc91862de542fdc 908 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b8b8f283d0de900694541f4725507e0633c2c932In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$37c05230fda316675b5c3be2d1869e78f0085da5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b17bdc182825b8909f80ed6f7b8c1c8274e198de http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$cbae8c3e365d29aeaa9831b4ca443a0a493b0199
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$37c05230fda316675b5c3be2d1869e78f0085da5 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b17bdc182825b8909f80ed6f7b8c1c8274e198de http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$cbae8c3e365d29aeaa9831b4ca443a0a493b0199
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$37c05230fda316675b5c3be2d1869e78f0085da5 dag://CID:b7662cd2e5c766fca157290a61f819f7f07d9e15.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:b7662cd2e5c766fca157290a61f819f7f07d9e15 1078 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$37c05230fda316675b5c3be2d1869e78f0085da5READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b17bdc182825b8909f80ed6f7b8c1c8274e198de dag://CID:0343a039d5be784c9068aa13d94abb10842b1f61.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:0343a039d5be784c9068aa13d94abb10842b1f61 759 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b17bdc182825b8909f80ed6f7b8c1c8274e198deREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$cbae8c3e365d29aeaa9831b4ca443a0a493b0199 dag://CID:971bd4ac21b427e11c2347de03e01e64f7120b1a.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:971bd4ac21b427e11c2347de03e01e64f7120b1a 1134 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$cbae8c3e365d29aeaa9831b4ca443a0a493b0199In stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0cc68bd5e11fb83724d31a02403161c94be1ab6a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56d76c27c68de1c065f23b61aaee26f4b07f8ef8 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8e7ae733b320baa409fc60ac51a86876fd561a8a
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0cc68bd5e11fb83724d31a02403161c94be1ab6a http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56d76c27c68de1c065f23b61aaee26f4b07f8ef8 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8e7ae733b320baa409fc60ac51a86876fd561a8a
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0cc68bd5e11fb83724d31a02403161c94be1ab6a dag://CID:d031b08c8f82e7dbea98deaa2733a0c05d7cd300.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:d031b08c8f82e7dbea98deaa2733a0c05d7cd300 963 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$0cc68bd5e11fb83724d31a02403161c94be1ab6aREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56d76c27c68de1c065f23b61aaee26f4b07f8ef8 dag://CID:816613fd57e527f238992c2e06f56a80aa4b9d5b.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:816613fd57e527f238992c2e06f56a80aa4b9d5b 1008 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56d76c27c68de1c065f23b61aaee26f4b07f8ef8READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8e7ae733b320baa409fc60ac51a86876fd561a8a dag://CID:54f4edf55c50e022b6f447f24b0ce04533e71cc5.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:54f4edf55c50e022b6f447f24b0ce04533e71cc5 1114 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8e7ae733b320baa409fc60ac51a86876fd561a8aIn stageCmd.
+Successfully receive stage command from stage manager. CMD: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$36e9d33b45b5c2e0e2b9dac87b8e3996744dcca9 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56568c5ba9bd7b2fc424f2aae38103c4098ae64f http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$c2d806294493f450e214ada33b918c5d7f054020
+Receive a stage message: stage http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$36e9d33b45b5c2e0e2b9dac87b8e3996744dcca9 http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56568c5ba9bd7b2fc424f2aae38103c4098ae64f http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$c2d806294493f450e214ada33b918c5d7f054020
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 1512 bytes of 32768 to buffer
+READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$36e9d33b45b5c2e0e2b9dac87b8e3996744dcca9 dag://CID:36e9d33b45b5c2e0e2b9dac87b8e3996744dcca9.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:36e9d33b45b5c2e0e2b9dac87b8e3996744dcca9 257 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$36e9d33b45b5c2e0e2b9dac87b8e3996744dcca9READY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56568c5ba9bd7b2fc424f2aae38103c4098ae64f dag://CID:3d552cc8942024e52d1bcb06ded0fffc550e82f4.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:3d552cc8942024e52d1bcb06ded0fffc550e82f4 624 
+Inside XfetchChunk
+Command sent to xcache successfully
+Fetch: Copying 32768 bytes of 32768 to buffer
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$56568c5ba9bd7b2fc424f2aae38103c4098ae64fREADY TO RECEIVE!
+
+Sending Command: ready http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$c2d806294493f450e214ada33b918c5d7f054020 dag://CID:c9ef72694b426bc1eb730a7768cea7abe37c19bc.fallback-AD:499c75e2dcd0f16f45b8ab0767398fa7c88da137-HID:d6e8655e572727956d3c23f5d8958cddf94c0047-SID:2a3dc56cd353e780ded7c42227c58b340227f6e5-CID:c9ef72694b426bc1eb730a7768cea7abe37c19bc 759 
+xsend return ----- xsend return ---- xsend return ----  http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$c2d806294493f450e214ada33b918c5d7f054020In stageCmd.
+^C
+xia@xia6500:~/xia-core/applications/video-use-case/src2$ 
+

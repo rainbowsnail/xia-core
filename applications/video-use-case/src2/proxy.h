@@ -212,4 +212,9 @@ vector<string> split_string_on_delimiter(char* str, char* delimiter);
 	parse the manifest XML file, get DAGs, store in a vector for StageManager,
 	in a map<string, string> as key for further video chunk requests*/
 void generate_DAGs_from_Manifest(char* data);
+
+int get_DAG_num(char* data);	// get num of DAGs from manifest response
+
+// used to communicate with Stage Manager
+void *tellStageManager(void *);
 #endif 

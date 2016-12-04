@@ -1,0 +1,588 @@
+size of data: 17119
+elapsed time for xfetch: 0.321000
+elapsed time for forwarding: 0.032000
+Get all DAGs, create a new thread to register DAGs with Stage Manager...
+browser socket is closed successfully
+In updateManifest()
+Waiting for manager finish profile.
+In updateManifest, register to manager done.After updateManifest
+Old DAG: fetch http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$2b975af6f12be497701a01ef5da7f4a13fb93402 Time: 0
+After send Fetch!
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40938 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a041c7a39944efba75bdbe2ee9d96ba3315e26bd
+Haven't staged yet. Use the initial DAG
+
+size of data: 805
+elapsed time for xfetch: 340.604000
+elapsed time for forwarding: 0.020000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$a041c7a39944efba75bdbe2ee9d96ba3315e26bd
+CDN name: 
+	CDN num requests: 1
+	CDN average throughput: 0.47269
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40940 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$63c255816b592c8d31bfd72ee14821a6cbec6503
+Haven't staged yet. Use the initial DAG
+
+size of data: 357749
+elapsed time for xfetch: 1347.383000
+elapsed time for forwarding: 0.156000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$63c255816b592c8d31bfd72ee14821a6cbec6503
+CDN name: 
+	CDN num requests: 2
+	CDN average throughput: 53.4809
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40942 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$fe41e88bf3a8e3ea01cc2bf70831a423808218a6
+Haven't staged yet. Use the initial DAG
+
+size of data: 288885
+elapsed time for xfetch: 1318.044000
+elapsed time for forwarding: 0.130000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$fe41e88bf3a8e3ea01cc2bf70831a423808218a6
+CDN name: 
+	CDN num requests: 3
+	CDN average throughput: 86.6202
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40944 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b135bc5d27e10fc7d997c0373f192f5f6c74e3b7
+Haven't staged yet. Use the initial DAG
+
+size of data: 456992
+elapsed time for xfetch: 527.103000
+elapsed time for forwarding: 0.202000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$b135bc5d27e10fc7d997c0373f192f5f6c74e3b7
+CDN name: 
+	CDN num requests: 4
+	CDN average throughput: 242.694
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40946 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$2b975af6f12be497701a01ef5da7f4a13fb93402
+Haven't staged yet. Use the initial DAG
+
+size of data: 846
+elapsed time for xfetch: 198.306000
+elapsed time for forwarding: 0.035000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$2b975af6f12be497701a01ef5da7f4a13fb93402
+CDN name: 
+	CDN num requests: 5
+	CDN average throughput: 195.008
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40948 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$b57a077073634886d0cad0c0f6ef9efd4471a76c
+Haven't staged yet. Use the initial DAG
+
+size of data: 633714
+elapsed time for xfetch: 2083.494000
+elapsed time for forwarding: 0.471000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$b57a077073634886d0cad0c0f6ef9efd4471a76c
+CDN name: 
+	CDN num requests: 6
+	CDN average throughput: 216.838
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40950 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$999ccfe678367f1af754ffd25da23d5d4959ebac
+Haven't staged yet. Use the initial DAG
+
+size of data: 1017103
+elapsed time for xfetch: 2893.386000
+elapsed time for forwarding: 0.595000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$999ccfe678367f1af754ffd25da23d5d4959ebac
+CDN name: 
+	CDN num requests: 7
+	CDN average throughput: 243.776
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40952 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$81d2f6aece8864c523fddc43a2a15d3221195239
+Haven't staged yet. Use the initial DAG
+
+size of data: 623304
+elapsed time for xfetch: 1887.696000
+elapsed time for forwarding: 0.313000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$81d2f6aece8864c523fddc43a2a15d3221195239
+CDN name: 
+	CDN num requests: 8
+	CDN average throughput: 261.059
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40954 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$e24ebcfde8b58a798b722a8692d35e5d01eb18ca
+Haven't staged yet. Use the initial DAG
+
+size of data: 734080
+elapsed time for xfetch: 2135.198000
+elapsed time for forwarding: 0.331000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$e24ebcfde8b58a798b722a8692d35e5d01eb18ca
+CDN name: 
+	CDN num requests: 9
+	CDN average throughput: 277.607
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40956 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7dfd3bd662e0a51d71594264025e6e08bd8c34e2
+Haven't staged yet. Use the initial DAG
+
+size of data: 644050
+elapsed time for xfetch: 1967.743000
+elapsed time for forwarding: 0.297000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$7dfd3bd662e0a51d71594264025e6e08bd8c34e2
+CDN name: 
+	CDN num requests: 10
+	CDN average throughput: 287.547
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40958 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$6f26f527c9431a3d5c50d2dac45af89c6c72b501
+Haven't staged yet. Use the initial DAG
+
+size of data: 634782
+elapsed time for xfetch: 1998.831000
+elapsed time for forwarding: 0.296000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$6f26f527c9431a3d5c50d2dac45af89c6c72b501
+CDN name: 
+	CDN num requests: 11
+	CDN average throughput: 293.553
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40960 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$f983acd350fda35bb58d34f1698cd8df079adb90
+Haven't staged yet. Use the initial DAG
+
+size of data: 742969
+elapsed time for xfetch: 2231.077000
+elapsed time for forwarding: 0.294000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$f983acd350fda35bb58d34f1698cd8df079adb90
+CDN name: 
+	CDN num requests: 12
+	CDN average throughput: 301.444
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40962 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$5cfbb80bce502fc68026ea2bf175804efc0433e1
+Haven't staged yet. Use the initial DAG
+
+size of data: 523595
+elapsed time for xfetch: 1691.539000
+elapsed time for forwarding: 0.234000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$5cfbb80bce502fc68026ea2bf175804efc0433e1
+CDN name: 
+	CDN num requests: 13
+	CDN average throughput: 303.063
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40964 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$488a6375d97ac2b4fe18f86ff2b116adbe976a40
+Haven't staged yet. Use the initial DAG
+
+size of data: 459035
+elapsed time for xfetch: 1606.309000
+elapsed time for forwarding: 0.228000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$488a6375d97ac2b4fe18f86ff2b116adbe976a40
+CDN name: 
+	CDN num requests: 14
+	CDN average throughput: 299.604
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40966 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$99182352dcd92ba19f28c3c053891756dbdd43ac
+Haven't staged yet. Use the initial DAG
+
+size of data: 409415
+elapsed time for xfetch: 1418.002000
+elapsed time for forwarding: 0.560000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$99182352dcd92ba19f28c3c053891756dbdd43ac
+CDN name: 
+	CDN num requests: 15
+	CDN average throughput: 297.429
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40968 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7
+Haven't staged yet. Use the initial DAG
+
+size of data: 566350
+elapsed time for xfetch: 1842.619000
+elapsed time for forwarding: 0.352000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7
+CDN name: 
+	CDN num requests: 16
+	CDN average throughput: 299.415
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40970 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$443f5c1031071e7f8e4ecd23111f5878455afde1
+Haven't staged yet. Use the initial DAG
+
+size of data: 769485
+elapsed time for xfetch: 2208.385000
+elapsed time for forwarding: 0.433000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$443f5c1031071e7f8e4ecd23111f5878455afde1
+CDN name: 
+	CDN num requests: 17
+	CDN average throughput: 309.22
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40972 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7ac344757a6122eb4f26327c1342fe1320d02d3b
+Haven't staged yet. Use the initial DAG
+
+size of data: 734673
+elapsed time for xfetch: 2230.585000
+elapsed time for forwarding: 0.489000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$7ac344757a6122eb4f26327c1342fe1320d02d3b
+CDN name: 
+	CDN num requests: 18
+	CDN average throughput: 313.248
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40974 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5ac1e95564587ba0aaa364a42026f599e8c5005
+Haven't staged yet. Use the initial DAG
+
+size of data: 403791
+elapsed time for xfetch: 1401.256000
+elapsed time for forwarding: 0.206000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$a5ac1e95564587ba0aaa364a42026f599e8c5005
+CDN name: 
+	CDN num requests: 19
+	CDN average throughput: 308.232
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40976 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$eca42f3d01ebbef0639b746080834007a6bbc18a
+Haven't staged yet. Use the initial DAG
+
+size of data: 796054
+elapsed time for xfetch: 2326.782000
+elapsed time for forwarding: 0.310000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$eca42f3d01ebbef0639b746080834007a6bbc18a
+CDN name: 
+	CDN num requests: 20
+	CDN average throughput: 315.011
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40978 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8c8777220cc3a7130775733a7a479abb11c5824c
+Haven't staged yet. Use the initial DAG
+
+size of data: 574221
+elapsed time for xfetch: 1751.263000
+elapsed time for forwarding: 0.354000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$8c8777220cc3a7130775733a7a479abb11c5824c
+CDN name: 
+	CDN num requests: 21
+	CDN average throughput: 317.586
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40980 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$14a120fda95d4620694261d541ef0fd7d79cb58d
+Haven't staged yet. Use the initial DAG
+
+size of data: 722978
+elapsed time for xfetch: 2177.822000
+elapsed time for forwarding: 0.370000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$14a120fda95d4620694261d541ef0fd7d79cb58d
+CDN name: 
+	CDN num requests: 22
+	CDN average throughput: 320.464
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40982 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$79e8758574908464c24872661907879c3359839b
+Haven't staged yet. Use the initial DAG
+
+size of data: 376768
+elapsed time for xfetch: 1342.019000
+elapsed time for forwarding: 0.184000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$79e8758574908464c24872661907879c3359839b
+CDN name: 
+	CDN num requests: 23
+	CDN average throughput: 312.52
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40984 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3
+Haven't staged yet. Use the initial DAG
+
+size of data: 117132
+elapsed time for xfetch: 718.180000
+elapsed time for forwarding: 0.079000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3
+CDN name: 
+	CDN num requests: 24
+	CDN average throughput: 282.635
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40986 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$4588d54f5949d5c159d8e7b2846742e7174fd96a
+Haven't staged yet. Use the initial DAG
+
+size of data: 1076
+elapsed time for xfetch: 262.694000
+elapsed time for forwarding: 0.025000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$4588d54f5949d5c159d8e7b2846742e7174fd96a
+CDN name: 
+	CDN num requests: 25
+	CDN average throughput: 226.928
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40988 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$99182352dcd92ba19f28c3c053891756dbdd43ac
+Haven't staged yet. Use the initial DAG
+
+size of data: 409415
+elapsed time for xfetch: 1.435000
+elapsed time for forwarding: 0.242000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$99182352dcd92ba19f28c3c053891756dbdd43ac
+CDN name: 
+	CDN num requests: 26
+	CDN average throughput: 57242.9
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40990 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7
+Haven't staged yet. Use the initial DAG
+
+size of data: 566350
+elapsed time for xfetch: 2.439000
+elapsed time for forwarding: 0.539000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$ad30dbf0165811c2dfaf05d1736fc16ac7ebf8f7
+CDN name: 
+	CDN num requests: 27
+	CDN average throughput: 92235.5
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40992 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$443f5c1031071e7f8e4ecd23111f5878455afde1
+Haven't staged yet. Use the initial DAG
+
+size of data: 769485
+elapsed time for xfetch: 6.178000
+elapsed time for forwarding: 0.345000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$443f5c1031071e7f8e4ecd23111f5878455afde1
+CDN name: 
+	CDN num requests: 28
+	CDN average throughput: 98698.9
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40994 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$7ac344757a6122eb4f26327c1342fe1320d02d3b
+Haven't staged yet. Use the initial DAG
+
+size of data: 734673
+elapsed time for xfetch: 4.329000
+elapsed time for forwarding: 0.406000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$7ac344757a6122eb4f26327c1342fe1320d02d3b
+CDN name: 
+	CDN num requests: 29
+	CDN average throughput: 112901
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40996 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$a5ac1e95564587ba0aaa364a42026f599e8c5005
+Haven't staged yet. Use the initial DAG
+
+size of data: 403791
+elapsed time for xfetch: 2.161000
+elapsed time for forwarding: 0.287000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$a5ac1e95564587ba0aaa364a42026f599e8c5005
+CDN name: 
+	CDN num requests: 30
+	CDN average throughput: 127692
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 40998 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$eca42f3d01ebbef0639b746080834007a6bbc18a
+Haven't staged yet. Use the initial DAG
+
+size of data: 796054
+elapsed time for xfetch: 3.911000
+elapsed time for forwarding: 0.432000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$eca42f3d01ebbef0639b746080834007a6bbc18a
+CDN name: 
+	CDN num requests: 31
+	CDN average throughput: 142862
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 41000 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$8c8777220cc3a7130775733a7a479abb11c5824c
+Haven't staged yet. Use the initial DAG
+
+size of data: 574221
+elapsed time for xfetch: 2.639000
+elapsed time for forwarding: 0.266000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$8c8777220cc3a7130775733a7a479abb11c5824c
+CDN name: 
+	CDN num requests: 32
+	CDN average throughput: 157807
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 41002 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$14a120fda95d4620694261d541ef0fd7d79cb58d
+Haven't staged yet. Use the initial DAG
+
+size of data: 722978
+elapsed time for xfetch: 4.822000
+elapsed time for forwarding: 0.334000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$14a120fda95d4620694261d541ef0fd7d79cb58d
+CDN name: 
+	CDN num requests: 33
+	CDN average throughput: 156233
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 41004 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$79e8758574908464c24872661907879c3359839b
+Haven't staged yet. Use the initial DAG
+
+size of data: 376768
+elapsed time for xfetch: 2.486000
+elapsed time for forwarding: 0.261000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$79e8758574908464c24872661907879c3359839b
+CDN name: 
+	CDN num requests: 34
+	CDN average throughput: 155297
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 41006 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3
+Haven't staged yet. Use the initial DAG
+
+size of data: 117132
+elapsed time for xfetch: 0.897000
+elapsed time for forwarding: 0.101000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$00b97dbdc5cbcff3893847b52a8b60e17e65c6c3
+CDN name: 
+	CDN num requests: 35
+	CDN average throughput: 150354
+browser socket is closed successfully
+New connection , socket fd is 9 , ip is : 127.0.0.1 , port : 41008 
+
+
+Stream request
+
+request DAG: http://DAG.3.0.-.AD$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.HID$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.SID$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.CID$4588d54f5949d5c159d8e7b2846742e7174fd96a
+Haven't staged yet. Use the initial DAG
+
+size of data: 1076
+elapsed time for xfetch: 0.310000
+elapsed time for forwarding: 0.024000
+proxy pick CDN: , host within CDN: dag.3.0.-.ad$b83e52ea83d8dc44bfc3e6675ab32868a2e9a08e.1.-.hid$a1702952628ffbc48a281dabf3c0fc8e414e975b.2.-.sid$0c2e33c4cd163c3ecf43ab40d350d72d947f40f7.3.-.cid$4588d54f5949d5c159d8e7b2846742e7174fd96a
+CDN name: 
+	CDN num requests: 36
+	CDN average throughput: 120978
+browser socket is closed successfully
+
+
