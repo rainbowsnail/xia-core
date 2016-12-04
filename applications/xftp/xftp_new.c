@@ -325,7 +325,9 @@ int main(int argc, char **argv)
 		bzero(cmd,sizeof(cmd));
 		sprintf(cmd, "get 10m");
 		char str[25];
-		itoa(i, str, 10);
+		bzero(str,sizeof(str));
+		*str = '0' + i;
+
 		strcat(cmd, str);
 		strcat(cmd, " ");
 		strcat(cmd, str);
