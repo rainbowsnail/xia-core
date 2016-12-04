@@ -131,7 +131,7 @@ void getFile()
 {
 	int total_time=0;
 	int total_size=0;
-	struct timeval tv1,tv2;
+	struct timeval tv1,tv2,tv3,tv4;
 	struct timezone tz1,tz2;
 
 	FILE *fd=fopen(fout,"w");
@@ -144,6 +144,8 @@ void getFile()
 	//start
 	sprintf(cmd, "get %s\0",fin);
 	say("send cmd %s %d\n",cmd,strlen(cmd));
+
+	gettimeofday(&tv3,NULL);
 	int n = Xsend(ssock, cmd, strlen(cmd), 0);
 	if (n < 0)
 		die(-4, "Send error on socket %d\n", ssock);
@@ -164,7 +166,10 @@ void getFile()
 		say("Fwrite block time: %d\n",(tv2.tv_sec-tv1.tv_sec)*1000000+(tv2.tv_usec-tv1.tv_usec));
 		say("write %d bytes into %s\n",n,fout);
 	}
+	
+	gettimeofday(&tv4,NULL);
 	say("CONCLUSION: transmit file(%d bytes) with %d ms\n",total_size,total_time);
+	say("CONCLUSION: transmit time with writing file is %d ms\n",(tv4.tv_sec-tv3.tv_sec)*1000+(tv4.tv_usec-tv3.tv_usec)/1000);
 	fclose(fd);
 
 	//end
