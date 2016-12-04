@@ -322,13 +322,13 @@ int main(int argc, char **argv)
 		cmd[0] = fin[0] = fout[0] = 0;
 		params = -1;
 		
-		bzero(sdag,sizeof(sdag));
-		sprintf(reply, "get 10m");
+		bzero(cmd,sizeof(cmd));
+		sprintf(cmd, "get 10m");
 		char str[25];
 		itoa(i, str, 10);
-		strcat(reply, str);
-		strcat(reply, " ");
-		strcat(reply, str);
+		strcat(cmd, str);
+		strcat(cmd, " ");
+		strcat(cmd, str);
 
 		/*if (fgets(cmd, sizeof(cmd) - 1, stdin) == NULL) {
 			die(errno, "%s", strerror(errno));
