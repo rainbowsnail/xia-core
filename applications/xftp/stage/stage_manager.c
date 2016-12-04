@@ -51,7 +51,8 @@ void updateStageArg() {
     windowToStage << "rttWifi: " << rttWifi
                   << " rttInt: " << rttInt
                   << " timeWifi: " << timeWifi
-                  << " timeInt: " << timeInt << endl;
+                  << " timeInt: " << timeInt 
+	          << " chunkToStage: " << chunkToStage << endl;
 }
 // TODO: mem leak; window pred alg; int netMonSock;
 void regHandler(int sock, char *cmd)
@@ -106,10 +107,10 @@ int delegationHandler(int sock, char *cmd)
         //SIDToDAGs[sock].erase();
         while (true) {
             pthread_mutex_lock(&profileLock);
-	    if(SIDToProfile[sock][cmd].state == BLANK){
-	        SIDToProfile[sock][cmd].state = READY;
-                SIDToProfile[sock][cmd].dag = cmd;
-            }
+	    //if(SIDToProfile[sock][cmd].state == BLANK){
+	    //    SIDToProfile[sock][cmd].state = READY;
+            //    SIDToProfile[sock][cmd].dag = cmd;
+            //}
             if (SIDToProfile[sock][cmd].state == READY) {
                 //SIDToProfile[sock][cmd].state = IGNORE;
                 break;
@@ -265,7 +266,7 @@ void *stageData(void *)
                pthread_mutex_unlock(&profileLock); 
                break;
             }
-            for (int i = beg, j = 0; j < chunkToStage - alreadyStage && i < int(dags.size()); ++i) {
+            for (int i = beg, j = 0; j < chunkToStage - alreadyStage && j < 3 && i < int(dags.size()); ++i) {
                 say("Before needStage: i = %d, beg = %d, dag = %s State: %d\n",i, beg, dags[i].c_str(),SIDToProfile[sock][dags[i]].state);
                 if (SIDToProfile[sock][dags[i]].state == BLANK) {
                     say("needStage: i = %d, beg = %d, dag = %s\n",i, beg, dags[i].c_str());

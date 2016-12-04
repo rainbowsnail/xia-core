@@ -4,7 +4,7 @@ include ../../xia.mk
 
 LDFLAGS+=$(LIBS) $(XLIB)/libxcache.so -lprotobuf
 
-TARGETS=xftp xftpd
+TARGETS=xftp xftpd xftp_new
 
 all: $(TARGETS)
 
