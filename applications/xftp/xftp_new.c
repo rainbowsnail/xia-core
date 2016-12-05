@@ -37,12 +37,13 @@
 #define VERSION "v2.0"
 #define TITLE "XIA Basic FTP client"
 #define NAME "basicftp.xia"
-#define MAX_CHUNKSIZE (4 * 1024)	// set upper limit since we don't know how big chunks will be
+#define MAX_CHUNKSIZE (1024 * 64 * 1)	// set upper limit since we don't know how big chunks will be
 
 // global configuration options
 int verbose = 0;
 char name[256];
 double totalElapseTime = 0.0;
+double totalFetchTime = 0.0;
 
 XcacheHandle h;
 
@@ -228,7 +229,8 @@ int getFile(int sock, const char *fin, const char *fout)
 	say("Chunk Count = %d\n", count);
 
 	FILE *f = fopen(fout, "w");
-
+struct timeval begin_t, end_t;
+gettimeofday(&begin_t, NULL);
 	offset = 0;
 	while (offset < count) {
 		sprintf(cmd, "block %d", offset);
@@ -245,7 +247,9 @@ int getFile(int sock, const char *fin, const char *fout)
 			break;
 		}
 	}
-
+gettimeofday(&end_t, NULL);
+totalFetchTime = (end_t.tv_sec - begin_t.tv_sec) * 1000.0;      // sec to ms
+totalFetchTime += (end_t.tv_usec - begin_t.tv_usec) / 1000.0;   // us to ms
 	fclose(f);
 
 	if (status < 0) {
@@ -253,7 +257,8 @@ int getFile(int sock, const char *fin, const char *fout)
 	}
 
 	say("Received file %s\n", fout);
-	say("Total elapsedTime: %f\n", totalElapseTime);
+	printf("Total elapsedTime: %f\n", totalElapseTime);
+	printf("Total fetchingTime: %f\n", totalFetchTime);
 	sendCmd(sock, "done");
 	return status;
 }
@@ -329,9 +334,10 @@ int main(int argc, char **argv)
 		*str = '0' + i;
 
 		strcat(cmd, str);
-		strcat(cmd, " ");
+		strcat(cmd, ".txt ");
 		strcat(cmd, str);
-
+		strcat(cmd, "\n");
+printf("cmd = %s", cmd);
 		/*if (fgets(cmd, sizeof(cmd) - 1, stdin) == NULL) {
 			die(errno, "%s", strerror(errno));
 		}*/
