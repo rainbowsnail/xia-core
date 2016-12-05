@@ -131,6 +131,7 @@ void getFile()
 {
 	int total_time=0;
 	int total_size=0;
+	int total_write_time=0;
 	struct timeval tv1,tv2,tv3,tv4;
 	struct timezone tz1,tz2;
 
@@ -145,31 +146,37 @@ void getFile()
 	sprintf(cmd, "get %s\0",fin);
 	say("send cmd %s %d\n",cmd,strlen(cmd));
 
-	gettimeofday(&tv3,NULL);
+
 	int n = Xsend(ssock, cmd, strlen(cmd), 0);
 	if (n < 0)
 		die(-4, "Send error on socket %d\n", ssock);
+	gettimeofday(&tv3,NULL);
 	
 	while (1){
 		gettimeofday(&tv1,&tz1);
 		n = Xrecv(ssock, cmd, MAXBUF,0);
+		if (n<=0) break;		
 		gettimeofday(&tv2,&tz2);
 		say("Xrecv block time: %d\n",(tv2.tv_sec-tv1.tv_sec)*1000000+(tv2.tv_usec-tv1.tv_usec));		
-		if (n<=0) break;
+		
 		
 		total_size+=n;
-		total_time+=(tv2.tv_sec-tv1.tv_sec)*1000+(tv2.tv_usec-tv1.tv_usec)/1000;	
+		total_time+=(tv2.tv_sec-tv1.tv_sec)*1000*1000+(tv2.tv_usec-tv1.tv_usec);	
 
+		
 		gettimeofday(&tv1,&tz1);		
 		fwrite(cmd,1,n,fd);
 		gettimeofday(&tv2,&tz2);
 		say("Fwrite block time: %d\n",(tv2.tv_sec-tv1.tv_sec)*1000000+(tv2.tv_usec-tv1.tv_usec));
-		say("write %d bytes into %s\n",n,fout);
+		//say("write %d bytes into %s\n",n,fout);
+		total_write_time+=(tv2.tv_sec-tv1.tv_sec)*1000*1000+(tv2.tv_usec-tv1.tv_usec);
 	}
 	
 	gettimeofday(&tv4,NULL);
-	say("CONCLUSION: transmit file(%d bytes) with %d ms\n",total_size,total_time);
-	say("CONCLUSION: transmit time with writing file is %d ms\n",(tv4.tv_sec-tv3.tv_sec)*1000+(tv4.tv_usec-tv3.tv_usec)/1000);
+	say("CONCLUSION: transmit file(%d bytes)\n",total_size);
+	say("CONCLUSION: total Xrecv block time is %d us\n",total_time);
+	say("CONCLUSION: total write time is %d us\n",total_write_time);
+	say("CONCLUSION: transmit time with writing file is %d %d ms\n",(total_time+total_write_time)/1000,(tv4.tv_sec-tv3.tv_sec)*1000+(tv4.tv_usec-tv3.tv_usec)/1000);
 	fclose(fd);
 
 	//end
