@@ -141,14 +141,14 @@ int main(){
 			string curSSID1 = get_SSID(1);
 			while(curSSID1.empty()){
 				say("not connecting, connect it!\n");
-				connect_SSID(1);
+				connect_SSID(1, NETWORK_NAME1);
 				curSSID1 = get_SSID(1);
 			}
 			
 			usleep(connect_time * 1000);
 
-			disconnect_SSID(1, NETWORK_NAME1);
-			string curSSID1 = get_SSID(1);
+			disconnect_SSID(1);
+			curSSID1 = get_SSID(1);
 			while(!curSSID1.empty()){
 				printf("still connecting, disconnect it!\n");
 				disconnect_SSID(1);
