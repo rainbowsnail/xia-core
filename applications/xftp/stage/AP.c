@@ -145,7 +145,7 @@ int main(){
 				curSSID1 = get_SSID(1);
 			}
 			
-			usleep(connect_time * 1000);
+			usleep(connect_time * 1000 * 1000);
 
 			disconnect_SSID(1);
 			curSSID1 = get_SSID(1);
@@ -155,7 +155,7 @@ int main(){
 				curSSID1 = get_SSID(1);
 			}
 			
-			usleep(disconnect_time * 1000);
+			usleep(disconnect_time * 1000 * 1000);
 		
 		
 		
