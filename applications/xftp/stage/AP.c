@@ -141,7 +141,7 @@ int main(){
 			//bzero(cur_ssid2, sizeof(cur_ssid2));
 			
 			connect_SSID(1, NETWORK_NAME1);
-			curSSID1 = get_SSID(1);
+			string curSSID1 = get_SSID(1);
 			while(curSSID1.empty()){
 				say("not connecting, connect it!\n");
 				connect_SSID(1, NETWORK_NAME1);
@@ -162,7 +162,7 @@ int main(){
 		
 		
 			connect_SSID(1, NETWORK_NAME2);
-			string curSSID1 = get_SSID(1);
+			curSSID1 = get_SSID(1);
 			while(curSSID1.empty()){
 				say("not connecting, connect it!\n");
 				connect_SSID(1, NETWORK_NAME2);
