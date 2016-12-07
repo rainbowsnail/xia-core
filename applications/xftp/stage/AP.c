@@ -137,8 +137,8 @@ int main(){
 			bzero(cur_ssid1, sizeof(cur_ssid1));
 			//bzero(cur_ssid2, sizeof(cur_ssid2));
 			
-			connect_SSID(1, ssid1);
-			string curSSID1 = get_SSID(1, NETWORK_NAME1);
+			connect_SSID(1, NETWORK_NAME1);
+			string curSSID1 = get_SSID(1);
 			while(curSSID1.empty()){
 				say("not connecting, connect it!\n");
 				connect_SSID(1);
@@ -147,8 +147,8 @@ int main(){
 			
 			usleep(connect_time * 1000);
 
-			disconnect_SSID(1, ssid1);
-			string curSSID1 = get_SSID(1, NETWORK_NAME1);
+			disconnect_SSID(1, NETWORK_NAME1);
+			string curSSID1 = get_SSID(1);
 			while(!curSSID1.empty()){
 				printf("still connecting, disconnect it!\n");
 				disconnect_SSID(1);
