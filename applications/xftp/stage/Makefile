@@ -32,4 +32,4 @@ multihoming_server:
 disconnection:
 	$(CC) $(CFLAGS) disconnection.c stage_utils.o -o disconnection $(LDFLAGS)
 clean:
-	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping switchAP multihoming_client multihoming_server disconnection stage_manager_multihoming stage_server_multihoming
+	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping switchAP AP multihoming_client multihoming_server disconnection stage_manager_multihoming stage_server_multihoming
