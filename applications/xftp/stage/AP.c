@@ -4,7 +4,7 @@
 #define SCAN_INTERVAL 10
 #define MAX_SIZE 1024 * 10
 
-#define INTERFACE1 "wlp6s0 "
+#define INTERFACE1 "wlp1s0 "
 #define INTERFACE2 "wlp1s0 "
 
 #define GET_SSID_LIST "iwlist wlp1s0 scanning | grep -E '(\\\"[a-zA-Z0-9 _-.]*\\\")|(Signal level=-?[0-9]* dBm)' -o"
@@ -160,6 +160,27 @@ int main(){
 			
 			usleep(disconnect_time * 1000 * 1000);
 		
+		
+			connect_SSID(1, NETWORK_NAME2);
+			string curSSID1 = get_SSID(1);
+			while(curSSID1.empty()){
+				say("not connecting, connect it!\n");
+				connect_SSID(1, NETWORK_NAME2);
+				curSSID1 = get_SSID(1);
+			}
+			
+			usleep(connect_time * 1000 * 1000);
+
+			disconnect_SSID(1);
+			curSSID1 = get_SSID(1);
+			while(!curSSID1.empty()){
+				printf("still connecting, disconnect it!\n");
+				disconnect_SSID(1);
+				curSSID1 = get_SSID(1);
+			}
+			
+			usleep(disconnect_time * 1000 * 1000);
+			
 		gettimeofday(&t2, NULL);
 		
 		elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
