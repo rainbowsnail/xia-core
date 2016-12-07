@@ -4,7 +4,7 @@
 #define SCAN_INTERVAL 10
 #define MAX_SIZE 1024 * 10
 
-#define INTERFACE1 "wlp1s0 "
+#define INTERFACE1 "wlp6s0 "
 #define INTERFACE2 "wlp1s0 "
 
 #define GET_SSID_LIST "iwlist wlp1s0 scanning | grep -E '(\\\"[a-zA-Z0-9 _-.]*\\\")|(Signal level=-?[0-9]* dBm)' -o"
@@ -117,6 +117,8 @@ int main(){
 	string ssid_list;
 	string result;	
 	char p_ssid_list[MAX_SIZE];
+	struct timeval t1, t2;
+	double elapsedTime;
 	
 	result = execSystem(CLOSE_NETWORK_MANAGER);
 	say("close_network_manager %s\n", result.c_str());
@@ -131,6 +133,7 @@ int main(){
 	scanf("%d", &disconnect_time);
 	
 	while (1) {			
+			gettimeofday(&t1, NULL);
 			char cur_ssid1[20],cur_ssid2[20];
 			
 			//string curSSID2 = get_SSID(2);
@@ -157,7 +160,11 @@ int main(){
 			
 			usleep(disconnect_time * 1000 * 1000);
 		
+		gettimeofday(&t2, NULL);
 		
+		elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+        elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+		say("current elapsedTime: %f\n", elapsedTime);
 		
 		say("\n-----------------------------------------------------------------\n");
 	}
