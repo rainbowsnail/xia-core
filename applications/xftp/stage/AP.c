@@ -126,9 +126,9 @@ int main(){
 	
 
 	printf("input connect time>> ");
-	scanf("%d", connect_time);
+	scanf("%d", &connect_time);
 	printf("input disconnect time>> ");
-	scanf("%d", disconnect_time);
+	scanf("%d", &disconnect_time);
 	
 	while (1) {			
 			char cur_ssid1[20],cur_ssid2[20];
