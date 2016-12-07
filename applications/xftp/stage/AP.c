@@ -4,7 +4,7 @@
 #define SCAN_INTERVAL 10
 #define MAX_SIZE 1024 * 10
 
-#define INTERFACE1 "wlp1s0 "
+#define INTERFACE1 "wlp6s0 "
 #define INTERFACE2 "wlp1s0 "
 
 #define GET_SSID_LIST "iwlist wlp1s0 scanning | grep -E '(\\\"[a-zA-Z0-9 _-.]*\\\")|(Signal level=-?[0-9]* dBm)' -o"
@@ -141,7 +141,7 @@ int main(){
 			//bzero(cur_ssid2, sizeof(cur_ssid2));
 			
 			connect_SSID(1, NETWORK_NAME1);
-			string curSSID1 = get_SSID(1);
+			curSSID1 = get_SSID(1);
 			while(curSSID1.empty()){
 				say("not connecting, connect it!\n");
 				connect_SSID(1, NETWORK_NAME1);
