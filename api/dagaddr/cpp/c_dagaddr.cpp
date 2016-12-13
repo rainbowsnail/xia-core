@@ -275,7 +275,7 @@ int url_to_dag(sockaddr_x *addr, char *url, size_t /* urlsize */)
 		printf("Token = %s\n", token);
 		if(strcmp(token, "fallback") == 0) {
 			g += *g_path;
-			g_path->print_graph();
+			//g_path->print_graph();
 			delete g_path;
 
 			g_path = new Graph();

@@ -1,7 +1,7 @@
 include ../../../xia.mk
 CFLAGS+=-g -I../../../click/include/click -std=c++11
 LDFLAGS+=$(LIBS) -lpthread -lprotobuf
-all: stage_utils.o ftpServer ftpClient stageManager stage_manager_multihoming stageServer stage_server_multihoming xping testXping switchAP multihoming_client multihoming_server disconnection
+all: stage_utils.o ftpServer ftpClient stageManager stage_manager_multihoming stageServer stage_server_multihoming xping testXping switchAP AP multihoming_client multihoming_server disconnection
 	rm stage_utils.o
 stage_utils.o:
 	$(CC) $(CFLAGS) -c stage_utils.c
@@ -23,6 +23,8 @@ testXping:
 	$(CC) $(CFLAGS) testXping.c stage_utils.o -o testXping $(LDFLAGS) 
 switchAP:
 	$(CC) $(CFLAGS) switchAP.c stage_utils.o -o switchAP $(LDFLAGS)
+AP:
+	$(CC) $(CFLAGS) AP.c stage_utils.o -o AP $(LDFLAGS)
 multihoming_client:
 	$(CC) $(CFLAGS) multihoming_client.c stage_utils.o -o multihoming_client $(LDFLAGS)
 multihoming_server:
@@ -30,4 +32,4 @@ multihoming_server:
 disconnection:
 	$(CC) $(CFLAGS) disconnection.c stage_utils.o -o disconnection $(LDFLAGS)
 clean:
-	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping switchAP multihoming_client multihoming_server disconnection stage_manager_multihoming stage_server_multihoming
+	rm -f stage_server stage_manager xftp_adv_server xftp_adv_client xping testXping switchAP AP multihoming_client multihoming_server disconnection stage_manager_multihoming stage_server_multihoming

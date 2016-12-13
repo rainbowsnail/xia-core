@@ -118,7 +118,7 @@ say("---------CID:%s\n",cid);
             url_to_dag(&addr, (char*)CIDs[i].c_str(), CIDs[i].size());
 say("CID=%s %d\n",(char*)CIDs[i].c_str(), CIDs[i].size());
         }
-        //long start_time = now_msec();
+        long start_time = now_msec();
         //if ((len = XfetchChunk(&h, data, CHUNKSIZE, XCF_BLOCK | XCF_SKIPCACHE, &addr, sizeof(addr))) < 0) {
         //    die(-1, "XcacheGetChunk Failed\n");
         //}
@@ -132,10 +132,10 @@ say("CID=%s %d\n",(char*)CIDs[i].c_str(), CIDs[i].size());
 		}
 		if(len < 0)
 			die(-1, "XfetchChunk Failed\n");
-        //long end_time = now_msec();
+        long end_time = now_msec();
         char req[256];
         dag_to_url(req,256,&addr);
-        //fetchTime = end_time - start_time;
+        fetchTime = end_time - start_time;
         //------------//logFile << i <<" Chunk. Running time is: " << end_time - start_time << " ms. req: " << req << endl;
         say("writing %d bytes of chunk %s to disk\n", len, string2char(CIDs[i]));
         fwrite(data, 1, len, fd);
